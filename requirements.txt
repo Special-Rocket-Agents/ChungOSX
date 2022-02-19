@@ -1,0 +1,5 @@
+colorama
+configparser
+pyglet
+lupa
+sly
