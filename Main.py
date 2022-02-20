@@ -260,12 +260,12 @@ while not shit:
                         """
                     )
                     killMe = int(input())
-                    if killMe == 1 and not os.name == "nt":
+                    if killMe == 1 and os.name != "nt":
                         if platform.system() == "Darwin":
                             os.system("sudo reboot")
                         else:
                             os.system("reboot")
-                    elif killMe == 2 and not os.name == "nt":
+                    elif killMe == 2 and os.name != "nt":
                         print(
                             "Are you sure you want to lock miniOS (and potentially your PC too?)"
                         )
@@ -277,7 +277,7 @@ while not shit:
                                 )  # ? Unsure about this...
                             else:
                                 os.system("loginctl lock-screen")
-                    elif killMe == 3 and not os.name == "nt":
+                    elif killMe == 3 and os.name != "nt":
                         print(
                             "Your Computer is Unresponsive now, You must force-shutdown your Mac/PC"
                         )
