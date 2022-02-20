@@ -261,7 +261,10 @@ while not shit:
                     )
                     killMe = input()
                     if killMe == 1 and not os.name == "nt":
-                        os.system("reboot")
+                        if platform.system() == "Darwin":
+                            os.system("sudo reboot")
+                        else:
+                            os.system("reboot")
                     elif killMe == 2 and not os.name == "nt":
                         print(
                             "Are you sure you want to lock miniOS (and potentially your PC too?)"
