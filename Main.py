@@ -32,9 +32,9 @@ osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 Diagnostics = True  # More Important version of Debug Mode in Settings
 
-os.chdir("assets/preload")
+os.chdir("assets/preload/")
 
-with open("options.json") as f:
+with open("config.json", "r") as f:
     curOptions = json.load(f)
 for i in range(3):
     os.chdir("..")
@@ -60,6 +60,9 @@ while not shit:
             # print("Directory " + os.curdir + " is " + os.path + " and has nil volume.")
             print(Fore.WHITE + "Listing PATH where the Main.py executes in.")
             print("\n".join(os.listdir()))
+
+        elif msg == "chung --version":
+            print("0.0.1")
 
         elif msg == "settings":
             print("Welcome to the settings menu.")
