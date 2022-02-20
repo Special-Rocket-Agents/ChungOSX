@@ -32,18 +32,20 @@ osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 Diagnostics = True  # More Important version of Debug Mode in Settings
 
-os.chdir("assets/preload/")
 
-with open("config.json", "r") as f:
-    curOptions = json.load(f)
-for i in range(3):
-    os.chdir("..")
+def get_option(obj):
+    os.chdir("assets/preload/")
+    with open("config.json", "r") as f:
+        fileData = json.load(f)
+        for i in range(2):
+            os.chdir("..")
+        return fileData[obj]
 
 
 while not shit:
     if not fallBackToTERMINAL is True:
         try:
-            if curOptions.get("colors") == "true":
+            if get_option("colors") == "true":
                 msg = input(
                     Fore.YELLOW + __name__ + Fore.RED + ">>>" + Fore.GREEN + " "
                 ).lower()
@@ -79,6 +81,9 @@ while not shit:
                 killMe = input(
                     "Aha! Got it! Would you like colors to be enabled? (y/n)\n"
                 ).lower()
+                os.chdir("assets/preload/")
+                with open("config.json", "r") as f:
+                    curOptions = json.load(f)
                 if killMe == "y":
                     curOptions["colors"] = "true"
                 elif killMe == "n":
@@ -97,8 +102,8 @@ while not shit:
             exit()
 
         elif msg == "run-lua":
-            for i in os.listdir("assets/preload/raw_scripts"):
-                os.chdir("assets/preload/raw_scripts")
+            for i in os.listdir("assets/preload/raw_scripts/"):
+                os.chdir("assets/preload/raw_scripts/")
                 if i.endswith(".lua"):
                     with open(i, "r") as f:
                         lua.eval(str(f.read()))
@@ -106,10 +111,7 @@ while not shit:
                     os.chdir("..")
         elif msg.startswith("run-luafile") and msg.endswith(".lua"):
             if Diagnostics is True:
-                if (
-                    random.randint(1, 50) == 1
-                    and curOptions.get("eastereggs") == "true"
-                ):
+                if random.randint(1, 50) == 1 and get_option("eastereggs") == "true":
                     logging.debug("Ran the " + msg + " with our Trusty Lua Runtime!")
                 else:
                     logging.debug("Ran:", msg)
@@ -199,7 +201,7 @@ while not shit:
                         os.system("halt")
 
             except Exception as e:
-                if curOptions.get("colors") == "true":
+                if get_option("colors") == "true":
                     print(Fore.RED + "ERROR:" + Fore.WHITE + str(e))
                 else:
                     print(Fore.WHITE + "ERROR:" + str(e))
