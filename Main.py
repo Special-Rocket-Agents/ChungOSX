@@ -67,11 +67,11 @@ while not shit:
         elif msg.startswith("playsound"):
             os.chdir("assets/sounds/")
             if "--bg" in msg.split(" "):
-                for thing in enumerate(msg.split(" ")):
+                for thing in msg.split(" "):
                     if not thing.startswith("--") and thing.endswith(".wav"):
                         playsound(thing, False)
             else:
-                for thing in enumerate(msg.split(" ")):
+                for thing in msg.split(" "):
                     if not thing.startswith("--") and thing.endswith(".wav"):
                         playsound(thing)
             for i in range(2):
