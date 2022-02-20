@@ -86,9 +86,6 @@ while not shit:
             elif msg[11:] == "version":
                 print("NUG ChungOS version: 1.0\nChungOS version: 0.0.1")
 
-            elif msg[11:] == "discord":
-                webbrowser.open_new_tab("https://discord.gg/mz3HmzP5ac")
-
             else:
                 print(Fore.WHITE + "Wrong Syntax")
                 pass
