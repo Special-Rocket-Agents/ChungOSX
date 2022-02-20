@@ -48,9 +48,7 @@ while not shit:
                     Fore.YELLOW + __name__ + Fore.RED + ">>>" + Fore.GREEN + " "
                 ).lower()
             else:
-                msg = input(
-                    Fore.YELLOW + __name__ + Fore.RED + ">>>" + Fore.GREEN + " "
-                ).lower()
+                msg = input(__name__ + ">>>").lower()
         except PermissionError:
             msg = input(osName.lower() + "$")
 
