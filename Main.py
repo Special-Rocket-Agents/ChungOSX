@@ -105,7 +105,7 @@ while not shit:
 
                 def nav_url(self):
                     url = self.url_bar.text()
-                    if url.find("https://", 0, 7) == -1:
+                    if url[0:7] != "https://":
                         self.browser.setUrl(QUrl("https://" + url))
                     else:
                         self.browser.setUrl(QUrl(url))
