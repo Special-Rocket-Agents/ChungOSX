@@ -259,7 +259,7 @@ while not shit:
                             3. Freeze Computer (Halt)
                         """
                     )
-                    killMe = input()
+                    killMe = int(input())
                     if killMe == 1 and not os.name == "nt":
                         if platform.system() == "Darwin":
                             os.system("sudo reboot")
