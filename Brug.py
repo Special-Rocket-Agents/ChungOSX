@@ -1,3 +1,6 @@
+import time
+import random
+
 """
 NUG Brug. The Stew-Pid Bootloader for Lil ChungOS!
 
@@ -16,8 +19,6 @@ I dunno shit
 """
 # !!!DO NOT EDIT THIS LOADER UNLESS YOU DON'T KNOW WHAT YOUR/YOU'RE DOING!!!
 class Brug():
-    import time
-    import random
     def __init__(self) -> None:
 
         super().__init__()
