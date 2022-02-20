@@ -33,6 +33,13 @@ fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's 
 Diagnostics = True  # More Important version of Debug Mode in Settings
 
 
+def get_split(obj, symbol, idx, returnBool: bool):
+    if returnBool:
+        return bool(obj.split(symbol)[idx].title())
+    else:
+        return obj.split(symbol)[idx]
+
+
 def get_option(obj):
     os.chdir("assets/preload/")
     with open("config.json", "r") as f:
@@ -63,6 +70,25 @@ while not shit:
 
         elif msg == "chung --version":
             print("0.0.1")
+
+        elif msg.startswith("change"):
+            try:
+                os.chdir("assets/preload/")
+                with open("config.json", "r") as f:
+                    filedata = json.load(f)
+                    filedata[get_split(msg, " ", 1, False).lower()] = get_split(
+                        msg, " ", 2, True
+                    )
+                with open("config.json", "w") as f:
+                    json.dump(filedata, f)
+
+                for i in range(2):
+                    os.chdir("..")
+            except IndexError as e:
+                if get_option("colors") == "true":
+                    print(Fore.RED + "Error: " + Fore.WHITE + str(e))
+                else:
+                    print("Error: " + str(e))
 
         elif msg == "settings":
             print("Welcome to the settings menu.")
