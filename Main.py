@@ -146,6 +146,12 @@ while not shit:
         elif msg == "exit":
             exit()
 
+        elif msg.startswith("chung --"):
+            if msg[8:] == "discord":
+                webbrowser.open_new_tab("https://discord.gg/mz3HmzP5ac")
+            elif msg[8:] == 'version':
+                print("Nug ChungOS Version - 1.0\nChungOS version - 0.0.1")
+
         elif msg == "run-lua":
             for i in os.listdir("assets/preload/raw_scripts/"):
                 os.chdir("assets/preload/raw_scripts/")
