@@ -71,6 +71,11 @@ while not shit:
         elif msg == "chung --version":
             print("0.0.1")
 
+        elif msg == "settings --help":
+            print(
+                "colors - Change if you want colored text or not, I suggest turning this off if you have bad eyesight or if colors cause eystrain for you."
+            )
+
         elif msg.startswith("change"):
             try:
                 os.chdir("assets/preload/")
