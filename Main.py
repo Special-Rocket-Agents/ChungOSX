@@ -158,7 +158,24 @@ while not shit:
 
         elif msg == "exit":
             if Diagnostics is True and random.randint(1, 1000) == 1:
-                print(Fore.RED + "G" + Fore.BLUE + "o" + Fore.GREEN + "o" + Fore.CYAN + "d" + Fore.LIGHTMAGENTA_EX + "b" + Fore.LIGHTYELLOW_EX + "y" + Fore.LIGHTRED_EX + "e" + Fore.WHITE + " User! <3")
+                print(
+                    Fore.RED
+                    + "G"
+                    + Fore.BLUE
+                    + "o"
+                    + Fore.GREEN
+                    + "o"
+                    + Fore.CYAN
+                    + "d"
+                    + Fore.LIGHTMAGENTA_EX
+                    + "b"
+                    + Fore.LIGHTYELLOW_EX
+                    + "y"
+                    + Fore.LIGHTRED_EX
+                    + "e"
+                    + Fore.WHITE
+                    + " User! <3"
+                )
             exit()
 
         elif msg.startswith("chung --"):

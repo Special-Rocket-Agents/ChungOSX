@@ -17,8 +17,8 @@ Basically, our lil chungOS imports NUG Brug and EXECUTES I.T.
 I dunno shit
 
 """
-# !!!DO NOT EDIT THIS LOADER UNLESS YOU DON'T KNOW WHAT YOUR/YOU'RE DOING!!!
-class Brug():
+# !!!DO NOT EDIT THIS LOADER UNLESS YOU DON'T KNOW WHAT YOUR/YOU'RE/YOUR'E DOING!!!
+class Brug:
     def __init__(self) -> None:
 
         super().__init__()
