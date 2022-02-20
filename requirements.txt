@@ -3,3 +3,4 @@ configparser
 pyglet
 lupa
 sly
+py2exe
