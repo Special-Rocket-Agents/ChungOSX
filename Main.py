@@ -1,5 +1,4 @@
 import datetime
-
 import logging
 import os
 import json
@@ -9,10 +8,12 @@ import random
 import webbrowser
 import platform
 import sys
+import Brug
+
 from configparser import ConfigParser
 from colorama import Fore, Back, Style
 from lupa import LuaRuntime
-import Brug
+from playsound import playsound
 
 colorama.init(
     autoreset=True
@@ -63,6 +64,18 @@ while not shit:
 
         if msg == "time":
             print(datetime.datetime.now())
+        elif msg.startswith("playsound"):
+            os.chdir("assets/sounds/")
+            if "--bg" in msg.split(" "):
+                for thing in enumerate(msg.split(" ")):
+                    if not thing.startswith("--") and thing.endswith(".wav"):
+                        playsound(thing, False)
+            else:
+                for thing in enumerate(msg.split(" ")):
+                    if not thing.startswith("--") and thing.endswith(".wav"):
+                        playsound(thing)
+            for i in range(2):
+                os.chdir("..")
         elif msg == "ls" or msg == "dir":
             # print("Directory " + os.curdir + " is " + os.path + " and has nil volume.")
             print(Fore.WHITE + "Listing PATH where the Main.py executes in.")

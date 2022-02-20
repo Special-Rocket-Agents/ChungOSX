@@ -4,3 +4,4 @@ pyglet
 lupa
 sly
 py2exe
+playsound
