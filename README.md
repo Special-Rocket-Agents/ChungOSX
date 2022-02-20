@@ -37,7 +37,7 @@ terminal # ONLY FOR MAC (DARWIN)
   
     LINUX: Ditto
   
-    MAC: @lemane291 Please make a PR here
+    MAC: `python3 Main.py`
     
 5. Profit
 
@@ -60,5 +60,5 @@ Since ChungOS runs on [Lupa Runtime](https://pypi.org/project/lupa/). You're fre
 
 # Credits
 
-- [Mini](https://twitter.com/@minilol69) - Creator. Manager of the ChungOS. 
-- [Arezalgamer89](mailto:aradzpfa@gmail.com). - Did half the coding while Mini's away. Also is the source of the files
+- [Mini](https://twitter.com/@minilol69) - Owner | Programmer
+- [Arezalgamer89](mailto:aradzpfa@gmail.com). - Co-owner | Programmer
