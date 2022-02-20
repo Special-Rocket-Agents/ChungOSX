@@ -32,6 +32,7 @@ osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 Diagnostics = True  # More Important version of Debug Mode in Settings
 
+os.chdir("assets/preload")
 
 with open("options.json") as f:
     curOptions = json.load(f)
