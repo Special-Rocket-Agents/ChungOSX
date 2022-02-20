@@ -12,3 +12,5 @@ print("hi")
 ```
 
 That would print hi in chungOS. You can run unmodified lua (using `lupa`)
+
+To run lua scripts, you can do `run-lua` and it will automatically look for every file in `assets/preload/raw_scripts/` that ends with .lua
