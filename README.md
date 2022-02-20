@@ -55,6 +55,13 @@ Since ChungOS runs on [Lupa Runtime](https://pypi.org/project/lupa/). You're fre
    Use `run-lua` to run all the scripts that are there. 
    
    Or use `run-luafile <yourfilename>` to run your specified .lua file!
+ 
+ # Advantages of chungOS
+ 
+ chungOS has life-saving features like:
+ - Optimization.
+ - Easy Modding
+ - Easy-to-use interface.
 
 
 
