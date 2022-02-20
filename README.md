@@ -23,6 +23,9 @@ cmd # ONLY FOR WINDOWS
 bash # ONLY FOR LINUX
 terminal # ONLY FOR MAC (DARWIN)
 ```
+
+If you want to see all the commands, check `all_commands.txt`
+
 # Installation
 
 1. Make sure you have [Python 3.9](https://www.python.org/downloads/) or greater installed.
