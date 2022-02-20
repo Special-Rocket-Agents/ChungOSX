@@ -1,6 +1,7 @@
 # ChungOS
 
-![chungus](https://user-images.githubusercontent.com/86628069/154841436-d45e20cf-6b1a-4a73-af15-7fdcea18dd5e.png)
+
+<img width="559" alt="Sdeeazdsfs" src="https://user-images.githubusercontent.com/83344675/154842163-7e00ea29-5baf-4ce6-8f83-07c6f746d5d8.png">
 
 
 ## What is this?
