@@ -1,0 +1,5 @@
+Here you'll see the changelog for chungOS
+
+chungOS v0.0.1:
+- Alpha release for chungOS
+
