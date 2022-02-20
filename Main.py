@@ -18,9 +18,6 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtWebEngineWidgets import *
 
-colorama.init(
-    autoreset=True
-)  # initialize the fucking thing since im an asshole - mini LFMAOAOAOO
 shit = False
 doneIntro = False
 lua = LuaRuntime()
@@ -43,17 +40,34 @@ def get_split(obj, symbol, idx, returnBool: bool):
     else:
         return obj.split(symbol)[idx]
 
+def versionCheck():
+    if sys.version_info[0] > 3 or sys.version_info[1] < 8:
+        print("NOTE: You are running on Python " + str(sys.version_info[0]) + "." + str(sys.version_info[1]))
+        print("Some features might not be working correctly.")
+        pass
+    elif not sys.version_info[3] == 'final':
+        print("WARNING: Your Python " + str(sys.version_info[0]) + "." + str(sys.version_info[1]) + " is not on the FINAL level and you might encounter Unfixable bugs...")
+    elif sys.version_info[0] < 3 or sys.version_info[1] < 7:
+        raise SystemError("ERROR: ChungOS requires Python 3.8 or higher! You can't run this on " + str(sys.version_info[0]) + "." + str(sys.version_info[1]) + " you idot!")
+
 
 def get_option(obj):
     os.chdir("assets/preload/")
     with open("config.json", "r") as f:
         fileData = json.load(f)
+        if fileData["colors"] == "true":
+            colors = True
+            colorama.init(autoreset=True)
+        else:
+            colors = False
+            colorama.init(autoreset=True, strip=True, convert=False) # even if un-coloring proccess fails. colorama's not gonna touch a single color!
         for i in range(2):
             os.chdir("..")
         return fileData[obj]
 
 
 while not shit:
+    versionCheck()
     if not fallBackToTERMINAL is True:
         try:
             if get_option("colors") == "true":
@@ -236,7 +250,7 @@ while not shit:
                 webbrowser.open_new_tab("https://discord.gg/mz3HmzP5ac")
             elif msg[8:] == "version":
                 print(
-                    "Nug ChungOS Version - 1.0\nChungOS version - 0.0.1\nBrug Bootloader v0.1"
+                    "NUG ChungOS version - 0.0.1\nBrug Bootloader v0.1"
                 )
 
         elif msg == "run-lua":
