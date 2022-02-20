@@ -33,7 +33,7 @@ terminal # ONLY FOR MAC (DARWIN)
   
     LINUX: Ditto
   
-    MAC: @ImNew123 Please make a PR here
+    MAC: @lemane291 Please make a PR here
     
 5. Profit
 
