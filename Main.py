@@ -206,7 +206,7 @@ while not shit:
                     else:
                         print("Ok then.")
                 elif killMe == 2:
-                    os.system('schutdown /r /c "MiniOS has reboot this PC" /t 005')
+                    os.system('shutdown /r /c "MiniOS has reboot this PC" /t 005')
                 elif killMe == 3:
                     print(
                         "We are generous, we won't lock your PC. good luck trying to make us to. ;)"
