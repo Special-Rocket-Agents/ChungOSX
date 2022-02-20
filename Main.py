@@ -69,21 +69,23 @@ while not shit:
             print("\n".join(os.listdir()))
 
         elif msg == "version":
-            print("""
+            print(
+                """
             ChungOS (ChungusOS) 0.0.1
             
             Under MIT License by
             Mini & Arezalgamer89
-            """)
+            """
+            )
 
         elif msg.startswith("settings --"):
-            if msg[12:] == "help":
+            if msg[11:] == "help":
                 print(
                     "colors - Change if you want colored text or not. Recommended to turn off if colorblind or causes eyestrains"
                 )
-            elif msg[12:] == "version":
-                print("NUG ChungOS's Settings 1.0")
-                
+            elif msg[11:] == "version":
+                print("NUG ChungOS version: 1.0\nChungOS version: 0.0.1")
+
             else:
                 print(Fore.WHITE + "Wrong Syntax")
                 pass
@@ -176,7 +178,7 @@ while not shit:
             except IndexError:
                 print("Could not make directory.")
         elif bool(msg) is False:  # i love overcomplicating things.
-                                  # This basically means '' - Arezalgamer89
+            # This basically means '' - Arezalgamer89
             pass
 
         elif msg[0:3] in ("exit", "quit"):
