@@ -68,13 +68,25 @@ while not shit:
             print(Fore.WHITE + "Listing PATH where the Main.py executes in.")
             print("\n".join(os.listdir()))
 
-        elif msg == "chung --version":
-            print("0.0.1")
+        elif msg == "version":
+            print("""
+            ChungOS (ChungusOS) 0.0.1
+            
+            Under MIT License by
+            Mini & Arezalgamer89
+            """)
 
-        elif msg == "settings --help":
-            print(
-                "colors - Change if you want colored text or not, I suggest turning this off if you have bad eyesight or if colors cause eystrain for you."
-            )
+        elif msg.startswith("settings --"):
+            if msg[12:] == "help":
+                print(
+                    "colors - Change if you want colored text or not. Recommended to turn off if colorblind or causes eyestrains"
+                )
+            elif msg[12:] == "version":
+                print("NUG ChungOS's Settings 1.0")
+                
+            else:
+                print(Fore.WHITE + "Wrong Syntax")
+                pass
 
         elif msg.startswith("change"):
             try:
@@ -164,6 +176,7 @@ while not shit:
             except IndexError:
                 print("Could not make directory.")
         elif bool(msg) is False:  # i love overcomplicating things.
+                                  # This basically means '' - Arezalgamer89
             pass
 
         elif msg[0:3] in ("exit", "quit"):
