@@ -60,5 +60,5 @@ Since ChungOS runs on [Lupa Runtime](https://pypi.org/project/lupa/). You're fre
 
 # Credits
 
-- [Mini](https://twitter.com/@minilol69) - Owner | Programmer
+- [Mini](https://twitter.com/@minilol69) - Owner | Programmer | Artist
 - [Arezalgamer89](mailto:aradzpfa@gmail.com). - Co-owner | Programmer
