@@ -57,7 +57,7 @@ while not shit:
                     Fore.YELLOW + __name__ + Fore.RED + ">>>" + Fore.GREEN + " "
                 ).lower()
             else:
-                msg = input(__name__ + ">>>").lower()
+                msg = input(Fore.WHITE + __name__ + ">>>").lower()
         except PermissionError:
             msg = input(osName.lower() + "$")
 
@@ -199,8 +199,7 @@ while not shit:
                         """
                     1. Shutdown
                     2. Reboot
-                    3. Lock
-                    4. Log Out
+                    3. Log Out
                     """
                     )
                 killMe = int(input(""))
@@ -216,10 +215,6 @@ while not shit:
                 elif killMe == 2:
                     os.system('shutdown /r /c "MiniOS has reboot this PC" /t 005')
                 elif killMe == 3:
-                    print(
-                        "We are generous, we won't lock your PC. good luck trying to make us to. ;)"
-                    )  # :/ - Arezalgamer89
-                elif killMe == 4:
                     os.system("shutdown /l /t 000")
                 else:
                     print("What would you like to do?", os.getlogin() + "?")
