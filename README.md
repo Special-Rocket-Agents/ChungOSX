@@ -33,7 +33,7 @@ terminal # ONLY FOR MAC (DARWIN)
   
     LINUX: Ditto
   
-    MAC: @lemane291 Please make a PR here
+    MAC: `python3 Main.py`
     
 5. Profit
 
