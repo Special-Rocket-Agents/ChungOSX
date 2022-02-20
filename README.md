@@ -40,16 +40,20 @@ terminal # ONLY FOR MAC (DARWIN)
     
 5. Profit
 
-# Lua Stuff
+# Lua Support
 
-You can run lua scripts in chungOS, just add them in `assets/preload/raw_scripts/` and make sure they end with `.lua`.
+You can use [Normal Lua](https://www.lua.org/) to Alter/Extend ChungOS's Functionality
 
-Let's look at this basic script:
-```lua
-print("hi")
-```
+Since ChungOS runs on [Lupa Runtime](https://pypi.org/project/lupa/). You're free to write anything you want!
 
-That would print hi in chungOS. You can run unmodified lua (using `lupa`)
+
+## How to run?
+   
+   Make sure your Script ends in `.lua` and put it in `assets/preload/raw_scripts`
+   
+   Use `run-lua` to run all the scripts that are there. 
+   
+   Or use `run-luafile <yourfilename>` to run your specified .lua file!
 
 
 
