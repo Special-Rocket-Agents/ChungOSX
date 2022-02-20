@@ -5,3 +5,5 @@ lupa
 sly
 py2exe
 playsound
+PyQtWebEngine
+PyQt5

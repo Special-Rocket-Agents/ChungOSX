@@ -14,6 +14,9 @@ from configparser import ConfigParser
 from colorama import Fore, Back, Style
 from lupa import LuaRuntime
 from playsound import playsound
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
+from PyQt5.QtWebEngineWidgets import *
 
 colorama.init(
     autoreset=True
@@ -64,6 +67,56 @@ while not shit:
 
         if msg == "time":
             print(datetime.datetime.now())
+        elif msg == "browser":
+
+            class MainWindow(QMainWindow):
+                def __init__(self):
+                    super(MainWindow, self).__init__()
+                    self.browser = QWebEngineView()
+                    self.browser.setUrl(QUrl("https://google.com"))
+                    self.setCentralWidget(self.browser)
+                    self.showMaximized()
+
+                    navbar = QToolBar()
+                    self.addToolBar(navbar)
+
+                    back_btn = QAction("Back", self)
+                    back_btn.triggered.connect(self.browser.back)
+                    navbar.addAction(back_btn)
+
+                    forward_btn = QAction("Foward", self)
+                    forward_btn.triggered.connect(self.browser.forward)
+                    navbar.addAction(forward_btn)
+
+                    reload_btn = QAction("Reload", self)
+                    reload_btn.triggered.connect(self.browser.reload)
+                    navbar.addAction(reload_btn)
+
+                    home_btn = QAction("Home", self)
+                    home_btn.triggered.connect(self.navigate_home)
+                    navbar.addAction(home_btn)
+
+                    self.url_bar = QLineEdit()
+                    self.url_bar.returnPressed.connect(self.nav_url)
+                    navbar.addWidget(self.url_bar)
+
+                def navigate_home(self):
+                    self.browser.setUrl(QUrl("https://google.com"))
+
+                def nav_url(self):
+                    url = self.url_bar.text()
+                    if url.find("https://", 0, 7) == -1:
+                        self.browser.setUrl(QUrl("https://" + url))
+                    else:
+                        self.browser.setUrl(QUrl(url))
+                        for i in range(2):
+                            print(url)
+
+            app = QApplication(sys.argv)
+            QApplication.setApplicationName("Chungle")
+            window = MainWindow()
+            app.exec_()
+
         elif msg.startswith("playsound"):
             os.chdir("assets/sounds/")
             if "--bg" in msg.split(" "):
