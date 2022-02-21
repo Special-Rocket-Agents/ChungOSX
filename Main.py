@@ -42,6 +42,10 @@ process = MemoryThing(os.getpid())
 def dl(url):
     urllib.request.urlretrieve("https://raw.githubusercontent.com/Iemane291/fluffy-dollop/main/" + url + ".py", 'assets/preload/pkgs')
 
+def clear():
+    cls = "cls" if os.name == 'nt' else 'clear'
+    os.system(cls)
+
 def get_split(obj, symbol, idx, returnBool: bool):
     if returnBool:
         return bool(obj.split(symbol)[idx].title())
@@ -160,10 +164,7 @@ while not shit:
             app.exec_()
 
             while True:
-                if platform.system() == "Darwin" or platform.system() == "Linux":
-                    subprocess.run("clear")
-                elif platform.system() == "Windows":
-                    subprocess.run("cls")  # i used a windows laptop once
+                clear()
 
         elif msg.startswith("playsound"):
             os.chdir("assets/sounds/")
