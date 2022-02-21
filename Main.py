@@ -291,7 +291,7 @@ while not shit:
                 if i.endswith(".lua"):
                     with open(i, "r") as f:
                         lua.eval(str(f.read()))
-                for i in range(2):
+                for i in range(3):
                     os.chdir("..")
 
         elif msg == "os":
