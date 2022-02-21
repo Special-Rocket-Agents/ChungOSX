@@ -7,6 +7,7 @@ import colorama
 import random
 import webbrowser
 import platform
+import urllib
 import sys
 import Brug
 import subprocess
@@ -36,6 +37,9 @@ fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's 
 Diagnostics = True  # More Important version of Debug Mode in Settings
 process = MemoryThing(os.getpid())
 
+    
+def dl(url):
+    urllib.request.urlretrieve("https://raw.githubusercontent.com/Iemane291/fluffy-dollop/main/" + url + ".py", 'assets/preload/pkgs')
 
 def get_split(obj, symbol, idx, returnBool: bool):
     if returnBool:
@@ -325,6 +329,9 @@ while not shit:
 
         elif msg[0:3] in ("exit", "quit"):
             exit()
+        
+        elif msg.startswith("install"):
+             dl(msg[9:])
 
         elif msg == "power":
 
