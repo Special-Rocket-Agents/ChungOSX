@@ -85,7 +85,7 @@ def get_option(obj):
         fileData = json.load(f)
         os.chdir("..")
         os.chdir("..")
-        if fileData["colors"] == "true":
+        if fileData["colors"]:
             colors = True
             colorama.init(autoreset=True)
         else:
@@ -100,7 +100,7 @@ while not shit:
     versionCheck()
     if not fallBackToTERMINAL is True:
         try:
-            if get_option("colors") == "true":
+            if get_option("colors"):
                 msg = input(
                     Fore.YELLOW + os.getcwd() + Fore.RED + ">>>" + Fore.GREEN + " "
                 ).lower()
@@ -204,7 +204,7 @@ while not shit:
                 pass
 
         elif msg == "memory":
-            if get_option("colors") == "true":
+            if get_option("colors"):
                 print(Fore.LIGHTBLUE_EX + str(process.memory_info().rss / 50) + "B")
             else:
                 print(str(process.memory_info().rss / 50) + "B")
@@ -222,7 +222,7 @@ while not shit:
                 for i in range(2):
                     os.chdir("..")
             except IndexError as e:
-                if get_option("colors") == "true":
+                if get_option("colors"):
                     print(Fore.RED + "Error: " + Fore.WHITE + str(e))
                 else:
                     print("Error: " + str(e))
@@ -302,7 +302,7 @@ while not shit:
             print(platform.system().replace("Darwin", "Mac"))
         elif msg.startswith("run-luafile") and msg.endswith(".lua"):
             if Diagnostics is True:
-                if random.randint(1, 50) == 1 and get_option("eastereggs") == "true":
+                if random.randint(1, 50) == 1 and get_option("eastereggs"):
                     logging.debug("Ran the " + msg + " with our Trusty Lua Runtime!")
                 else:
                     logging.debug("Ran:", msg)
@@ -391,7 +391,7 @@ while not shit:
                         subprocess.run("halt")
 
             except Exception as e:
-                if get_option("colors") == "true":
+                if get_option("colors"):
                     print(Fore.RED + "ERROR:" + Fore.WHITE + str(e))
                 else:
                     print(Fore.WHITE + "ERROR:" + str(e))
