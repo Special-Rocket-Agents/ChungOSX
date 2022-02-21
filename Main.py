@@ -40,7 +40,7 @@ process = MemoryThing(os.getpid())
 
     
 def dl(url):
-    urllib.request.urlretrieve("https://raw.githubusercontent.com/Iemane291/fluffy-dollop/main/" + url + ".py", 'assets/preload/pkgs')
+    urllib.request.urlretrieve("https://raw.githubusercontent.com/Kiffolisk/pykern-sip/main/" + url + ".py", 'assets/preload/pkgs')
 
 def clear():
     cls = "cls" if os.name == 'nt' else 'clear'
