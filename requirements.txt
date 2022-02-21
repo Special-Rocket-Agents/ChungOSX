@@ -7,3 +7,4 @@ py2exe
 playsound
 PyQtWebEngine
 PyQt5
+psutil

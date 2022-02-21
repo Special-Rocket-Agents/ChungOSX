@@ -18,6 +18,7 @@ from playsound import playsound
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtWebEngineWidgets import *
+from psutil import Process as MemoryThing
 
 shit = False
 doneIntro = False
@@ -33,6 +34,7 @@ datadir = preloader + "/data"  # Datadir, The OS will not operate without this d
 osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 Diagnostics = True  # More Important version of Debug Mode in Settings
+process = MemoryThing(os.getpid())
 
 
 def get_split(obj, symbol, idx, returnBool: bool):
@@ -197,6 +199,11 @@ while not shit:
                 print(Fore.WHITE + "Wrong Syntax")
                 pass
 
+        elif msg == "memory":
+            if get_option("colors") == "true":
+                print(Fore.LIGHTBLUE_EX + process.memory_info().rss + "B")
+            else:
+                print(process.memory_info().rss)
         elif msg.startswith("change"):
             try:
                 os.chdir("assets/preload/")
@@ -385,16 +392,16 @@ while not shit:
                 else:
                     print(Fore.WHITE + "ERROR:" + str(e))
 
-        elif msg == "cmd" and platform.system == "Windows":
+        elif msg == "cmd" and platform.system() == "Windows":
             try:
                 subprocess.run("start")
             except:
                 subprocess.run("cmd")
-        elif msg == "bash" or msg == "terminal" and platform.system == "Linux":
+        elif msg == "bash" or msg == "terminal" and platform.system() == "Linux":
             subprocess.run(
                 "gnome-terminal -e 'bash -c \"sudo apt-get update; exec bash\"'"
             )
-        elif msg == "terminal" and platform.system == "Darwin":
+        elif msg == "terminal" and platform.system() == "Darwin":
             subprocess.run("start")  #! HELP, I NEED HELP WHAT SHOULD I TYPE HERE AAAA
 
         else:
