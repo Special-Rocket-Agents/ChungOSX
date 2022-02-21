@@ -39,8 +39,6 @@ Diagnostics = True  # More Important version of Debug Mode in Settings
 process = MemoryThing(os.getpid())
 
     
-def dl(url):
-    urllib.request.urlretrieve("https://raw.githubusercontent.com/Kiffolisk/pykern-sip/main/" + url + ".py", 'assets/preload/pkgs')
 
 def clear():
     cls = "cls" if os.name == 'nt' else 'clear'
@@ -331,9 +329,6 @@ while not shit:
 
         elif msg[0:3] in ("exit", "quit"):
             exit()
-        
-        elif msg.startswith("install"):
-             dl(msg[9:])
 
         elif msg == "power":
 
