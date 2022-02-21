@@ -201,9 +201,9 @@ while not shit:
 
         elif msg == "memory":
             if get_option("colors") == "true":
-                print(Fore.LIGHTBLUE_EX + str(process.memory_info().rss) + "B")
+                print(Fore.LIGHTBLUE_EX + str(process.memory_info().rss / 50) + "B")
             else:
-                print(process.memory_info().rss)
+                print(str(process.memory_info().rss / 50) + "B")
         elif msg.startswith("change"):
             try:
                 os.chdir("assets/preload/")
