@@ -85,7 +85,6 @@ def get_option(obj):
         fileData = json.load(f)
         os.chdir("..")
         os.chdir("..")
-        os.chdir("..")
         if fileData["colors"]:
             colors = True
             colorama.init(autoreset=True)
@@ -211,12 +210,26 @@ while not shit:
                 print(str(process.memory_info().rss / 50) + "B")
         elif msg.startswith("change"):
             try:
-                os.chdir("files/")
+                os.chdir("files/data/")
                 with open("config.json", "r") as f:
-                    filedata = json.load(f)
-                    filedata[get_split(msg, " ", 1, False).lower()] = get_split(
-                        msg, " ", 2, True
-                    )
+                    try:
+                        filedata = json.load(f)
+                        filedata[msg.split(" ")[1].lower()] = bool(
+                            msg.split(" ")[2].title()
+                        )
+                    except ValueError:
+                        if get_option("colors"):
+                            print(
+                                Fore.RED
+                                + "Error: "
+                                + Fore.WHITE
+                                + 'Please provide a value like "true" or "false"'
+                            )
+                        else:
+                            print(
+                                Fore.WHITE
+                                + 'Please provide a value like "true" or "false"'
+                            )
                 with open("config.json", "w") as f:
                     json.dump(filedata, f)
 
