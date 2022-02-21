@@ -51,7 +51,7 @@ def versionCheck():
         )
         print("Some features might not be working correctly.")
         pass
-    elif not sys.version_info[3] == "final":
+    elif sys.version_info[3] != "final":
         print(
             "WARNING: Your Python "
             + str(sys.version_info[0])
