@@ -286,6 +286,9 @@ while not shit:
                         lua.eval(str(f.read()))
                 for i in range(2):
                     os.chdir("..")
+
+        elif msg == "os":
+            print(platform.system().replace("Darwin", "Mac"))
         elif msg.startswith("run-luafile") and msg.endswith(".lua"):
             if Diagnostics is True:
                 if random.randint(1, 50) == 1 and get_option("eastereggs") == "true":
