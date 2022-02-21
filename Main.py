@@ -9,6 +9,7 @@ import webbrowser
 import platform
 import sys
 import Brug
+import subprocess
 
 from configparser import ConfigParser
 from colorama import Fore, Back, Style
@@ -153,9 +154,9 @@ while not shit:
 
             while True:
                 if platform.system() == "Darwin" or platform.system() == "Linux":
-                    os.system("clear")
+                    subprocess.run("clear")
                 elif platform.system() == "Windows":
-                    os.system("cls")  # i used a windows laptop once
+                    subprocess.run("cls")  # i used a windows laptop once
 
         elif msg.startswith("playsound"):
             os.chdir("assets/sounds/")
@@ -303,7 +304,7 @@ while not shit:
         elif msg.startswith("mkdir"):
 
             try:
-                os.system(
+                subprocess.run(
                     "mkdir " + str(msg[6:])
                 )  # we are using str() method incase the directory name is a number lol.
             except IndexError:
@@ -332,15 +333,15 @@ while not shit:
                     print("Are you sure you want to shut down? (y/n)")
                     confirm = input().lower()
                     if confirm == "y":
-                        os.system(
+                        subprocess.run(
                             'shutdown /s /hybrid /c "MiniOS has shutdown this P" /t 005'
                         )
                     else:
                         print("Ok then.")
                 elif killMe == 2:
-                    os.system('shutdown /r /c "MiniOS has reboot this PC" /t 005')
+                    subprocess.run('shutdown /r /c "MiniOS has reboot this PC" /t 005')
                 elif killMe == 3:
-                    os.system("shutdown /l /t 000")
+                    subprocess.run("shutdown /l /t 000")
                 else:
                     print("What would you like to do?", os.getlogin() + "?")
                     print(
@@ -353,9 +354,9 @@ while not shit:
                     killMe = int(input())
                     if killMe == 1 and os.name != "nt":
                         if platform.system() == "Darwin":
-                            os.system("sudo reboot")
+                            subprocess.run("sudo reboot")
                         else:
-                            os.system("reboot")
+                            subprocess.run("reboot")
                     elif killMe == 2 and os.name != "nt":
                         print(
                             "Are you sure you want to lock miniOS (and potentially your PC too?)"
@@ -363,17 +364,17 @@ while not shit:
                         confirm = input().lower()
                         if confirm == "y":
                             if platform.system() == "Darwin":  # Basically mac
-                                os.system(
+                                subprocess.run(
                                     "/System/Library/CoreServices/Menu\ Extras/user.menu/Contents/Resources/CGSession -suspend"
                                 )  # ? Unsure about this...
                             else:
-                                os.system("loginctl lock-screen")
+                                subprocess.run("loginctl lock-screen")
                     elif killMe == 3 and os.name != "nt":
                         print(
                             "Your Computer is Unresponsive now, You must force-shutdown your Mac/PC"
                         )
                         time.sleep(0.5)
-                        os.system("halt")
+                        subprocess.run("halt")
 
             except Exception as e:
                 if get_option("colors") == "true":
@@ -383,13 +384,15 @@ while not shit:
 
         elif msg == "cmd" and platform.system == "Windows":
             try:
-                os.system("start")
+                subprocess.run("start")
             except:
-                os.system("cmd")
+                subprocess.run("cmd")
         elif msg == "bash" or msg == "terminal" and platform.system == "Linux":
-            os.system("gnome-terminal -e 'bash -c \"sudo apt-get update; exec bash\"'")
+            subprocess.run(
+                "gnome-terminal -e 'bash -c \"sudo apt-get update; exec bash\"'"
+            )
         elif msg == "terminal" and platform.system == "Darwin":
-            os.system("start")  #! HELP, I NEED HELP WHAT SHOULD I TYPE HERE AAAA
+            subprocess.run("start")  #! HELP, I NEED HELP WHAT SHOULD I TYPE HERE AAAA
 
         else:
             print(Fore.WHITE + "'" + msg + "' Command or LuaRT File could not be found")
@@ -408,7 +411,7 @@ while not shit:
                 )
         doneIntro = True
         msg = input(">>> ")
-        os.system(msg)
+        subprocess.run(msg)
 
 
 def Settings():
