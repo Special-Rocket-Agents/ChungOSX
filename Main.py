@@ -201,7 +201,7 @@ while not shit:
 
         elif msg == "memory":
             if get_option("colors") == "true":
-                print(Fore.LIGHTBLUE_EX + str(process.memory_info().rss + "B"))
+                print(Fore.LIGHTBLUE_EX + str(process.memory_info().rss) + "B")
             else:
                 print(process.memory_info().rss)
         elif msg.startswith("change"):
