@@ -8,6 +8,7 @@ import random
 import webbrowser
 import platform
 import urllib
+import urllib.request
 import sys
 import Brug
 import subprocess
