@@ -7,7 +7,7 @@ from tkinter import filedialog
 
 # this is my 9th time using classes :\
 text_name = "Micro"
-geometry = "1200x700+201+150"
+geometry = "768x630"
 
 
 class TextEditor:
