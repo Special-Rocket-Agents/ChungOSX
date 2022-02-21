@@ -29,7 +29,7 @@ class TextEditor:
         self.titlebar = Label(
             self.root,
             textvariable=self.title,
-            font=("times new roman", 15, "bold"),
+            font=("Product Sans", 15, "bold"),
             bd=2,
             relief=GROOVE,
         )
@@ -41,7 +41,7 @@ class TextEditor:
         self.statusbar = Label(
             self.root,
             textvariable=self.status,
-            font=("times new roman", 15, "bold"),
+            font=("Product Sans", 15, "bold"),
             bd=2,
             relief=GROOVE,
         )
@@ -50,15 +50,12 @@ class TextEditor:
         # Initializing Status
         self.status.set("Welcome To CE's Calculator")
         # Creating Menubar
-        self.menubar = Menu(
-            self.root, font=("times new roman", 15, "bold"), activebackground="skyblue"
-        )
+        self.menubar = Menu(self.root, activebackground="skyblue")
         # Configuring menubar on root window
         self.root.config(menu=self.menubar)
         # Creating File Menu
         self.filemenu = Menu(
             self.menubar,
-            font=("times new roman", 12, "bold"),
             activebackground="skyblue",
             tearoff=0,
         )
@@ -87,7 +84,6 @@ class TextEditor:
         # Creating Edit Menu
         self.editmenu = Menu(
             self.menubar,
-            font=("times new roman", 12, "bold"),
             activebackground="skyblue",
             tearoff=0,
         )
@@ -108,7 +104,6 @@ class TextEditor:
         # Creating Help Menu
         self.helpmenu = Menu(
             self.menubar,
-            font=("times new roman", 12, "bold"),
             activebackground="skyblue",
             tearoff=0,
         )
@@ -122,7 +117,7 @@ class TextEditor:
         self.txtarea = Text(
             self.root,
             yscrollcommand=scrol_y.set,
-            font=("times new roman", 15, "bold"),
+            font=("Consolas", 15, "bold"),
             state="normal",
             relief=GROOVE,
         )
