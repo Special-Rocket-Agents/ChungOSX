@@ -83,6 +83,8 @@ def get_option(obj):
     os.chdir("assets/preload/")
     with open("config.json", "r") as f:
         fileData = json.load(f)
+        os.chdir("..")
+        os.chdir("..")
         if fileData["colors"] == "true":
             colors = True
             colorama.init(autoreset=True)
@@ -91,8 +93,6 @@ def get_option(obj):
             colorama.init(
                 autoreset=True, strip=True, convert=False
             )  # even if un-coloring proccess fails. colorama's not gonna touch a single color!
-        for i in range(2):
-            os.chdir("..")
         return fileData.get(obj)  # returns none if cant find
 
 
@@ -102,10 +102,10 @@ while not shit:
         try:
             if get_option("colors") == "true":
                 msg = input(
-                    Fore.YELLOW + __name__ + Fore.RED + ">>>" + Fore.GREEN + " "
+                    Fore.YELLOW + os.getcwd() + Fore.RED + ">>>" + Fore.GREEN + " "
                 ).lower()
             else:
-                msg = input(Fore.WHITE + __name__ + ">>>").lower()
+                msg = input(Fore.WHITE + os.getcwd() + ">>>").lower()
         except PermissionError:
             msg = input(osName.lower() + "$")
 
@@ -424,7 +424,7 @@ while not shit:
                     + "! Use the Prompt Below to Perform your Bash/Mac Terminal Tasks!"
                 )
         doneIntro = True
-        msg = input(">>> ")
+        msg = input(os.getcwd() + ">>> ")
         subprocess.run(msg)
 
 
