@@ -1,5 +1,3 @@
-This is the directory where you can write and put lua files to mod/change/remove your experiences
-
 How does it work?
 
 Put your lua scripts in this folder and the operating system will detect and execute it

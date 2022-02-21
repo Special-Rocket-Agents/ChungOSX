@@ -80,9 +80,10 @@ def versionCheck():
 
 
 def get_option(obj):
-    os.chdir("assets/preload/")
+    os.chdir("files/data/")
     with open("config.json", "r") as f:
         fileData = json.load(f)
+        os.chdir("..")
         os.chdir("..")
         os.chdir("..")
         if fileData["colors"]:
@@ -210,7 +211,7 @@ while not shit:
                 print(str(process.memory_info().rss / 50) + "B")
         elif msg.startswith("change"):
             try:
-                os.chdir("assets/preload/")
+                os.chdir("files/")
                 with open("config.json", "r") as f:
                     filedata = json.load(f)
                     filedata[get_split(msg, " ", 1, False).lower()] = get_split(
@@ -236,7 +237,7 @@ while not shit:
             thefuckinginputsinceyallareass = input().lower()
 
             if thefuckinginputsinceyallareass == "y":
-                os.chdir("assets/preload/data")
+                os.chdir("files/data")
                 print(
                     "Ok, let's input the new options you want. One second let me prepare the list."
                 )
@@ -244,7 +245,7 @@ while not shit:
                 killMe = input(
                     "Aha! Got it! Would you like colors to be enabled? (y/n)\n"
                 ).lower()
-                os.chdir("assets/preload/")
+                os.chdir("files/")
                 with open("config.json", "r") as f:
                     curOptions = json.load(f)
                 if killMe == "y":
@@ -290,8 +291,8 @@ while not shit:
                 print("NUG ChungOS version - 0.0.1\nBrug Bootloader v0.1")
 
         elif msg == "run-lua":
-            os.chdir("assets/preload/raw_scripts/")
-            for i in os.listdir("assets/preload/raw_scripts/"):
+            os.chdir("files/scripts/")
+            for i in os.listdir("files/scripts/"):
                 if i.endswith(".lua"):
                     with open(i, "r") as f:
                         lua.eval(str(f.read()))
@@ -306,7 +307,7 @@ while not shit:
                     logging.debug("Ran the " + msg + " with our Trusty Lua Runtime!")
                 else:
                     logging.debug("Ran:", msg)
-            os.chdir("assets/preload/raw_scripts/")
+            os.chdir("files/scripts/")
             with open(msg[12:], "r") as f:
                 try:
                     lua.eval(str(f.read()))
