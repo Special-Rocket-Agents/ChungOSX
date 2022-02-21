@@ -38,11 +38,11 @@ fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's 
 Diagnostics = True  # More Important version of Debug Mode in Settings
 process = MemoryThing(os.getpid())
 
-    
 
 def clear():
-    cls = "cls" if os.name == 'nt' else 'clear'
+    cls = "cls" if os.name == "nt" else "clear"
     os.system(cls)
+
 
 def get_split(obj, symbol, idx, returnBool: bool):
     if returnBool:
@@ -290,13 +290,13 @@ while not shit:
                 print("NUG ChungOS version - 0.0.1\nBrug Bootloader v0.1")
 
         elif msg == "run-lua":
+            os.chdir("assets/preload/raw_scripts/")
             for i in os.listdir("assets/preload/raw_scripts/"):
-                os.chdir("assets/preload/raw_scripts/")
                 if i.endswith(".lua"):
                     with open(i, "r") as f:
                         lua.eval(str(f.read()))
-                for i in range(3):
-                    os.chdir("..")
+            for i in range(3):
+                os.chdir("..")
 
         elif msg == "os":
             print(platform.system().replace("Darwin", "Mac"))
