@@ -166,8 +166,10 @@ while not shit:
             confirm = input().lower()
             if confirm == "y":
                 os.system("git pull origin master")
-            else:
+            elif confirm == "n":
                 print("You cannot run this command without having git installed")
+            else:
+                print("I don't understand.")
 
         elif msg.startswith("playsound"):
             os.chdir("assets/sounds/")
