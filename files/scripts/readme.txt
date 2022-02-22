@@ -4,7 +4,7 @@ How does it work?
 
 Put your lua scripts in this folder and the operating system will detect and execute it
 NOTES:
-    - Your files must end in .lua or ChungusOS cannot execute it. This Applies for both run-lua and run-luafile
+    - Your files must end in .lua or ChungOS cannot execute it. This Applies for both run-lua and run-luafile
     - There is no "DIFFERENT" API, It's the normal lua that you find at https://www.lua.org/
 
 How to Execute?
