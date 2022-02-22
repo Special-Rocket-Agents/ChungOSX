@@ -83,8 +83,8 @@ def get_option(obj):
     os.chdir("files/data/")
     with open("config.json", "r") as f:
         fileData = json.load(f)
-        os.chdir("..")
-        os.chdir("..")
+        for i in range(2):
+            os.chdir("..")
         if fileData["colors"]:
             colors = True
             colorama.init(autoreset=True)
@@ -161,9 +161,6 @@ while not shit:
             window = MainWindow()
             app.exec_()
 
-            while True:
-                clear()
-
         elif msg.startswith("playsound"):
             os.chdir("assets/sounds/")
             if "--bg" in msg.split(" "):
@@ -210,7 +207,10 @@ while not shit:
                 print(str(process.memory_info().rss / 50) + "B")
         elif msg.startswith("change"):
             try:
-                os.chdir("files/data/")
+                for i in os.listdir():
+                    if i == "files":
+
+                        os.chdir("files/data/")
                 with open("config.json", "r") as f:
                     try:
                         filedata = json.load(f)
