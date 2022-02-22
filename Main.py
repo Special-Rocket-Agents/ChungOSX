@@ -161,6 +161,14 @@ while not shit:
             window = MainWindow()
             app.exec_()
 
+        elif msg == "update":
+            print("This requires Git, do you have it installed? (y/n)")
+            confirm = input().lower()
+            if confirm == "y":
+                os.system("git pull origin master")
+            else:
+                print("You cannot run this command without having git installed")
+
         elif msg.startswith("playsound"):
             os.chdir("assets/sounds/")
             if "--bg" in msg.split(" "):
