@@ -26,6 +26,10 @@ terminal # ONLY FOR MAC (DARWIN)
 
 If you want to see all the commands, check `all_commands.txt`
 
+# Help
+
+If you need support or help with something or found an issue, create an issue in the issues tab or go to our [Discord](https://discord.gg/mz3HmzP5ac) server.
+
 # Installation
 
 1. Make sure you have [Python 3.9](https://www.python.org/downloads/) or greater installed.
