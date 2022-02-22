@@ -166,6 +166,7 @@ while not shit:
             confirm = input().lower()
             if confirm == "y":
                 subprocess.run("git pull origin master")
+                subprocess.run("python3 Main.py")
             elif confirm == "n":
                 print("You cannot run this command without having git installed")
             else:
@@ -241,7 +242,7 @@ while not shit:
                                 + 'Please provide a value like "true" or "false"'
                             )
                 with open("config.json", "w") as f:
-                    json.dump(filedata, f)
+                    json.dump(filedata, f, indent=4)
 
                 for i in range(2):
                     os.chdir("..")
