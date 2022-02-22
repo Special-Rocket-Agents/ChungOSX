@@ -43,6 +43,11 @@ def clear():
     cls = "cls" if os.name == "nt" else "clear"
     subprocess.run(cls)
 
+def reset():
+    shit = True
+    exec("Main.py")
+    shit = False
+
 
 def get_split(obj, symbol, idx, returnBool: bool):
     if returnBool:
@@ -111,6 +116,12 @@ while not shit:
 
         if msg == "time":
             print(datetime.datetime.now())
+        elif msg == "fall":
+            print("FALLING BACK TO TERMINAL!")
+            time.sleep(random.randrange(1, 20))
+            # shit = True
+            # Uncommenting this would terminate the entire system!
+            fallBackToTERMINAL = True
         elif msg == "browser":
 
             class MainWindow(QMainWindow):
@@ -210,6 +221,9 @@ while not shit:
             else:
                 print(Fore.WHITE + "Wrong Syntax")
                 pass
+
+        elif msg.endswith("()"):
+            str(msg)
 
         elif msg == "memory":
             if get_option("colors"):
