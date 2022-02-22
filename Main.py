@@ -41,7 +41,7 @@ process = MemoryThing(os.getpid())
 
 def clear():
     cls = "cls" if os.name == "nt" else "clear"
-    os.system(cls)
+    subprocess.run(cls)
 
 
 def get_split(obj, symbol, idx, returnBool: bool):
@@ -165,7 +165,7 @@ while not shit:
             print("This requires Git, do you have it installed? (y/n)")
             confirm = input().lower()
             if confirm == "y":
-                os.system("git pull origin master")
+                subprocess.run("git pull origin master")
             elif confirm == "n":
                 print("You cannot run this command without having git installed")
             else:
