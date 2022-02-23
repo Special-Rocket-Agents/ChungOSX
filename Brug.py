@@ -1,6 +1,7 @@
+import os
 import time
 import random
-
+import Main
 """
 NUG Brug. The Stew-Pid Bootloader for Lil ChungOS!
 
@@ -17,8 +18,19 @@ Basically, our lil chungOS imports NUG Brug and EXECUTES I.T.
 I dunno shit
 
 """
+cl = Main.clear()
 # !!!DO NOT EDIT THIS LOADER UNLESS YOU DON'T KNOW WHAT YOUR/YOU'RE/YOUR'E DOING!!!
 class Brug:
-    def __init__(self) -> None:
-
-        super().__init__()
+    def begin():
+        if os.name == "nt":
+            os.system('echo ^G')
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("NUG Brug 1.0")
+        print("(C) Copyright 2022 Arezalgamer89. NUG and Brug belong to their respective owners")
+        print("MIT License | Copyright (c) 2022 Mini. ChungOS (and it's rewrites) belong to their respective owners, Excluding the Publisher NUG")
+        print("Loading...")
+        time.sleep(random.randbytes(0, 20)) # ffs let's make the user wait for long. also yes i used randbytes
+        os.system('dir')
+        if os.name == 'nt'
+        os.system('dir /s')
+        time.pause
