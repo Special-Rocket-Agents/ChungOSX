@@ -178,7 +178,10 @@ while not shit:
             confirm = input().lower()
             if confirm == "y":
                 subprocess.run("git pull origin master")
-                subprocess.run("py Main.py")
+                if platform.system() == "Windows":
+                    subprocess.run("py Main.py")
+                elif platform.system() == "Darwin":
+                    subprocess.run("python3 Main.py")
             elif confirm == "n":
                 print("You cannot run this command without having git installed")
             else:
