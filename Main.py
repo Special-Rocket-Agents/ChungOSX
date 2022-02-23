@@ -39,6 +39,16 @@ Diagnostics = True  # More Important version of Debug Mode in Settings
 process = MemoryThing(os.getpid())
 
 
+def setOption(optionName, option):
+    os.chdir("files/data")
+    with open("settings.json", "r") as f:
+        data = json.load(f)
+        data[optionName] = option
+    with open("settings.json", "w") as f:
+        json.dump(data, f)
+    for i in range(2):
+        os.chdir("..")
+
 def clear():
     cls = "cls" if os.name == "nt" else "clear"
     subprocess.run(cls)
@@ -47,6 +57,7 @@ def reset():
     shit = True
     exec("Main.py")
     shit = False
+ 
 
 
 
@@ -244,41 +255,22 @@ while not shit:
                 print(Fore.LIGHTBLUE_EX + str(process.memory_info().rss / 50) + "B")
             else:
                 print(str(process.memory_info().rss / 50) + "B")
-        elif msg.startswith("change"):
-            try:
-                for i in os.listdir():
-                    if i == "files":
-
-                        os.chdir("files/data/")
-                with open("config.json", "r") as f:
-                    try:
-                        filedata = json.load(f)
-                        filedata[msg.split(" ")[1].lower()] = bool(
-                            msg.split(" ")[2].title()
-                        )
-                    except ValueError:
-                        if get_option("colors"):
-                            print(
-                                Fore.RED
-                                + "Error: "
-                                + Fore.WHITE
-                                + 'Please provide a value like "true" or "false"'
-                            )
-                        else:
-                            print(
-                                Fore.WHITE
-                                + 'Please provide a value like "true" or "false"'
-                            )
-                with open("config.json", "w") as f:
-                    json.dump(filedata, f, indent=4)
-
-                for i in range(2):
-                    os.chdir("..")
-            except IndexError as e:
-                if get_option("colors"):
-                    print(Fore.RED + "Error: " + Fore.WHITE + str(e))
+       elif msg.startswith("change"):
+            if msg.split(" ")[1] == "--help":
+                print(
+                    "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind."
+                )
+            else:
+                newoption = None
+                if msg.split(" ")[2].lower() == "false":
+                    newoption = False
+                elif msg.split(" ")[2].lower() == "true":
+                    newoption = True
+                if get_option(msg.split(" ")[1].lower()) is not None:
+                    setOption(msg.split(" ")[1].lower(), newoption)
+                    print("Changed option.")
                 else:
-                    print("Error: " + str(e))
+                    print("That is not a valid option.")
 
         elif msg == "settings":
             print("Welcome to the settings menu.")
