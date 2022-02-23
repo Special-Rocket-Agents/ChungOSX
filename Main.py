@@ -108,7 +108,7 @@ while not shit:
         try:
             if get_option("colors"):
                 msg = input(
-                    Fore.YELLOW + os.getcwd() + Fore.RED + ">>>" + Fore.GREEN + " "
+                    Fore.YELLOW + os.getcwd() + Fore.RED + ">>>" + Fore.WHITE + " "
                 ).lower()
             else:
                 msg = input(Fore.WHITE + os.getcwd() + ">>>").lower()
