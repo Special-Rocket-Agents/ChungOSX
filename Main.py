@@ -178,7 +178,7 @@ while not shit:
             confirm = input().lower()
             if confirm == "y":
                 subprocess.run("git pull origin master")
-                subprocess.run("python3 Main.py")
+                subprocess.run("py Main.py")
             elif confirm == "n":
                 print("You cannot run this command without having git installed")
             else:
@@ -193,7 +193,7 @@ while not shit:
             os.system(msg[3:])
             if random.randint(0, 100000000000000000000000000) == 1:
                 fallBackToTERMINAL = True
-                
+
         elif msg.startswith("playsound"):
             os.chdir("assets/sounds/")
             if "--bg" in msg.split(" "):
