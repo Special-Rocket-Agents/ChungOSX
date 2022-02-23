@@ -49,6 +49,7 @@ def reset():
     shit = False
 
 
+
 def get_split(obj, symbol, idx, returnBool: bool):
     if returnBool:
         return bool(obj.split(symbol)[idx].title())
@@ -181,8 +182,18 @@ while not shit:
             elif confirm == "n":
                 print("You cannot run this command without having git installed")
             else:
-                print("I don't understand.")
-
+                try:
+                    break
+                except:
+                    pass
+        elif msg.startswith("do"):
+            if platform.system() == "Darwin" or platform.system() == "Linux" and doneIntro != False:
+                print(Fore.WHITE + "WARNING: you're on mac or linux so be sure to type sudo")
+            print(Fore.WHITE)
+            os.system(msg[3:])
+            if random.randint(0, 100000000000000000000000000) == 1:
+                fallBackToTERMINAL = True
+                
         elif msg.startswith("playsound"):
             os.chdir("assets/sounds/")
             if "--bg" in msg.split(" "):
