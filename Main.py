@@ -45,8 +45,8 @@ def clear():
 
 def reset():
     shit = True
-    exec("Main.py")
     shit = False
+    return 0
 
 
 
@@ -111,12 +111,14 @@ while not shit:
                     Fore.YELLOW + os.getcwd() + Fore.RED + ">>>" + Fore.WHITE + " "
                 ).lower()
             else:
-                msg = input(Fore.WHITE + os.getcwd() + ">>>").lower()
+                msg = input(Fore.WHITE + os.getcwd() + ">>> ").lower()
         except PermissionError:
             msg = input(osName.lower() + "$")
 
         if msg == "time":
             print(datetime.datetime.now())
+        elif msg == "r":
+            reset()
         elif msg == "fall":
             print("FALLING BACK TO TERMINAL!")
             time.sleep(random.randrange(1, 20))
