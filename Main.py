@@ -44,7 +44,7 @@ process = MemoryThing(os.getpid())
 
 def setOption(optionName, option):
     weirdPath = Path("data")
-    with open(weirdPath / "settings.json", "r") as f:
+    with open(weirdPath / "config.json", "r") as f:
         data = json.load(f)
         data[optionName] = option
     with open(weirdPath / "settings.json", "w") as f:
@@ -217,7 +217,7 @@ while not shit:
             print("This requires Git, do you have it installed? (y/n)")
             confirm = input().lower()
             if confirm == "y":
-                subprocess.run("git pull origin master")
+                subprocess.run("git pull origin master >nul")
                 if platform.system() == "Windows":
                     subprocess.run("py Main.py")
                 elif platform.system() == "Darwin":
