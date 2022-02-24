@@ -227,19 +227,20 @@ while not shit:
             os.system(msg[3:])
             if random.randint(0, 100000000000000000000000000) == 1:
                 fallBackToTERMINAL = True
-
-        elif msg.startswith("playsound"):
-            os.chdir("assets/sounds/")
-            if "--bg" in msg.split(" "):
-                for thing in msg.split(" "):
-                    if not thing.startswith("--") and thing.endswith(".wav"):
-                        playsound(thing, False)
-            else:
-                for thing in msg.split(" "):
-                    if not thing.startswith("--") and thing.endswith(".wav"):
-                        playsound(thing)
-            for i in range(2):
-                os.chdir("..")
+        
+#        elif msg.startswith("playsound"):
+#            os.chdir("assets/sounds/")
+#            if "--bg" in msg.split(" "):
+#                for thing in msg.split(" "):
+#                    if not thing.startswith("--") and thing.endswith(".wav"):
+#                        playsound(thing, False)
+#            else:
+#                for thing in msg.split(" "):
+#                    if not thing.startswith("--") and thing.endswith(".wav"):
+#                        playsound(thing)
+#            for i in range(2):
+#                os.chdir("..")
+#
         elif msg == "ls" or msg == "dir":
             # print("Directory " + os.curdir + " is " + os.path + " and has nil volume.")
             print(Fore.WHITE + "Listing PATH where the Main.py executes in.")
