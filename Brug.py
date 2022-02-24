@@ -1,8 +1,6 @@
-import os
+"""import os
 import time
 import random
-import Main
-"""
 NUG Brug. The Stew-Pid Bootloader for Lil ChungOS!
 
 Under the MIT License (ver. 1) and NUG Private General 6.9 (ver. >=2)
@@ -17,10 +15,15 @@ Basically, our lil chungOS imports NUG Brug and EXECUTES I.T.
 
 I dunno shit
 
-"""
-cl = Main.clear()
+
 # !!!DO NOT EDIT THIS LOADER UNLESS YOU DON'T KNOW WHAT YOUR/YOU'RE/YOUR'E DOING!!!
 class Brug:
+    def stda():
+        if os.name == 'nt':
+            os.system('py Main.py')
+        else:
+            os.system('python3 Main.py')
+        exit()
     def begin():
         if os.name == "nt":
             os.system('echo ^G')
@@ -31,6 +34,9 @@ class Brug:
         print("Loading...")
         time.sleep(random.randbytes(0, 20)) # ffs let's make the user wait for long. also yes i used randbytes
         os.system('dir')
-        if os.name == 'nt'
-        os.system('dir /s')
-        time.pause
+        if os.name == 'nt':
+            os.system('dir /s')
+        time.sleep(10)
+        stda()
+
+    begin()"""

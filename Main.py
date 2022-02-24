@@ -201,7 +201,7 @@ while not shit:
                 except:
                     pass
         elif msg.startswith("do"):
-            if platform.system() == "Darwin" or platform.system() == "Linux" and doneIntro != False:
+            if platform.system() == "Darwin" or platform.system() == "Linux" and doneIntro == False:
                 print(Fore.WHITE + "WARNING: you're on mac or linux so be sure to type sudo")
             print(Fore.WHITE)
             os.system(msg[3:])
