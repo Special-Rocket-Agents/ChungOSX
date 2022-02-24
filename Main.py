@@ -20,6 +20,8 @@ from playsound import playsound
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtWebEngineWidgets import *
+from pathlib import Path
+from platform import system as usersOS
 from psutil import Process as MemoryThing
 
 shit = False
@@ -41,14 +43,21 @@ process = MemoryThing(os.getpid())
 
 
 def setOption(optionName, option):
-    os.chdir("files/data")
-    with open("config.json", "r") as f:
+    weirdPath = Path("data")
+    with open(weirdPath / "settings.json", "r") as f:
         data = json.load(f)
         data[optionName] = option
-    with open("config.json", "w") as f:
-        json.dump(data, f)
-    for i in range(2):
+    with open(weirdPath / "settings.json", "w") as f:
+        json.dump(data, f, indent=4)
+        
+
+def getOption(option):
+    os.chdir("data")
+    with open("settings.json", "r") as f:
+        data = json.load(f)
         os.chdir("..")
+        return data.get(option)
+
 
 def Update():
     updateVar = False
