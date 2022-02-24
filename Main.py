@@ -36,18 +36,29 @@ datadir = preloader + "/data"  # Datadir, The OS will not operate without this d
 osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 Diagnostics = True  # More Important version of Debug Mode in Settings
+branch = 'master' # GitHub Main Branch.
 process = MemoryThing(os.getpid())
 
 
 def setOption(optionName, option):
     os.chdir("files/data")
-    with open("settings.json", "r") as f:
+    with open("config.json", "r") as f:
         data = json.load(f)
         data[optionName] = option
-    with open("settings.json", "w") as f:
+    with open("config.json", "w") as f:
         json.dump(data, f)
     for i in range(2):
         os.chdir("..")
+
+def Update():
+    updateVar = False
+    if platform.system() == 'Windows':
+        os.system('git pull origin ' + branch + ' >null')
+    else:
+        os.system('git pull origin ' + branch) 
+        while updateVar is not True:
+            os.system('clear')
+        updateVar = True
 
 def clear():
     cls = "cls" if os.name == "nt" else "clear"
@@ -134,6 +145,15 @@ while not shit:
             # shit = True
             # Uncommenting this would terminate the entire system!
             fallBackToTERMINAL = True
+
+        elif msg.startswith("."):
+            os.chdir("files/programs")
+            if os.name == 'nt':
+                os.system('py ' + msg[1:] + '.py')
+            else:
+                os.system('python3 ' + msg[1:] + '.py')
+            for i in range(2):
+                os.chdir("..")
         elif msg == "browser":
 
             class MainWindow(QMainWindow):

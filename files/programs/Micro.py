@@ -48,7 +48,7 @@ class TextEditor:
         # Packing status bar to root window
         self.statusbar.pack(side=BOTTOM, fill=BOTH)
         # Initializing Status
-        self.status.set("Welcome To CE's Calculator")
+        self.status.set("Welcome To NUG Micro")
         # Creating Menubar
         self.menubar = Menu(self.root, activebackground="skyblue")
         # Configuring menubar on root window
