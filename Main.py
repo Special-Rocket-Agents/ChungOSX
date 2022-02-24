@@ -30,11 +30,8 @@ lua = LuaRuntime()
 config = ConfigParser()
 
 ###### INTERNAL SETTINGS ######
-sysdir = "assets"  # SysDir. This Directory contains Chn.Preloader and Datadir.
-preloader = (
-    sysdir + "/preload"
-)  # Chn.Preloader. This PATH holds all the important directories
-datadir = preloader + "/data"  # Datadir, The OS will not operate without this directory
+sysdir = "files"  # SysDir. This Directory contains Chn.Preloader and Datadir.
+datadir = sysdir + "/data"  # Datadir, The OS will not operate without this directory
 osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 Diagnostics = True  # More Important version of Debug Mode in Settings
@@ -43,7 +40,10 @@ process = MemoryThing(os.getpid())
 
 
 def setOption(optionName, option):
-    weirdPath = Path("data")
+    try:
+        weirdPath = datadir
+    except:
+        weirdPath = Path("files/data")
     with open(weirdPath / "config.json", "r") as f:
         data = json.load(f)
         data[optionName] = option
@@ -53,7 +53,7 @@ def setOption(optionName, option):
 
 def getOption(option):
     os.chdir("data")
-    with open("settings.json", "r") as f:
+    with open("config.json", "r") as f:
         data = json.load(f)
         os.chdir("..")
         return data.get(option)
@@ -217,7 +217,7 @@ while not shit:
             print("This requires Git, do you have it installed? (y/n)")
             confirm = input().lower()
             if confirm == "y":
-                subprocess.run("git pull origin master >nul")
+                subprocess.run("git pull origin master --quiet")
                 if platform.system() == "Windows":
                     subprocess.run("py Main.py")
                 elif platform.system() == "Darwin":
@@ -387,6 +387,8 @@ while not shit:
                     lua.eval(str(f.read()))
                 except Exception as errno:
                     print("Unfortunately, " + errno)
+                except LuaSyntaxError as lul:
+                    print(f"Unluafortunately, {lul}")
             for i in range(3):
                 os.chdir("..")
 
