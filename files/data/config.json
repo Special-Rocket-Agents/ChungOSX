@@ -1,4 +1,4 @@
 {
     "colors": false,
-    "NoSecurity": false
+    "security": true
 }

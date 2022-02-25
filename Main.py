@@ -61,13 +61,12 @@ def getOption(option):
 
 def Update():
     updateVar = False
-    if platform.system() == 'Windows':
-        os.system('git pull origin ' + branch + ' >null')
-    else:
-        os.system('git pull origin ' + branch) 
-        while updateVar is not True:
-            os.system('clear')
-        updateVar = True
+    
+    os.system('git pull origin ' + branch + ' --quiet')
+
+    while updateVar is not True:
+        os.system('clear')
+    updateVar = True
 
 def clear():
     cls = "cls" if os.name == "nt" else "clear"
@@ -409,24 +408,4 @@ while not shit:
         else:
             print(Fore.WHITE + "'" + msg + "' Command or LuaRT File could not be found")
 
-    else:  # Fallback
-        if doneIntro is False:
-            if os.name == "nt":
-                print(
-                    "Welcome to " + osName + "! Use this Terminal to Perform CMD Tasks!"
-                )
-            else:
-                print(
-                    "Welcome to "
-                    + osName
-                    + "! Use the Prompt Below to Perform your Bash/Mac Terminal Tasks!"
-                )
-        doneIntro = True
-        msg = input(os.getcwd() + ">>> ")
-        subprocess.run(msg)
 
-
-def Settings():
-    Settings = []  # known to be unused for now...
-
-    print("")
