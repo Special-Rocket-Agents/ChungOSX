@@ -1,33 +1,48 @@
-import datetime
+#####################
+# Built-In Modules
 import logging
 import os
-import json
-import time
-import colorama
 import random
-import webbrowser
-import platform
-import urllib
-import urllib.request
-import sys
-import Brug
 import subprocess
+import webbrowser
+import colorama
+import json
+import sys
+import time
+###################
 
-from configparser import ConfigParser
-from colorama import Fore, Back, Style
-from lupa import LuaRuntime
-from playsound import playsound
+#############################
+from datetime import datetime # Clock 
+from colorama import Fore, Back, Style # Color
+#############################
+
+
+###### CHUNGUS UI ######
 from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
 from PyQt5.QtWebEngineWidgets import *
-from pathlib import Path
-from platform import system as usersOS
-from psutil import Process as MemoryThing
+from PyQt5.QtCore import *
+from PyQt5.QtGui import QIcon, QKeySequence
+######            ######
 
+
+#### VARIABLES, DO NOT MIND ####
 shit = False
 doneIntro = False
+curMemory = Process(os.getpid())
+####                        ####
+
+##### SYSTEM STUFF #####
+from psutil import Process
+from platform import system as cliOS # Standing for ClientOS
+from pathlib import Path # Path
+from webbrowser import open_new_tab # Your Browser
+
+
+
+### LUA STUFF ###
+from lupa import LuaRuntime
 lua = LuaRuntime()
-config = ConfigParser()
+###           ###
 
 ###### INTERNAL SETTINGS ######
 sysdir = "files"  # SysDir. This Directory contains Chn.Preloader and Datadir.
@@ -36,7 +51,6 @@ osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 Diagnostics = True  # More Important version of Debug Mode in Settings
 branch = 'master' # GitHub Main Branch.
-process = MemoryThing(os.getpid())
 
 
 def setOption(optionName, option):
@@ -197,9 +211,9 @@ while not shit:
         confirm = input().lower()
         if confirm == "y":
             subprocess.run("git pull origin master --quiet")
-            if platform.system() == "Windows":
+            if cliOS() == "Windows":
                 subprocess.run("py Main.py")
-            elif platform.system() == "Darwin":
+            elif cliOS() == "Darwin":
                 subprocess.run("python3 Main.py")
         elif confirm == "n":
             if get_option('security') is True:
@@ -218,7 +232,7 @@ while not shit:
             except:
                 pass
     elif msg.startswith("do"):
-        if platform.system() == "Darwin" or platform.system() == "Linux" and doneIntro == False:
+        if cliOS() == "Darwin" or cliOS() == "Linux" and doneIntro == False:
             if get_option('colors') is True:
                 print(Fore.YELLOW + "WARNING: " + Fore.WHITE + "you're on mac or linux so be sure to type sudo")
             else:
@@ -268,10 +282,12 @@ while not shit:
     elif msg.endswith("()"):
         str(msg)
     elif msg == "memory":
+        from psutil import Process
+        curMemory = Process(os.getpid())
         if get_option("colors"):
-            print(Fore.LIGHTBLUE_EX + str(process.memory_info().rss / 50) + "B")
+            print(Fore.LIGHTBLUE_EX + "Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
         else:
-            print(str(process.memory_info().rss / 50) + "B")
+            print("Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
     elif msg.startswith("change"):
         if msg.split(" ")[1] == "--help":
             print(
@@ -326,7 +342,7 @@ while not shit:
         for i in range(3):
             os.chdir("..")
     elif msg == "os":
-        print(platform.system().replace("Darwin", "Mac"))
+        print(cliOS().replace("Darwin", "Mac"))
     elif msg.startswith("run-luafile") and msg.endswith(".lua"):
         if Diagnostics is True:
             if random.randint(1, 50) == 1 and get_option("eastereggs"):
