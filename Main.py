@@ -53,10 +53,68 @@ Diagnostics = True  # More Important version of Debug Mode in Settings
 branch = 'master' # GitHub Main Branch.
 
 
+class errors(): # NOTE: Gus will assume that Github CLI is installed on the computer
+    def error(errno):
+        os.system('cls' if os.name == 'nt' else 'clear')
+        
+        print(Back.BLUE + f"""
+
+
+
+
+
+
+
+
+
+
+
+                                    Little Chungus OS
+                                      Arezalgamer89
+                                        [ ERROR ]
+                                    Error: {errno}  
+
+
+
+
+
+
+
+
+        """)
+        print(Back.BLACK + Fore.WHITE)
+        input()
+        sys.exit(0)
+    def explain(errno):
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f"""
+
+                                    Little Chungus OS
+                                      Arezalgamer89
+                                         {errno}                   
+                        [ Please explain what happened in a single line ]
+        """)
+        feed = input()
 
 def loading():
+    j = 0
+    os.system('cls' if os.name == 'nt' else 'clear')
+    if sys.version_info[0] < 3 or sys.version_info[1] < 10:
+        print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                                    [ ERROR ]
+                               [ NOT_3.10_AND_L8ER ]
+        """)
+    os.system('cls' if os.name == 'nt' else 'clear')
     for i in range(random.randint(0, 100)):
         #os.system('cls' if os.name == 'nt' else 'clear')
+        j = j + 1
+        if j > 35:
+            errors.error(str('BOOT SEQUENCE TIMED OUT'))
+            #loadingTooLong()
+
         print("""
 
                                 Little Chungus OS
@@ -98,6 +156,65 @@ def loading():
                                   Arezalgamer89
                                   [    Done   ]
     """)
+    input()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    pass
+def loadingTooLong():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                            [ This is taking too long... ]
+
+        """)
+    os.system('cls' if os.name == 'nt' else 'clear')
+    time.sleep(random.randint(0, 10))
+    for i in range(40):
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                                 [ Please Wait ]
+
+        """)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        time.sleep(0.3)
+        print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                                 [ Please Wait. ]
+
+        """)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        time.sleep(0.3)
+        print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                                 [ Please Wait.. ]
+
+        """)
+        time.sleep(0.3)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                                 [ Please Wait... ]
+
+        """)
+        os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                                [ Done (TIMED_OUT) ]
+
+        """)
     input()
     os.system('cls' if os.name == 'nt' else 'clear')
     pass
@@ -223,6 +340,8 @@ while not shit:
         # shit = True
         # Uncommenting this would terminate the entire system!
         fallBackToTERMINAL = True
+    elif msg.startswith('raise'):
+        errors.error(msg[6:])
     elif msg.startswith("."):
         os.chdir("files/programs")
         if os.name == 'nt':
@@ -346,7 +465,10 @@ while not shit:
                 newoption = True
             if get_option(msg.split(" ")[1].lower()) is not None:
                 setOption(msg.split(" ")[1].lower(), newoption)
-                print("Changed option.")
+                try:
+                    print("Changed option [ " + msg.split(" ")[1].lower() + " ] --> " + newoption)
+                except:
+                    print("Changed Option.")
             else:
                 print("That is not a valid option.")
     elif msg.startswith('~'):
