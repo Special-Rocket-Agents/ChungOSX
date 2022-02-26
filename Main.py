@@ -108,7 +108,7 @@ def loading():
                                [ NOT_3.10_AND_L8ER ]
         """)
     os.system('cls' if os.name == 'nt' else 'clear')
-    for i in range(random.randint(0, 100)):
+    for i in range(random.randint(0, 20)):
         #os.system('cls' if os.name == 'nt' else 'clear')
         j = j + 1
         if j > 35:
@@ -331,6 +331,8 @@ while not shit:
     except PermissionError:
         msg = input(osName.lower() + "$")
     if msg == "time":
+        import datetime
+        from datetime import *
         print(datetime.datetime.now())
     elif msg == "r":
         reset()
