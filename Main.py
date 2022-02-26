@@ -57,7 +57,7 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
     def error(errno):
         os.system('cls' if os.name == 'nt' else 'clear')
         
-        print(Back.BLUE + f"""
+        print(Fore.WHITE + f"""
 
 
 
@@ -69,15 +69,15 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
 
 
 
-                                    Little Chungus OS
-                                      Arezalgamer89
-                                        [ ERROR ]
-                                    Error: {errno}  
+                                                    Little Chungus OS
+                                                      Arezalgamer89
+                                                        [ ERROR ]
+                                                       | {errno} |  
 
-
-
-
-
+                        Please get in contact if this keeps happening: https://discord.gg/FSnjpckRRz
+                                                                       mailto:aradzpfa@gmail.com
+                                                                       https://twitter.com/@minilol69
+                                                                       https://github.com/ArezalGame89/ChungOS/issues/new?assignees=&labels=&template=bug_report.md&title=BSOD
 
 
 
@@ -108,7 +108,7 @@ def loading():
                                [ NOT_3.10_AND_L8ER ]
         """)
     os.system('cls' if os.name == 'nt' else 'clear')
-    for i in range(random.randint(0, 20)):
+    for i in range(random.randint(0, 9)):
         #os.system('cls' if os.name == 'nt' else 'clear')
         j = j + 1
         if j > 35:
