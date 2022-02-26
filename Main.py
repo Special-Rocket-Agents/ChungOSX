@@ -288,8 +288,8 @@ while not shit:
                 print("Changed option.")
             else:
                 print("That is not a valid option.")
-    elif msg.startswith('lua').lowercase:
-        
+    elif msg.startswith('~'):
+        lua.eval(msg[1:])
 
     elif msg == "exit":
         if Diagnostics is True and random.randint(1, 1000) == 1:
