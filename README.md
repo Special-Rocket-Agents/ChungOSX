@@ -32,7 +32,7 @@ If you need support or help with something or found an issue, create an issue in
 
 # Installation
 
-1. Make sure you have [Python 3.9](https://www.python.org/downloads/) or greater installed.
+1. Make sure you have [Python 3.10](https://www.python.org/downloads/) or greater installed.
 
 2. CD Into the ChungOS Folder
 
@@ -67,5 +67,5 @@ Since ChungOS runs on [Lupa Runtime](https://pypi.org/project/lupa/). You're fre
 
 # Credits
 
-- [Mini](https://twitter.com/@minilol69) - Owner | Programmer | Artist
-- [Arezalgamer89](mailto:aradzpfa@gmail.com). - Co-owner | Programmer
+- [Mini](https://twitter.com/@minilol69) - Former Owner | Former ChungOS Programmer | Artist
+- [Arezalgamer89](mailto:aradzpfa@gmail.com). - Owner | Programmer

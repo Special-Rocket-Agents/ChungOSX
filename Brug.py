@@ -1,4 +1,4 @@
-"""import os
+import os
 import time
 import random
 NUG Brug. The Stew-Pid Bootloader for Lil ChungOS!
@@ -39,4 +39,4 @@ class Brug:
         time.sleep(10)
         stda()
 
-    begin()"""
+    begin(.)
