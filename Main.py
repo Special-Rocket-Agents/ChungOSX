@@ -343,6 +343,22 @@ while not shit:
                 print(f"Unluafortunately, bad stuff happened and we can't show it :p")
         for i in range(3):
             os.chdir("..")
+
+    elif msg.startswith('switch'):
+        if msg[7:] == '--help':
+            print("""
+            [ og ] - Original version. Maintained by Arezalgamer89
+            [ rw ] - PythonOS, Starting out as an simple rewrite (WARNING: P-OS may not provide switching)
+            NOTE: Requires Git and Stable Internet Connection
+            """)
+        else:
+            if msg[7:] == 'og':
+                # To do: erase the whole directory and git clone
+                subprocess.run('git pull origin master')
+                sys.exit(0)
+            elif msg[7:] == 'rw':
+                # doing this later cuz too hard
+                pass
     elif msg.startswith("mkdir"):
         try:
             subprocess.run(
