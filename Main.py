@@ -12,6 +12,7 @@ import time
 ###################
 
 #############################
+from psutil import Process
 from datetime import datetime # Clock 
 from colorama import Fore, Back, Style # Color
 #############################
@@ -32,7 +33,6 @@ curMemory = Process(os.getpid())
 ####                        ####
 
 ##### SYSTEM STUFF #####
-from psutil import Process
 from platform import system as cliOS # Standing for ClientOS
 from pathlib import Path # Path
 from webbrowser import open_new_tab # Your Browser
@@ -51,6 +51,70 @@ osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 Diagnostics = True  # More Important version of Debug Mode in Settings
 branch = 'master' # GitHub Main Branch.
+
+
+
+def loading():
+    for i in range(random.randint(0, 100)):
+        #os.system('cls' if os.name == 'nt' else 'clear')
+        print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                                       [ | ]
+
+        """)
+        time.sleep(0.4)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                                       [ / ]
+
+        """)
+        time.sleep(0.4)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                                       [ - ]
+
+        """)
+        time.sleep(0.4)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                                       [ \ ]
+
+        """)
+        time.sleep(0.4)
+        os.system('cls' if os.name == 'nt' else 'clear')
+    print("""
+                                Little Chungus OS
+                                  Arezalgamer89
+                                  [    Done   ]
+    """)
+    input()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    pass
+loading()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def setOption(optionName, option):
@@ -167,7 +231,7 @@ while not shit:
             os.system('python3 ' + msg[1:] + '.py')
         for i in range(2):
             os.chdir("..")
-    elif msg == "browser":
+    elif msg == "browser" or msg == 'chungle':
         class MainWindow(QMainWindow):
             def __init__(self):
                 super(MainWindow, self).__init__()
@@ -207,30 +271,11 @@ while not shit:
         window = MainWindow()
         app.exec_()
     elif msg == "update":
-        print("This requires Git, do you have it installed? (y/n)")
-        confirm = input().lower()
-        if confirm == "y":
-            subprocess.run("git pull origin master --quiet")
-            if cliOS() == "Windows":
-                subprocess.run("py Main.py")
-            elif cliOS() == "Darwin":
-                subprocess.run("python3 Main.py")
-        elif confirm == "n":
-            if get_option('security') is True:
-                print("You cannot run this command without having git installed")
-                if bool(Diagnostics) is True:
-                    print("ChungSec prevented the FK to open links.\nThis is due to security options")
-            else:
-                i = input("Do you want to download it now? (y/n) ").lowercase
-                if i == 'y':
-                    webbrowser.open_new_tab('https://git-scm.com/downloads')
-                else:
-                    pass
-        else:
-            try:
-                break
-            except:
-                pass
+        subprocess.run("git pull origin master --quiet")
+        if cliOS() == "Windows":
+            subprocess.run("py Main.py")
+        elif cliOS() == "Darwin":
+            subprocess.run("python3 Main.py")
     elif msg.startswith("do"):
         if cliOS() == "Darwin" or cliOS() == "Linux" and doneIntro == False:
             if get_option('colors') is True:
@@ -343,7 +388,7 @@ while not shit:
             os.chdir("..")
     elif msg == "os":
         print(cliOS().replace("Darwin", "Mac"))
-    elif msg.startswith("run-luafile") and msg.endswith(".lua"):
+    elif msg.startswith("run-luafile") and msg.endswith(".lua"): 
         if Diagnostics is True:
             if random.randint(1, 50) == 1 and get_option("eastereggs"):
                 logging.debug("Ran the " + msg + " with our Trusty Lua Runtime!")
@@ -363,6 +408,7 @@ while not shit:
     elif msg.startswith('switch'):
         if msg[7:] == '--help':
             print("""
+            Switch Versions of ChungOS!
             [ og ] - Original version. Maintained by Arezalgamer89
             [ rw ] - PythonOS, Starting out as an simple rewrite (WARNING: P-OS may not provide switching)
             NOTE: Requires Git and Stable Internet Connection
