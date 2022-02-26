@@ -32,7 +32,7 @@ If you need support or help with something or found an issue, create an issue in
 
 # Installation
 
-1. Make sure you have [Python 3.9](https://www.python.org/downloads/) or greater installed.
+1. Make sure you have [Python 3.10](https://www.python.org/downloads/) or greater installed.
 
 2. CD Into the ChungOS Folder
 
