@@ -39,4 +39,4 @@ class Brug:
         time.sleep(10)
         stda()
 
-    begin()"""
+    begin(.)"""
