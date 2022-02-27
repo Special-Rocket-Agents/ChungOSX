@@ -1,5 +1,7 @@
 #####################
 # Built-In Modules
+from calendar import c
+from errno import errorcode
 import logging
 import os
 import random
@@ -53,48 +55,42 @@ Diagnostics = True  # More Important version of Debug Mode in Settings
 branch = 'master' # GitHub Main Branch.
 
 
+errorcodes = [
+        "FILE404", # 0
+        "DIR404", # 1
+        "TIMED_OUT", # 2
+        "SYNTAX_400", # 3
+        "401ACTION_!AUTH", # 4
+        "FEATURE_402", # 5
+        "FUNCTION_403", # 6
+        "CODINGSTYLE_405", # 7
+        "UNACCEPTABLE", # 8
+        "408", # 9
+        "SMTH_WRONG_409", # 10
+        "R/WHOOSH_410", # 11
+        "GIANTLY_FAILURE_413", # 12
+        "YOUR_DADS_EXPECTAIONS_ARE_TOO_HIGH_417", # 13
+        "IDFK_500", # 14
+        "STILL_NOT_THAT_ONE_501", # 15
+        "NOPE_NOT_RN_503", # 16
+        "WTF_IS_THAT_HTML?_505", # 17
+        "DO_NOT_BASTARDIZE_CONSENT_511", # 18
+        "OH_WAIT_NOTHING'S_WRONG_100" # 19
+    ]
 class errors(): # NOTE: Gus will assume that Github CLI is installed on the computer
-    def error(errno):
+    def error(code):
+        i = errorcodes[code:int]
         os.system('cls' if os.name == 'nt' else 'clear')
-        
-        print(Fore.WHITE + f"""
-
-
-
-
-
-
-
-
-
-
-
-                                                    Little Chungus OS
-                                                      Arezalgamer89
-                                                        [ ERROR ]
-                                                       | {errno} |  
-
-                        Please get in contact if this keeps happening: https://discord.gg/FSnjpckRRz
-                                                                       mailto:aradzpfa@gmail.com
-                                                                       https://twitter.com/@minilol69
-                                                                       https://github.com/ArezalGame89/ChungOS/issues/new?assignees=&labels=&template=bug_report.md&title=BSOD
-
-
-
-        """)
-        print(Back.BLACK + Fore.WHITE)
+        time.sleep(0.2)
+        time.sleep(0.2)
+        print("the carrot fat fucking bitch has gained down weight, too much tho.")
+        time.sleep(0.1)
+        print("if you not arezal nor mini get the fuck outta here and explain at https://github.com/ArezalGame89/ChungOS/issues/new/choose")
+        time.sleep(0.2)
+        print("if you are, fix the fucking error [ " + i + " ]")
+        time.sleep(2)
         input()
-        sys.exit(0)
-    def explain(errno):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print(f"""
-
-                                    Little Chungus OS
-                                      Arezalgamer89
-                                         {errno}                   
-                        [ Please explain what happened in a single line ]
-        """)
-        feed = input()
+        exit()
 
 def loading():
     j = 0
@@ -108,8 +104,8 @@ def loading():
                                [ NOT_3.10_AND_L8ER ]
         """)
     os.system('cls' if os.name == 'nt' else 'clear')
-    for i in range(random.randint(0, 9)):
-        #os.system('cls' if os.name == 'nt' else 'clear')
+    for i in range(random.randint(0, 8)):
+        os.system('cls' if os.name == 'nt' else 'clear')
         j = j + 1
         if j > 35:
             errors.error(str('BOOT SEQUENCE TIMED OUT'))
@@ -343,7 +339,7 @@ while not shit:
         # Uncommenting this would terminate the entire system!
         fallBackToTERMINAL = True
     elif msg.startswith('raise'):
-        errors.error(msg[6:])
+        errors.error(int(msg[6:]))
     elif msg.startswith("."):
         os.chdir("files/programs")
         if os.name == 'nt':
@@ -496,7 +492,15 @@ while not shit:
                 + Fore.WHITE
                 + " User! <3"
             )
-        exit()
+        if get_option('acpi'):
+            exit()
+        else:
+            time.sleep(random.randint(1, 10))
+            while True:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("It is now safe to exit Big Chungus")
+                input()
+            
     elif msg.startswith("chung --"):
         if msg[8:] == "discord":
             webbrowser.open_new_tab("https://discord.gg/mz3HmzP5ac")
@@ -556,7 +560,15 @@ while not shit:
         # This basically means '' - Arezalgamer89
         pass
     elif msg[0:3] in ("exit", "quit"):
-        exit()
+        if get_option('acpi'):
+            exit()
+        else:
+            time.sleep(random.randint(1, 10))
+            while True:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("It is now safe to exit Big Chungus")
+                input()
+            
     else:
         print(Fore.WHITE + "'" + msg + "' Command or LuaRT File could not be found")
 

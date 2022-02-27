@@ -1,5 +1,5 @@
 {
     "colors": false,
-    "security": true
-
+    "security": true,
+    "acpi": true
 }
