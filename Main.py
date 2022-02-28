@@ -111,6 +111,24 @@ def loading():
             errors.error(str('BOOT SEQUENCE TIMED OUT'))
             #loadingTooLong()
 
+################## DOING THE JSON STUFF
+        if get_option("debug"):
+            Diagnostics = True
+        else:
+            Diagnostics = False
+
+        if get_option("security"):
+            su = False
+        else:
+            su = True
+
+
+
+
+
+
+
+###################################################################################
         print("""
 
                                 Little Chungus OS
