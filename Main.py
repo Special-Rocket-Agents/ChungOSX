@@ -498,8 +498,12 @@ while not shit:
             time.sleep(random.randint(1, 10))
             while True:
                 os.system('cls' if os.name == 'nt' else 'clear')
-                print("It is now safe to exit Big Chungus")
-                input()
+                print("""
+                                Little Chungus OS
+                                  Arezalgamer89
+                    [    It is now safe to exit the terminal   ]
+                """)
+                time.sleep(99999)
             
     elif msg.startswith("chung --"):
         if msg[8:] == "discord":
@@ -559,15 +563,6 @@ while not shit:
     elif bool(msg) is False:  # i love overcomplicating things.
         # This basically means '' - Arezalgamer89
         pass
-    elif msg[0:3] in ("exit", "quit"):
-        if get_option('acpi'):
-            exit()
-        else:
-            time.sleep(random.randint(1, 10))
-            while True:
-                os.system('cls' if os.name == 'nt' else 'clear')
-                print("It is now safe to exit Big Chungus")
-                input()
             
     else:
         print(Fore.WHITE + "'" + msg + "' Command or LuaRT File could not be found")
