@@ -218,7 +218,7 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
             while True:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print("Something went wrong.")
-                print("MSG: " + msg)
+                print("MSG: " + msg if not msg == "raise SMTH_WRONG" else "MSG: None")
                 print("ERROR CODE: " + code)
                 print("OS Name " + osName)
                 print("Fallen back to Terminal" if fallBackToTERMINAL is True else "Not fallen to Terminal.")
