@@ -53,7 +53,7 @@ If you need support or help with something or found an issue, create an issue in
 
 ### Chungle
 
-Predecessor to [Revrit](https://github.com/Iemane291/pythonOS/blob/main/main.py#L193).
+Predecessor to [pyBrowse](https://github.com/Iemane291/pythonOS/blob/main/program-files/pyBrowse/pybrowse.py).
 
 Runs discord and FNF very *smooooooooooooooooooooooooooooooooooooooooooooooooooooooooothly*
 
