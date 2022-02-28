@@ -3,6 +3,7 @@
 from calendar import c
 from errno import errorcode
 import logging
+from operator import sub
 import os
 import random
 import subprocess
@@ -51,7 +52,6 @@ sysdir = "files"  # SysDir. This Directory contains Chn.Preloader and Datadir.
 datadir = sysdir + "/data"  # Datadir, The OS will not operate without this directory
 osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
-Diagnostics = True  # More Important version of Debug Mode in Settings
 branch = 'master' # GitHub Main Branch.
 
 
@@ -77,18 +77,155 @@ errorcodes = [
         "DO_NOT_BASTARDIZE_CONSENT_511", # 18
         "OH_WAIT_NOTHING'S_WRONG_100" # 19
     ]
+
+
+
+
+
+
+
+
+
+
+def setOption(optionName, option):
+    try:
+        weirdPath = datadir
+    except:
+        weirdPath = Path("files/data")
+    with open(weirdPath / "config.json", "r") as f:
+        data = json.load(f)
+        data[optionName] = option
+    with open(weirdPath / "settings.json", "w") as f:
+        json.dump(data, f, indent=4)
+        
+
+
+
+def Update():
+    updateVar = False
+    
+    os.system('git pull origin ' + branch + ' --quiet')
+
+    while updateVar is not True:
+        os.system('clear')
+    updateVar = True
+
+def clear():
+    cls = "cls" if os.name == "nt" else "clear"
+    subprocess.run(cls)
+
+def reset():
+    shit = True
+    shit = False
+    return None
+
+
+def get_split(obj, symbol, idx, returnBool: bool):
+    if returnBool:
+        return bool(obj.split(symbol)[idx].title())
+    else:
+        return obj.split(symbol)[idx]
+
+
+def versionCheck():
+    if sys.version_info[0] > 3 or sys.version_info[1] < 8:
+        print(
+            "NOTE: You are running on Python "
+            + str(sys.version_info[0])
+            + "."
+            + str(sys.version_info[1])
+        )
+        print("Some features might not be working correctly.")
+        pass
+    elif sys.version_info[3] != "final":
+        print(
+            "WARNING: Your Python "
+            + str(sys.version_info[0])
+            + "."
+            + str(sys.version_info[1])
+            + " is not on the FINAL level and you might encounter Unfixable bugs..."
+        )
+    elif sys.version_info[0] < 3 or sys.version_info[1] < 7:
+        raise SystemError(
+            "ERROR: ChungOS requires Python 3.8 or higher! You can't run this on "
+            + str(sys.version_info[0])
+            + "."
+            + str(sys.version_info[1])
+            + " you idot!"
+        )
+
+
+def get_option(obj):
+    os.chdir("files/data/")
+    with open("config.json", "r") as f:
+        fileData = json.load(f)
+        for i in range(2):
+            os.chdir("..")
+        if fileData["colors"]:
+            colors = True
+            colorama.init(autoreset=True)
+        else:
+            colors = False
+            colorama.init(
+                autoreset=True, strip=True, convert=False
+            )  # even if un-coloring proccess fails. colorama's not gonna touch a single color!
+        return fileData.get(obj)  # returns none if cant find
+
+
 class errors(): # NOTE: Gus will assume that Github CLI is installed on the computer
     def error(code):
-        i = errorcodes[code:int]
+        
         os.system('cls' if os.name == 'nt' else 'clear')
         time.sleep(0.2)
         time.sleep(0.2)
-        print("the carrot fat fucking bitch has gained down weight, too much tho.")
-        time.sleep(0.1)
-        print("if you not arezal nor mini get the fuck outta here and explain at https://github.com/ArezalGame89/ChungOS/issues/new/choose")
-        time.sleep(0.2)
-        print("if you are, fix the fucking error [ " + i + " ]")
-        time.sleep(2)
+        if code == "TIMED_OUT":
+            print("Timed Out!")
+            print("Common reasons:")
+            print("""
+            LOCAL:
+             - Loading was for was out of 35 range.
+             - A File or Directory caused an overflow
+             - Your HDD/SDD may be slow
+             - Your memory doesn't have enough space to store variables
+            
+            INTERNET:
+             - Urllib has failed to do just the one job he had.
+             - Your Internet connection is unstable or limited.
+             - You have a Proxy/VPN on.
+             - Unknown.
+             - Python Intrepeter must have made a mistake...
+            """)
+        elif code == "!AUTH":
+            print("Something went wrong, Are you authorized?")
+            print("unauthorized")
+        elif code == "UNACCEPTABLE":
+            print("Code is unacceptable, Please remove any code you added if you did, or contact the devs if you didn't")
+            print("Please press enter to quit")
+        elif code == "FILE404":
+            print("Critical file not found. Please put them back if you removed them")
+        elif code == "SYNTAX400":
+            print("Critical Syntax Error!")
+            print("ENTER to EXIT")
+        elif code == "UNADDED":
+            print("Function or Feature " + msg + "are NOT added yet!")
+        elif code == "SMTH_WRONG":
+            while True:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Something went wrong.")
+                print("MSG: " + msg)
+                print("ERROR CODE: " + code)
+                print("OS Name " + osName)
+                print("Fall Back To TERMINAL? " + fallBackToTERMINAL)
+                os.system('cls' if os.name == 'nt' else 'clear')
+            
+        else:
+            print("the carrot fat fucking bitch has gained down weight, too much tho.")
+            time.sleep(0.1)
+            print("if you not arezal nor mini get the fuck outta here and explain at https://github.com/ArezalGame89/ChungOS/issues/new/choose")
+            time.sleep(0.2)
+            print("if you are, fix the fucking error [" + code + "]")
+            time.sleep(2)
+
         input()
         exit()
 
@@ -108,20 +245,10 @@ def loading():
         os.system('cls' if os.name == 'nt' else 'clear')
         j = j + 1
         if j > 35:
-            errors.error(str('BOOT SEQUENCE TIMED OUT'))
+            errors.error(str('TIMED_OUT'))
             #loadingTooLong()
 
 ################## DOING THE JSON STUFF
-        if get_option("debug"):
-            Diagnostics = True
-        else:
-            Diagnostics = False
-
-        if get_option("security"):
-            su = False
-        else:
-            su = True
-
 
 
 
@@ -236,112 +363,34 @@ loading()
 
 
 
+if get_option("debug"):
+    Diagnostics = True
+else:
+    Diagnostics = False
+if get_option("security"):
+    su = False
+else:
+    su = True
 
 
 
 
 
-
-
-
-
-
-
-
-def setOption(optionName, option):
-    try:
-        weirdPath = datadir
-    except:
-        weirdPath = Path("files/data")
-    with open(weirdPath / "config.json", "r") as f:
-        data = json.load(f)
-        data[optionName] = option
-    with open(weirdPath / "settings.json", "w") as f:
-        json.dump(data, f, indent=4)
-        
-
-
-
-def Update():
-    updateVar = False
-    
-    os.system('git pull origin ' + branch + ' --quiet')
-
-    while updateVar is not True:
-        os.system('clear')
-    updateVar = True
-
-def clear():
-    cls = "cls" if os.name == "nt" else "clear"
-    subprocess.run(cls)
-
-def reset():
-    shit = True
-    shit = False
-    return None
-
-
-def get_split(obj, symbol, idx, returnBool: bool):
-    if returnBool:
-        return bool(obj.split(symbol)[idx].title())
-    else:
-        return obj.split(symbol)[idx]
-
-
-def versionCheck():
-    if sys.version_info[0] > 3 or sys.version_info[1] < 8:
-        print(
-            "NOTE: You are running on Python "
-            + str(sys.version_info[0])
-            + "."
-            + str(sys.version_info[1])
-        )
-        print("Some features might not be working correctly.")
-        pass
-    elif sys.version_info[3] != "final":
-        print(
-            "WARNING: Your Python "
-            + str(sys.version_info[0])
-            + "."
-            + str(sys.version_info[1])
-            + " is not on the FINAL level and you might encounter Unfixable bugs..."
-        )
-    elif sys.version_info[0] < 3 or sys.version_info[1] < 7:
-        raise SystemError(
-            "ERROR: ChungOS requires Python 3.8 or higher! You can't run this on "
-            + str(sys.version_info[0])
-            + "."
-            + str(sys.version_info[1])
-            + " you idot!"
-        )
-
-
-def get_option(obj):
-    os.chdir("files/data/")
-    with open("config.json", "r") as f:
-        fileData = json.load(f)
-        for i in range(2):
-            os.chdir("..")
-        if fileData["colors"]:
-            colors = True
-            colorama.init(autoreset=True)
-        else:
-            colors = False
-            colorama.init(
-                autoreset=True, strip=True, convert=False
-            )  # even if un-coloring proccess fails. colorama's not gonna touch a single color!
-        return fileData.get(obj)  # returns none if cant find
 
 
 while not shit:
     versionCheck()
+    user = os.getlogin()
     try:
         if get_option("colors"):
             msg = input(
                 Fore.YELLOW + os.getcwd() + Fore.RED + ">>>" + Fore.WHITE + " "
             ).lower()
         else:
-            msg = input(Fore.WHITE + os.getcwd() + ">>> ").lower()
+            if bool(Diagnostics) is False:
+                msg = input(Fore.WHITE + user + "@" + osName + " >>> ")
+            else:
+                msg = input(Fore.WHITE + os.getcwd() + ">>> ")
     except PermissionError:
         msg = input(osName.lower() + "$")
     if msg == "time":
@@ -357,7 +406,7 @@ while not shit:
         # Uncommenting this would terminate the entire system!
         fallBackToTERMINAL = True
     elif msg.startswith('raise'):
-        errors.error(int(msg[6:]))
+        errors.error(msg[6:].upper)
     elif msg.startswith("."):
         os.chdir("files/programs")
         if os.name == 'nt':
@@ -490,6 +539,25 @@ while not shit:
     elif msg.startswith('~'):
         lua.eval(msg[1:])
 
+    elif msg == "halt": # There's a few ways we can do this, so let's make it random!
+        if cliOS() == "Darwin" or cliOS() == "Mac" or cliOS() == "Linux":
+            os.system("halt")
+            exit()
+        choice = random.randint(1, 3)
+
+        if choice == 1:
+            if Diagnostics:
+                print("Chose 1")
+            shit = False
+        elif choice == 2:
+            if Diagnostics:
+                print("Chose 2")
+            while True:
+                os.system("cls" if os.name == "nt" else "clear")
+        elif choice == 3: # just... exit?
+            if Diagnostics:
+                print("Chose 3")
+            exit()
     elif msg == "exit":
         if Diagnostics is True and random.randint(1, 1000) == 1:
             print(
