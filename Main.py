@@ -183,6 +183,7 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
         os.system('cls' if os.name == 'nt' else 'clear')
         time.sleep(0.2)
         time.sleep(0.2)
+        os.system('cls' if os.name == 'nt' else 'clear')
         if code == "TIMED_OUT":
             print("Timed Out!")
             print("Common reasons:")
@@ -212,7 +213,7 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
             print("Critical Syntax Error!")
             print("ENTER to EXIT")
         elif code == "UNADDED":
-            print("Function or Feature " + msg + "are NOT added yet!")
+            print("Function or Feature " + msg +  "are NOT added yet!")
         elif code == "SMTH_WRONG":
             while True:
                 os.system('cls' if os.name == 'nt' else 'clear')
@@ -220,15 +221,17 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 print("MSG: " + msg)
                 print("ERROR CODE: " + code)
                 print("OS Name " + osName)
-                print("Fall Back To TERMINAL? " + fallBackToTERMINAL)
-                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Fallen back to Terminal" if fallBackToTERMINAL is True else "Not fallen to Terminal.")
+                input()
+        
             
         else:
             print("the carrot fat fucking bitch has gained down weight, too much tho.")
             time.sleep(0.1)
             print("if you not arezal nor mini get the fuck outta here and explain at https://github.com/ArezalGame89/ChungOS/issues/new/choose")
             time.sleep(0.2)
-            print("if you are, fix the fucking error [" + code + "]")
+            i = code # can't fix this
+            print("if you are, fix the fucking error [" + i + "]")
             time.sleep(2)
 
         input()
@@ -294,7 +297,6 @@ def loading():
                                   Arezalgamer89
                                   [    Done   ]
     """)
-    input()
     os.system('cls' if os.name == 'nt' else 'clear')
     pass
 def loadingTooLong():
@@ -382,7 +384,7 @@ while not shit:
         if get_option("colors"):
             msg = input(
                 Fore.YELLOW + os.getcwd() + Fore.RED + ">>>" + Fore.WHITE + " "
-            ).lower()
+            )
         else:
             if bool(Diagnostics) is False:
                 msg = input(Fore.WHITE + user + "@" + osName + " >>> ")
@@ -403,7 +405,7 @@ while not shit:
         # Uncommenting this would terminate the entire system!
         fallBackToTERMINAL = True
     elif msg.startswith('raise'):
-        errors.error(msg[6:].upper)
+        errors.error(msg[6:])
     elif msg.startswith("."):
         os.chdir("files/programs")
         if os.name == 'nt':
