@@ -88,14 +88,14 @@ errorcodes = [
 
 
 def setOption(optionName, option):
-    try:
-        weirdPath = datadir
-    except:
-        weirdPath = Path("files/data")
-    with open(weirdPath / "config.json", "r") as f:
+
+    weirdPath = "files/data"
+
+
+    with open(weirdPath + "/config.json", "r") as f:
         data = json.load(f)
         data[optionName] = option
-    with open(weirdPath / "settings.json", "w") as f:
+    with open(weirdPath + "/config.json", "w") as f:
         json.dump(data, f, indent=4)
         
 
@@ -173,6 +173,11 @@ def get_option(obj):
 
 
 class errors(): # NOTE: Gus will assume that Github CLI is installed on the computer
+    """
+    # ERRORS CLASS
+
+    This Class contains all the G/BS's of Death
+    """
     def error(code):
         
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -248,14 +253,6 @@ def loading():
             errors.error(str('TIMED_OUT'))
             #loadingTooLong()
 
-################## DOING THE JSON STUFF
-
-
-
-
-
-
-###################################################################################
         print("""
 
                                 Little Chungus OS
@@ -520,7 +517,7 @@ while not shit:
     elif msg.startswith("change"):
         if msg.split(" ")[1] == "--help":
             print(
-                "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind."
+                "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind.\n"
             )
         else:
             newoption = None
@@ -608,7 +605,7 @@ while not shit:
         print(cliOS().replace("Darwin", "Mac"))
     elif msg.startswith("run-luafile") and msg.endswith(".lua"): 
         if Diagnostics is True:
-            if random.randint(1, 50) == 1 and get_option("eastereggs"):
+            if random.randint(1, 50) == 1 and get_option("easter"):
                 logging.debug("Ran the " + msg + " with our Trusty Lua Runtime!")
             else:
                 logging.debug("Ran:", msg)
