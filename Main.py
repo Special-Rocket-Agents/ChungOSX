@@ -223,7 +223,7 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 print("OS Name " + osName)
                 print("Fallen back to Terminal" if fallBackToTERMINAL is True else "Not fallen to Terminal.")
                 input()
-        
+         
             
         else:
             print("the carrot fat fucking bitch has gained down weight, too much tho.")
@@ -263,7 +263,7 @@ def loading():
                                        [ | ]
 
         """)
-        time.sleep(0.4)
+        time.sleep(0.3)
         os.system('cls' if os.name == 'nt' else 'clear')
         print("""
 
@@ -272,7 +272,7 @@ def loading():
                                        [ / ]
 
         """)
-        time.sleep(0.4)
+        time.sleep(0.3)
         os.system('cls' if os.name == 'nt' else 'clear')
         print("""
 
@@ -281,7 +281,7 @@ def loading():
                                        [ - ]
 
         """)
-        time.sleep(0.4)
+        time.sleep(0.3)
         os.system('cls' if os.name == 'nt' else 'clear')
         print("""
 
@@ -290,7 +290,7 @@ def loading():
                                        [ \ ]
 
         """)
-        time.sleep(0.4)
+        time.sleep(0.3)
         os.system('cls' if os.name == 'nt' else 'clear')
     print("""
                                 Little Chungus OS
@@ -360,8 +360,27 @@ def loadingTooLong():
     pass
 loading()
 
+def wait(a):
+        time.sleep(a)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                                 [ Please Wait... ]
+
+        """)
 
 
+from urllib import request
+from urllib import response
+def getRSS():
+    import urllib
+    target = "https://gist.githubusercontent.com/ArezalGame89/0b2bc3b02535e23cc02601470ec1e504/raw/4d41c9a50b74f513bb9d5edcbf00ed1f7a4df03b/rss.txt"
+    response = urllib.request.urlopen(target)
+    data = 
+    print(response)
+        
 if get_option("debug"):
     Diagnostics = True
 else:
@@ -398,14 +417,27 @@ while not shit:
         print(datetime.datetime.now())
     elif msg == "r":
         reset()
+        os.system('cls' if os.name == 'nt' else 'clear')
+        wait(random.randint(0.1, 1))
     elif msg == "fall":
-        print("FALLING BACK TO TERMINAL!")
-        time.sleep(random.randrange(1, 20))
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("""
+
+                                Little Chungus OS
+                                  Arezalgamer89
+                            [ Fallin' down terminal... ]
+
+        """)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        
         # shit = True
         # Uncommenting this would terminate the entire system!
         fallBackToTERMINAL = True
     elif msg.startswith('raise'):
         errors.error(msg[6:])
+    
+    elif msg == "rss":
+        getRSS()
     elif msg.startswith("."):
         os.chdir("files/programs")
         if os.name == 'nt':
