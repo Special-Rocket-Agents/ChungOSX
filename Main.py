@@ -224,6 +224,16 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                     print("OS Name " + osName)
                     print("Fallen back to Terminal" if fallBackToTERMINAL is True else "Not fallen to Terminal.")
                     input()
+            case "!NET":
+                os.system("cls" if os.name == 'nt' else 'clear')
+                print(Fore.YELLOW + "WARNING:" + Fore.WHITE)
+                print(f"{osName} has made it's attempts and could not connect to the internet.")
+                print("Do not worry about this error screen, as it is to inform you that")
+                print("you might not be able to perform any online actions and LIKELY CAN get this error repeatedly")
+                print("NUG FKM cannot procced any further and needs to be restarted.")
+                print("ENTER TO REBOOT" if os.name == 'nt' else "[RETURN] TO REBOOT")
+                input()
+                os.system("py Main.py" if os.name == 'nt' else "python3 Main.py")
             case _:
                 print("the carrot fat fucking bitch has gained down weight, too much tho.")
                 time.sleep(0.1)
