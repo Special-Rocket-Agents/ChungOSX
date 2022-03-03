@@ -128,7 +128,7 @@ def get_split(obj, symbol, idx, returnBool: bool):
 
 
 def versionCheck():
-    if sys.version_info[0] > 3 or sys.version_info[1] < 8:
+    if sys.version_info[0] > 3 or sys.version_info[1] < 10:
         print(
             "NOTE: You are running on Python "
             + str(sys.version_info[0])
@@ -145,7 +145,7 @@ def versionCheck():
             + str(sys.version_info[1])
             + " is not on the FINAL level and you might encounter Unfixable bugs..."
         )
-    elif sys.version_info[0] < 3 or sys.version_info[1] < 7:
+    elif sys.version_info[0] < 3 or sys.version_info[1] < 10:
         raise SystemError(
             "ERROR: ChungOS requires Python 3.10 or higher! You can't run this on "
             + str(sys.version_info[0])
