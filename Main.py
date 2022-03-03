@@ -147,7 +147,7 @@ def versionCheck():
         )
     elif sys.version_info[0] < 3 or sys.version_info[1] < 7:
         raise SystemError(
-            "ERROR: ChungOS requires Python 3.8 or higher! You can't run this on "
+            "ERROR: ChungOS requires Python 3.10 or higher! You can't run this on "
             + str(sys.version_info[0])
             + "."
             + str(sys.version_info[1])
@@ -443,6 +443,13 @@ while not shit:
     elif msg.startswith('raise'):
         errors.error(msg[6:])
     
+    elif msg.startswith("help"):
+        match msg[5:]:
+            case ".":
+                print(Fore.WHITE + "." + Fore.YELLOW + "<" + Fore.BLUE + "app" + Fore.YELLOW + ">" + Fore.WHITE)
+                print("Starts a program file in files/programs")
+                print("Only the filename (Case-Sensitive) should be typen, and the extension MUST be .py")
+                print("If you're looking for lua scripts, that's run-lua(file)")
     elif msg.startswith("."):
         os.chdir("files/programs")
         if os.name == 'nt':
