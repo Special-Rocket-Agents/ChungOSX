@@ -184,55 +184,57 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
         time.sleep(0.2)
         time.sleep(0.2)
         os.system('cls' if os.name == 'nt' else 'clear')
-        if code == "TIMED_OUT":
-            print("Timed Out!")
-            print("Common reasons:")
-            print("""
-            LOCAL:
-             - Loading was for was out of 35 range.
-             - A File or Directory caused an overflow
-             - Your HDD/SDD may be slow
-             - Your memory doesn't have enough space to store variables
-            
-            INTERNET:
-             - Urllib has failed to do just the one job he had.
-             - Your Internet connection is unstable or limited.
-             - You have a Proxy/VPN on.
-             - Unknown.
-             - Python Intrepeter must have made a mistake...
-            """)
-        elif code == "!AUTH":
-            print("Something went wrong, Are you authorized?")
-            print("unauthorized")
-        elif code == "UNACCEPTABLE":
-            print("Code is unacceptable, Please remove any code you added if you did, or contact the devs if you didn't")
-            print("Please press enter to quit")
-        elif code == "FILE404":
-            print("Critical file not found. Please put them back if you removed them")
-        elif code == "SYNTAX400":
-            print("Critical Syntax Error!")
-            print("ENTER to EXIT")
-        elif code == "UNADDED":
-            print("Function or Feature " + msg +  "are NOT added yet!")
-        elif code == "SMTH_WRONG":
-            while True:
-                os.system('cls' if os.name == 'nt' else 'clear')
-                print("Something went wrong.")
-                print("MSG: " + msg if not msg == "raise SMTH_WRONG" else "MSG: None")
-                print("ERROR CODE: " + code)
-                print("OS Name " + osName)
-                print("Fallen back to Terminal" if fallBackToTERMINAL is True else "Not fallen to Terminal.")
-                input()
+        match code:
+            case "TIMED_OUT":
+                print("Timed Out!")
+                print("Common reasons:")
+                print("""
+                LOCAL:
+                 - Loading was for was out of 35 range.
+                 - A File or Directory caused an overflow
+                 - Your HDD/SDD may be slow
+                 - Your memory doesn't have enough space to store variables
+                
+                INTERNET:
+                 - Urllib has failed to do just the one job he had.
+                 - Your Internet connection is unstable or limited.
+                 - You have a Proxy/VPN on.
+                 - Unknown.
+                 - Python Intrepeter must have made a mistake...
+                """)
+            case "!AUTH":
+                print("Something went wrong, Are you authorized?")
+                print("unauthorized")
+            case "UNACCEPTABLE":
+                print("Code is unacceptable, Please remove any code you added if you did, or contact the devs if you didn't")
+                print("Please press enter to quit")
+            case "FILE404":
+                print("Critical file not found. Please put them back if you removed them")
+            case "SYNTAX400":
+                print("Critical Syntax Error!")
+                print("ENTER to EXIT")
+            case "UNADDED":
+                print("Function or Feature " + msg +  "are NOT added yet!")
+            case "SMTH_WRONG":
+                while True:
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    print("Something went wrong.")
+                    print("MSG: " + msg if not msg == "raise SMTH_WRONG" else "MSG: None")
+                    print("ERROR CODE: " + code)
+                    print("OS Name " + osName)
+                    print("Fallen back to Terminal" if fallBackToTERMINAL is True else "Not fallen to Terminal.")
+                    input()
+            case _:
+                print("the carrot fat fucking bitch has gained down weight, too much tho.")
+                time.sleep(0.1)
+                print("if you not arezal nor mini get the fuck outta here and explain at https://github.com/ArezalGame89/ChungOS/issues/new/choose")
+                time.sleep(0.2)
+                i = code # can't fix this
+                print("if you are, fix the fucking error [" + i + "]")
+                time.sleep(2)
          
             
-        else:
-            print("the carrot fat fucking bitch has gained down weight, too much tho.")
-            time.sleep(0.1)
-            print("if you not arezal nor mini get the fuck outta here and explain at https://github.com/ArezalGame89/ChungOS/issues/new/choose")
-            time.sleep(0.2)
-            i = code # can't fix this
-            print("if you are, fix the fucking error [" + i + "]")
-            time.sleep(2)
+        
 
         input()
         exit()
