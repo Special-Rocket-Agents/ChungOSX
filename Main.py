@@ -374,12 +374,7 @@ def wait(a):
 
 from urllib import request
 from urllib import response
-def getRSS():
-    import urllib
-    target = "https://gist.githubusercontent.com/ArezalGame89/0b2bc3b02535e23cc02601470ec1e504/raw/4d41c9a50b74f513bb9d5edcbf00ed1f7a4df03b/rss.txt"
-    response = urllib.request.urlopen(target)
-    data = 
-    print(response)
+
         
 if get_option("debug"):
     Diagnostics = True
@@ -436,8 +431,6 @@ while not shit:
     elif msg.startswith('raise'):
         errors.error(msg[6:])
     
-    elif msg == "rss":
-        getRSS()
     elif msg.startswith("."):
         os.chdir("files/programs")
         if os.name == 'nt':
