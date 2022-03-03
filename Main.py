@@ -112,7 +112,7 @@ def Update():
 
 def clear():
     cls = "cls" if os.name == "nt" else "clear"
-    subprocess.run(cls)
+    os.system(cls)
 
 def reset():
     shit = True
@@ -491,11 +491,11 @@ while not shit:
         window = MainWindow()
         app.exec_()
     elif msg == "update":
-        subprocess.run("git pull origin master --quiet")
+        os.system("git pull origin master --quiet")
         if cliOS() == "Windows":
-            subprocess.run("py Main.py")
+            os.system("py Main.py")
         elif cliOS() == "Darwin":
-            subprocess.run("python3 Main.py")
+            os.system("python3 Main.py")
     elif msg.startswith("do"):
         if cliOS() == "Darwin" or cliOS() == "Linux" and doneIntro == False:
             if get_option('colors') is True:
@@ -670,14 +670,14 @@ while not shit:
         else:
             if msg[7:] == 'og':
                 # To do: erase the whole directory and git clone
-                subprocess.run('git pull origin master')
+                os.system('git pull origin master')
                 sys.exit(0)
             elif msg[7:] == 'rw':
                 # doing this later cuz too hard
                 pass
     elif msg.startswith("mkdir"):
         try:
-            subprocess.run(
+            os.system(
                 "mkdir " + str(msg[6:])
             )  # we are using str() method incase the directory name is a number lol.
         except IndexError:
