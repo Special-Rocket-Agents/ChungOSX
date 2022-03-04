@@ -289,14 +289,17 @@ def loading():
     ]
     j = 0
     os.system('cls' if os.name == 'nt' else 'clear')
-    if sys.version_info[0] < 3 or sys.version_info[1] < 10:
-        print("""
+    if sys.version_info[0] < 3 or sys.version_info[1] < 10 or msg == "raise U310":
+        while True:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(f"""
 
-                                Little Chungus OS
-                                  Arezalgamer89
-                                    [ ERROR ]
-                               [ NOT_3.10_AND_L8ER ]
-        """)
+                Little Chungus OS
+                    Arezalgamer89
+                    Unsupported Python (less-than 3.10)
+
+            """)
+            input()
     os.system('cls' if os.name == 'nt' else 'clear')
     for i in range(random.randint(1, 100)):
         os.system("cls" if os.name == 'nt' else 'clear')
