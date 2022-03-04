@@ -268,6 +268,12 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
         exit()
 
 def loading():
+    lquotes = [
+        "Came from a error screen? You can make an issue on the GitHub page.",
+        "Love these loading screens? Please contribute if you can and make them better.",
+        "Go support Ukraine please. 💛💙",
+        "Running out of quotes!"
+    ]
     j = 0
     os.system('cls' if os.name == 'nt' else 'clear')
     if sys.version_info[0] < 3 or sys.version_info[1] < 10:
@@ -279,113 +285,16 @@ def loading():
                                [ NOT_3.10_AND_L8ER ]
         """)
     os.system('cls' if os.name == 'nt' else 'clear')
-    for i in range(random.randint(0, 8)):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        j = j + 1
-        if j > 35:
-            errors.error(str('TIMED_OUT'))
-            #loadingTooLong()
+    for i in range(random.radint(1, 5))
+        os.system("cls" if os.name == 'nt' else 'clear')
+        print(f"""
 
-        print("""
-
-                                Little Chungus OS
-                                  Arezalgamer89
-                                       [ | ]
+            Little Chungus OS
+              Arezalgamer89
+                    Loading... {lquotes[random.randint(0, 3)]}
 
         """)
-        time.sleep(0.3)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("""
-
-                                Little Chungus OS
-                                  Arezalgamer89
-                                       [ / ]
-
-        """)
-        time.sleep(0.3)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("""
-
-                                Little Chungus OS
-                                  Arezalgamer89
-                                       [ - ]
-
-        """)
-        time.sleep(0.3)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("""
-
-                                Little Chungus OS
-                                  Arezalgamer89
-                                       [ \ ]
-
-        """)
-        time.sleep(0.3)
-        os.system('cls' if os.name == 'nt' else 'clear')
-    print("""
-                                Little Chungus OS
-                                  Arezalgamer89
-                                  [    Done   ]
-    """)
-    os.system('cls' if os.name == 'nt' else 'clear')
-    pass
-def loadingTooLong():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    print("""
-
-                                Little Chungus OS
-                                  Arezalgamer89
-                            [ This is taking too long... ]
-
-        """)
-    os.system('cls' if os.name == 'nt' else 'clear')
-    time.sleep(random.randint(0, 10))
-    for i in range(40):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("""
-
-                                Little Chungus OS
-                                  Arezalgamer89
-                                 [ Please Wait ]
-
-        """)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        time.sleep(0.3)
-        print("""
-
-                                Little Chungus OS
-                                  Arezalgamer89
-                                 [ Please Wait. ]
-
-        """)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        time.sleep(0.3)
-        print("""
-
-                                Little Chungus OS
-                                  Arezalgamer89
-                                 [ Please Wait.. ]
-
-        """)
-        time.sleep(0.3)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("""
-
-                                Little Chungus OS
-                                  Arezalgamer89
-                                 [ Please Wait... ]
-
-        """)
-        os.system('cls' if os.name == 'nt' else 'clear')
-    os.system('cls' if os.name == 'nt' else 'clear')
-    print("""
-
-                                Little Chungus OS
-                                  Arezalgamer89
-                                [ Done (TIMED_OUT) ]
-
-        """)
-    input()
+        time.sleep(random.randint(4, 6))
     os.system('cls' if os.name == 'nt' else 'clear')
     pass
 loading()
