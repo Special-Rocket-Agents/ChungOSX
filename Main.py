@@ -266,13 +266,26 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
 
         input()
         exit()
-
+import socket
+hostname = socket.gethostname()
+ip_address = socket.gethostbyname(hostname)
 def loading():
     lquotes = [
         "Came from a error screen? You can make an issue on the GitHub page.",
         "Love these loading screens? Please contribute if you can and make them better.",
         "Go support Ukraine please. 💛💙",
-        "Running out of quotes!"
+        "Running out of quotes!",
+	    "null",
+	    "Make some backup of Settings/Config.JSON if it's Important",
+	    "Ran on -4 Billion Devices!",
+	    "Logging is very important! As you may find cool stuff",
+	    "hi this is arezal editing this on GNU nano <3",
+	    "If it weren't obvious, Chungus does have RSS. (its broken)",
+	    "Want a challenge? Port this to the NT Framework and make it bootable >:)",
+	    "os.system('cls' if os.name == 'nt' else 'clear') IS THE MOST USED LINE!",
+	    f"{hostname}, Is this {os.getlogin()}?",
+        f"yo mama, {ip_address}, {socket.getaddrinfo}, fatherless.",
+        "Unfortunately, These quotes repeating again and again may be annoytin\nsorry."
     ]
     j = 0
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -285,13 +298,13 @@ def loading():
                                [ NOT_3.10_AND_L8ER ]
         """)
     os.system('cls' if os.name == 'nt' else 'clear')
-    for i in range(random.radint(1, 5))
+    for i in range(random.randint(1, 100)):
         os.system("cls" if os.name == 'nt' else 'clear')
         print(f"""
 
             Little Chungus OS
               Arezalgamer89
-                    Loading... {lquotes[random.randint(0, 3)]}
+                    Loading...            {lquotes[random.randint(0, 13)]}
 
         """)
         time.sleep(random.randint(4, 6))
@@ -476,6 +489,10 @@ while not shit:
             print(Fore.LIGHTBLUE_EX + "Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
         else:
             print("Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
+
+    elif msg == "reload":
+        os.system("py main.py" if os.name == 'nt' else 'python3 main.py')
+    
     elif msg.startswith("change"):
         if msg.split(" ")[1] == "--help":
             print(
