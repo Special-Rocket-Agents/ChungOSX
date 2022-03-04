@@ -31,6 +31,7 @@ from PyQt5.QtGui import QIcon, QKeySequence
 
 #### VARIABLES, DO NOT MIND ####
 shit = False
+quoteshit = False
 doneIntro = False
 curMemory = Process(os.getpid())
 ####                        ####
@@ -54,7 +55,25 @@ osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 branch = 'master' # GitHub Main Branch.
 
-
+startingquotes = [
+    "Too stuck? Check out the discord page by 'chung --discord'!",
+    "You can simulate the error screens by the \"raise <code>\" command!",
+    "If you need a live-ISO-like mode, try 'fall'",
+    "ChungOS relies on git and stable internet connection!",
+    "It would be a chad move if you suggested us REAL COOL features",
+    "As always, This project is open-source and FREE, if you paid for it, YOU GOT SCAMMED!",
+    "Don't worry, Big Chungus has a huge compatiblity with other OSes!",
+    "There's this little cool command called \"do\", You can use this to perform bash/cmd/zsh tasks! like clear/cls.",
+    "Do People Actually Read These?",
+    "Remember, Python 3.10 or later!",
+    "Imagine if we made Chungus bootable, that would be impossible since python's too high-level'd",
+    "Chungle is VERY fast, Try running discord on it ;)",
+    "don't forget pythonOS! pythonOS too! https://github.com/Iemane291/pythonOS",
+    "You know Chungus has lua support, right? right??",
+    "Did you know Chungus was originally called OS, then MiniOS?",
+    "NUG (Mini, Arezalgamer89)'s first product was a viruslib.",
+    "If one of the NUG's products are not in GitHub, they're coded together by Mini and Arezal using live share!"
+]
 errorcodes = [
         "FILE404", # 0
         "DIR404", # 1
@@ -136,7 +155,6 @@ def versionCheck():
             + str(sys.version_info[1])
         )
         print("Some features might not be working correctly.")
-        pass
     elif sys.version_info[3] != "final":
         print(
             "WARNING: Your Python "
@@ -398,26 +416,15 @@ else:
     su = True
 
 
+user = os.getlogin()
+cwd = os.getcwd()
 
 
-
-
-
+print("NUG ChungusOS Team 2021-2022")
+print(startingquotes[random.randint(0, 17)])
 while not shit:
     versionCheck()
-    user = os.getlogin()
-    try:
-        if get_option("colors"):
-            msg = input(
-                Fore.YELLOW + os.getcwd() + Fore.RED + ">>>" + Fore.WHITE + " "
-            )
-        else:
-            if bool(Diagnostics) is False:
-                msg = input(Fore.WHITE + user + "@" + osName + " >>> ")
-            else:
-                msg = input(Fore.WHITE + os.getcwd() + ">>> ")
-    except PermissionError:
-        msg = input(osName.lower() + "$")
+    msg = input(Fore.BLUE + os.getlogin() + Fore.YELLOW + "@" + Fore.CYAN + osName + Fore.LIGHTGREEN_EX + "$" + Fore.WHITE + " ")
     if msg == "time":
         import datetime
         from datetime import *
@@ -425,7 +432,7 @@ while not shit:
     elif msg == "r":
         reset()
         os.system('cls' if os.name == 'nt' else 'clear')
-        wait(random.randint(0.1, 1))
+        wait(random.randint(0, 1))
     elif msg == "fall":
         os.system('cls' if os.name == 'nt' else 'clear')
         print("""
