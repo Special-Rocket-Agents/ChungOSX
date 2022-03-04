@@ -372,6 +372,17 @@ while not shit:
     elif msg.startswith('raise'):
         errors.error(msg[6:])
     
+    elif msg.startswith("regedit"):
+        fuck = False
+        print("WARNING: Editing system variables may result in an error, use this at your own risk.")
+        print("WELCOME TO REGEDIT. You can edit keys (in-code variables) in here!")
+        while not fuck:
+            cocaine = input("What do you want to edit? > ")
+            if cocaine in globals():
+                newValue = input(f"What do you want to edit {cocaine} to? ")
+                globals()[cocaine] =  newValue
+            else:
+                 raise ValueError(f"could not find \"{cocaine}\"")
     elif msg.startswith("help"):
         match msg[5:]:
             case ".":
