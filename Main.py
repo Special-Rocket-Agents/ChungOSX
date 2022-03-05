@@ -235,6 +235,14 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 print("ENTER to EXIT")
             case "UNADDED":
                 print("Function or Feature " + msg +  "are NOT added yet!")
+            case "INDEX":
+                print(Fore.CYAN + "IndexError" + Fore.WHITE)
+                print("Index out of range or invalid.")
+                if msg == 'change' or msg == 'edit':
+                    print("This is might be because of a bugged command like \"Change\" or \"Edit\"")
+                pass
+                shit = True
+                os.system("py Main.py" if os.name == 'nt' else 'python3 main.py')
             case "SMTH_WRONG":
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
@@ -346,7 +354,7 @@ cwd = os.getcwd()
 
 
 print("NUG ChungusOS Team 2021-2022")
-print(startingquotes[random.randint(0, 17)])
+print(startingquotes[random.randint(0, 16)])
 while not shit:
     versionCheck()
     msg = input(Fore.BLUE + username + Fore.YELLOW + "@" + Fore.CYAN + osName + Fore.LIGHTGREEN_EX + "$" + Fore.WHITE + " ")
@@ -662,8 +670,8 @@ while not shit:
             print(qmiss[random.randint(0,9)])
     except ModuleNotFoundError:
         errors.error("FILE404")
-    except IndexError: # Gotta write one for this later
-        errors.error("UNADDED")
+    except IndexError:
+        errors.error("INDEX")
     except PermissionError:
         errors.error("!AUTH")
     except IndentationError:
