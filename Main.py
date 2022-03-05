@@ -8,6 +8,7 @@ import os
 import random
 import subprocess
 import webbrowser
+from xml.etree.ElementTree import TreeBuilder
 import colorama
 import json
 import sys
@@ -52,6 +53,7 @@ lua = LuaRuntime()
 sysdir = "files"  # SysDir. This Directory contains Chn.Preloader and Datadir.
 datadir = sysdir + "/data"  # Datadir, The OS will not operate without this directory
 osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
+username = os.getlogin()
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 branch = 'master' # GitHub Main Branch.
 
@@ -289,7 +291,7 @@ def loading():
     ]
     j = 0
     os.system('cls' if os.name == 'nt' else 'clear')
-    if sys.version_info[0] < 3 or sys.version_info[1] < 10 or msg == "raise U310":
+    if sys.version_info[0] < 3 or sys.version_info[1] < 10:
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
             print(f"""
@@ -301,7 +303,7 @@ def loading():
             """)
             input()
     os.system('cls' if os.name == 'nt' else 'clear')
-    for i in range(random.randint(1, 100)):
+    for i in range(random.randint(1, 7)):
         os.system("cls" if os.name == 'nt' else 'clear')
         print(f"""
 
@@ -310,7 +312,7 @@ def loading():
                     Loading...            {lquotes[random.randint(0, 13)]}
 
         """)
-        time.sleep(random.randint(4, 6))
+        time.sleep(random.randint(5, 10))
     os.system('cls' if os.name == 'nt' else 'clear')
     pass
 loading()
@@ -340,8 +342,6 @@ if get_option("security"):
 else:
     su = True
 
-
-user = os.getlogin()
 cwd = os.getcwd()
 
 
@@ -349,297 +349,328 @@ print("NUG ChungusOS Team 2021-2022")
 print(startingquotes[random.randint(0, 17)])
 while not shit:
     versionCheck()
-    msg = input(Fore.BLUE + os.getlogin() + Fore.YELLOW + "@" + Fore.CYAN + osName + Fore.LIGHTGREEN_EX + "$" + Fore.WHITE + " ")
-    if msg == "time":
-        import datetime
-        from datetime import *
-        print(datetime.datetime.now())
-    elif msg == "r":
-        reset()
-        os.system('cls' if os.name == 'nt' else 'clear')
-        wait(random.randint(0, 1))
-    elif msg == "fall":
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("""
-
-                                Little Chungus OS
-                                  Arezalgamer89
-                            [ Fallin' down terminal... ]
-
-        """)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        
-        # shit = True
-        # Uncommenting this would terminate the entire system!
-        fallBackToTERMINAL = True
-    elif msg.startswith('raise'):
-        errors.error(msg[6:])
-    
-    elif msg.startswith("regedit"):
-        fuck = False
-        print("WARNING: Editing system variables may result in an error, use this at your own risk.")
-        print("WELCOME TO REGEDIT. You can edit keys (in-code variables) in here!")
-        while not fuck:
-            cocaine = input("What do you want to edit? > ")
-            if cocaine in globals():
-                newValue = input(f"What do you want to edit {cocaine} to? ")
-                globals()[cocaine] =  newValue
-            else:
-                 raise ValueError(f"could not find \"{cocaine}\"")
-    elif msg.startswith("help"):
-        match msg[5:]:
-            case ".":
-                print(Fore.WHITE + "." + Fore.YELLOW + "<" + Fore.BLUE + "app" + Fore.YELLOW + ">" + Fore.WHITE)
-                print("Starts a program file in files/programs")
-                print("Only the filename (Case-Sensitive) should be typen, and the extension MUST be .py")
-                print("If you're looking for lua scripts, that's run-lua(file)")
-    elif msg.startswith("."):
-        os.chdir("files/programs")
-        if os.name == 'nt':
-            os.system('py ' + msg[1:] + '.py')
-        else:
-            os.system('python3 ' + msg[1:] + '.py')
-        for i in range(2):
-            os.chdir("..")
-    elif msg == "browser" or msg == 'chungle':
-        class MainWindow(QMainWindow):
-            def __init__(self):
-                super(MainWindow, self).__init__()
-                self.browser = QWebEngineView()
-                self.browser.setUrl(QUrl("https://google.com"))
-                self.setCentralWidget(self.browser)
-                self.showMaximized()
-                navbar = QToolBar()
-                self.addToolBar(navbar)
-                back_btn = QAction("Back", self)
-                back_btn.triggered.connect(self.browser.back)
-                navbar.addAction(back_btn)
-                forward_btn = QAction("Foward", self)
-                forward_btn.triggered.connect(self.browser.forward)
-                navbar.addAction(forward_btn)
-                reload_btn = QAction("Reload", self)
-                reload_btn.triggered.connect(self.browser.reload)
-                navbar.addAction(reload_btn)
-                home_btn = QAction("Home", self)
-                home_btn.triggered.connect(self.navigate_home)
-                navbar.addAction(home_btn)
-                self.url_bar = QLineEdit()
-                self.url_bar.returnPressed.connect(self.nav_url)
-                navbar.addWidget(self.url_bar)
-            def navigate_home(self):
-                self.browser.setUrl(QUrl("https://google.com"))
-            def nav_url(self):
-                url = self.url_bar.text()
-                if url[0:7] != "https://":
-                    self.browser.setUrl(QUrl("https://" + url))
-                else:
-                    self.browser.setUrl(QUrl(url))
-                    for i in range(2):
-                        print(url)
-        app = QApplication(sys.argv)
-        QApplication.setApplicationName("Chungle")
-        window = MainWindow()
-        app.exec_()
-    elif msg == "update":
-        os.system("git pull origin master --quiet")
-        if cliOS() == "Windows":
-            os.system("py Main.py")
-        elif cliOS() == "Darwin":
-            os.system("python3 Main.py")
-    elif msg.startswith("do"):
-        if cliOS() == "Darwin" or cliOS() == "Linux" and doneIntro == False:
-            if get_option('colors') is True:
-                print(Fore.YELLOW + "WARNING: " + Fore.WHITE + "you're on mac or linux so be sure to type sudo")
-            else:
-                
-                print(Fore.WHITE + "WARNING: " + Fore.WHITE + "you're on mac or linux so be sure to type sudo")
-        print(Fore.WHITE)
-        os.system(msg[3:])
-        if random.randint(0, 100000000000000000000000000) == 1:
-            fallBackToTERMINAL = True
-    
-#       elif msg.startswith("playsound"):
-#           os.chdir("assets/sounds/")
-#           if "--bg" in msg.split(" "):
-#               for thing in msg.split(" "):
-#                   if not thing.startswith("--") and thing.endswith(".wav"):
-#                       playsound(thing, False)
-#           else:
-#               for thing in msg.split(" "):
-#                   if not thing.startswith("--") and thing.endswith(".wav"):
-#                       playsound(thing)
-#           for i in range(2):
-#               os.chdir("..")
-
-    elif msg == "ls" or msg == "dir":
-        # print("Directory " + os.curdir + " is " + os.path + " and has nil volume.")
-        print(Fore.WHITE + "Listing PATH where the Main.py executes in.")
-        print("\n".join(os.listdir()))
-    elif msg == "version":
-        print(
-            """
-        ChungOS (ChungusOS) 0.0.1
-        
-        Under MIT License by
-        Mini & Arezalgamer89
-        """
-        )
-    elif msg.startswith("settings --"):
-        if msg[11:] == "help":
-            print(
-                "colors - Change if you want colored text or not. Recommended to turn off if colorblind or causes eyestrains"
-            )
-        elif msg[11:] == "version":
-            print("NUG ChungOS version: 1.0\nChungOS version: 0.0.1")
-        else:
-            print(Fore.WHITE + "Wrong Syntax")
-            pass
-    elif msg.endswith("()"):
-        str(msg)
-    elif msg == "memory":
-        from psutil import Process
-        curMemory = Process(os.getpid())
-        if get_option("colors"):
-            print(Fore.LIGHTBLUE_EX + "Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
-        else:
-            print("Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
-
-    elif msg == "reload":
-        os.system("py main.py" if os.name == 'nt' else 'python3 main.py')
-    
-    elif msg.startswith("change"):
-        if msg.split(" ")[1] == "--help":
-            print(
-                "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind.\n"
-            )
-        else:
-            newoption = None
-            if msg.split(" ")[2].lower() == "false":
-                newoption = False
-            elif msg.split(" ")[2].lower() == "true":
-                newoption = True
-            if get_option(msg.split(" ")[1].lower()) is not None:
-                setOption(msg.split(" ")[1].lower(), newoption)
-                try:
-                    print("Changed option [ " + msg.split(" ")[1].lower() + " ] --> " + newoption)
-                except:
-                    print("Changed Option.")
-            else:
-                print("That is not a valid option.")
-    elif msg.startswith('~'):
-        lua.eval(msg[1:])
-
-    elif msg == "halt": # There's a few ways we can do this, so let's make it random!
-        if cliOS() == "Darwin" or cliOS() == "Mac" or cliOS() == "Linux":
-            os.system("halt")
-            exit()
-        choice = random.randint(1, 3)
-
-        if choice == 1:
-            if Diagnostics:
-                print("Chose 1")
-            shit = False
-        elif choice == 2:
-            if Diagnostics:
-                print("Chose 2")
-            while True:
-                os.system("cls" if os.name == "nt" else "clear")
-        elif choice == 3: # just... exit?
-            if Diagnostics:
-                print("Chose 3")
-            exit()
-    elif msg == "exit":
-        if Diagnostics is True and random.randint(1, 1000) == 1:
-            print(
-                Fore.RED
-                + "G"
-                + Fore.BLUE
-                + "o"
-                + Fore.GREEN
-                + "o"
-                + Fore.CYAN
-                + "d"
-                + Fore.LIGHTMAGENTA_EX
-                + "b"
-                + Fore.LIGHTYELLOW_EX
-                + "y"
-                + Fore.LIGHTRED_EX
-                + "e"
-                + Fore.WHITE
-                + " User! <3"
-            )
-        if get_option('acpi'):
-            exit()
-        else:
-            time.sleep(random.randint(1, 10))
-            while True:
-                os.system('cls' if os.name == 'nt' else 'clear')
-                print("""
-                                Little Chungus OS
-                                  Arezalgamer89
-                    [    It is now safe to exit the terminal   ]
-                """)
-                time.sleep(99999)
-            
-    elif msg.startswith("chung --"):
-        if msg[8:] == "discord":
-            webbrowser.open_new_tab("https://discord.gg/mz3HmzP5ac")
-        elif msg[8:] == "version":
-            print("NUG ChungOS version - 0.0.1\nBrug Bootloader v0.1")
-    elif msg == "run-lua":
-        os.chdir("files/scripts/")
-        for i in os.listdir("files/scripts/"):
-            if i.endswith(".lua"):
-                with open(i, "r") as f:
-                    lua.eval(str(f.read()))
-        for i in range(3):
-            os.chdir("..")
-    elif msg == "os":
-        print(cliOS().replace("Darwin", "Mac"))
-    elif msg.startswith("run-luafile") and msg.endswith(".lua"): 
-        if Diagnostics is True:
-            if random.randint(1, 50) == 1 and get_option("easter"):
-                logging.debug("Ran the " + msg + " with our Trusty Lua Runtime!")
-            else:
-                logging.debug("Ran:", msg)
-        os.chdir("files/scripts/")
-        with open(msg[12:], "r") as f:
-            try:
-                lua.eval(str(f.read()))
-            except Exception as errno:
-                print("Unfortunately, " + errno)
-            except:
-                print(f"Unluafortunately, bad stuff happened and we can't show it :p")
-        for i in range(3):
-            os.chdir("..")
-
-    elif msg.startswith('switch'):
-        if msg[7:] == '--help':
+    msg = input(Fore.BLUE + username + Fore.YELLOW + "@" + Fore.CYAN + osName + Fore.LIGHTGREEN_EX + "$" + Fore.WHITE + " ")
+    try:
+        if msg == "time":
+            import datetime
+            from datetime import *
+            print(datetime.datetime.now())
+        elif msg == "r":
+            reset()
+            os.system('cls' if os.name == 'nt' else 'clear')
+            wait(random.randint(0, 1))
+        elif msg == "fall":
+            os.system('cls' if os.name == 'nt' else 'clear')
             print("""
-            Switch Versions of ChungOS!
-            [ og ] - Original version. Maintained by Arezalgamer89
-            [ rw ] - PythonOS, Starting out as an simple rewrite (WARNING: P-OS may not provide switching)
-            NOTE: Requires Git and Stable Internet Connection
+
+                                    Little Chungus OS
+                                      Arezalgamer89
+                                [ Fallin' down terminal... ]
+
             """)
-        else:
-            if msg[7:] == 'og':
-                # To do: erase the whole directory and git clone
-                os.system('git pull origin master')
-                sys.exit(0)
-            elif msg[7:] == 'rw':
-                # doing this later cuz too hard
+            os.system('cls' if os.name == 'nt' else 'clear')
+
+            # shit = True
+            # Uncommenting this would terminate the entire system!
+            fallBackToTERMINAL = True
+        elif msg.startswith('raise'):
+            errors.error(msg[6:])
+
+        elif msg.startswith("regedit"):
+            fuck = False
+            print("WARNING: Editing system variables may result in an error, use this at your own risk.")
+            print("WELCOME TO REGEDIT. You can edit keys (in-code variables) in here!")
+            while not fuck:
+                cocaine = input("What do you want to edit? > ")
+                if cocaine in globals():
+                    newValue = input(f"What do you want to edit {cocaine} (currently {str(globals()[cocaine])}) to? ")
+                    globals()[cocaine] =  newValue
+                elif cocaine == 'exit':
+                    break
+                    pass
+                else:
+                     raise ValueError(f"could not find \"{cocaine}\"")
+        elif msg.startswith("help"):
+            match msg[5:]:
+                case ".":
+                    print(Fore.WHITE + "." + Fore.YELLOW + "<" + Fore.BLUE + "app" + Fore.YELLOW + ">" + Fore.WHITE)
+                    print("Starts a program file in files/programs")
+                    print("Only the filename (Case-Sensitive) should be typen, and the extension MUST be .py")
+                    print("If you're looking for lua scripts, that's run-lua(file)")
+        elif msg.startswith("."):
+            os.chdir("files/programs")
+            if os.name == 'nt':
+                os.system('py ' + msg[1:] + '.py')
+            else:
+                os.system('python3 ' + msg[1:] + '.py')
+            for i in range(2):
+                os.chdir("..")
+        elif msg == "browser" or msg == 'chungle':
+            class MainWindow(QMainWindow):
+                def __init__(self):
+                    super(MainWindow, self).__init__()
+                    self.browser = QWebEngineView()
+                    self.browser.setUrl(QUrl("https://google.com"))
+                    self.setCentralWidget(self.browser)
+                    self.showMaximized()
+                    navbar = QToolBar()
+                    self.addToolBar(navbar)
+                    back_btn = QAction("Back", self)
+                    back_btn.triggered.connect(self.browser.back)
+                    navbar.addAction(back_btn)
+                    forward_btn = QAction("Foward", self)
+                    forward_btn.triggered.connect(self.browser.forward)
+                    navbar.addAction(forward_btn)
+                    reload_btn = QAction("Reload", self)
+                    reload_btn.triggered.connect(self.browser.reload)
+                    navbar.addAction(reload_btn)
+                    home_btn = QAction("Home", self)
+                    home_btn.triggered.connect(self.navigate_home)
+                    navbar.addAction(home_btn)
+                    self.url_bar = QLineEdit()
+                    self.url_bar.returnPressed.connect(self.nav_url)
+                    navbar.addWidget(self.url_bar)
+                def navigate_home(self):
+                    self.browser.setUrl(QUrl("https://google.com"))
+                def nav_url(self):
+                    url = self.url_bar.text()
+                    if url[0:7] != "https://":
+                        self.browser.setUrl(QUrl("https://" + url))
+                    else:
+                        self.browser.setUrl(QUrl(url))
+                        for i in range(2):
+                            print(url)
+            app = QApplication(sys.argv)
+            QApplication.setApplicationName("Chungle")
+            window = MainWindow()
+            app.exec_()
+        elif msg == "update":
+            os.system("git pull origin master --quiet")
+            if cliOS() == "Windows":
+                os.system("py Main.py")
+            elif cliOS() == "Darwin":
+                os.system("python3 Main.py")
+        elif msg.startswith("do"):
+            if cliOS() == "Darwin" or cliOS() == "Linux" and doneIntro == False:
+                if get_option('colors') is True:
+                    print(Fore.YELLOW + "WARNING: " + Fore.WHITE + "you're on mac or linux so be sure to type sudo")
+                else:
+
+                    print(Fore.WHITE + "WARNING: " + Fore.WHITE + "you're on mac or linux so be sure to type sudo")
+            print(Fore.WHITE)
+            os.system(msg[3:])
+            if random.randint(0, 100000000000000000000000000) == 1:
+                fallBackToTERMINAL = True
+
+#           elif msg.startswith("playsound"):
+#               os.chdir("assets/sounds/")
+#               if "--bg" in msg.split(" "):
+#                   for thing in msg.split(" "):
+#                       if not thing.startswith("--") and thing.endswith(".wav"):
+#                           playsound(thing, False)
+#               else:
+#                   for thing in msg.split(" "):
+#                       if not thing.startswith("--") and thing.endswith(".wav"):
+#                           playsound(thing)
+#               for i in range(2):
+#                   os.chdir("..")
+
+        elif msg == "ls" or msg == "dir":
+            # print("Directory " + os.curdir + " is " + os.path + " and has nil volume.")
+            print(Fore.WHITE + "Listing PATH where the Main.py executes in.")
+            print("\n".join(os.listdir()))
+        elif msg == "version":
+            print(
+                """
+            ChungOS (ChungusOS) 0.0.1
+
+            Under MIT License by
+            Mini & Arezalgamer89
+            """
+            )
+        elif msg.startswith("settings --"):
+            if msg[11:] == "help":
+                print(
+                    "colors - Change if you want colored text or not. Recommended to turn off if colorblind or causes eyestrains"
+                )
+            elif msg[11:] == "version":
+                print("NUG ChungOS version: 1.0\nChungOS version: 0.0.1")
+            else:
+                print(Fore.WHITE + "Wrong Syntax")
                 pass
-    elif msg.startswith("mkdir"):
-        try:
-            os.system(
-                "mkdir " + str(msg[6:])
-            )  # we are using str() method incase the directory name is a number lol.
-        except IndexError:
-            print("Could not make directory.")
-    elif bool(msg) is False:  # i love overcomplicating things.
-        # This basically means '' - Arezalgamer89
-        pass
-            
-    else:
-        print(Fore.WHITE + "'" + msg + "' Command or LuaRT File could not be found")
+        elif msg.endswith("()"):
+            str(msg)
+        elif msg == "memory":
+            from psutil import Process
+            curMemory = Process(os.getpid())
+            if get_option("colors"):
+                print(Fore.LIGHTBLUE_EX + "Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
+            else:
+                print("Memory in kilobytes: " + str(curMemory.memory_info().rss / 1000))
+
+        elif msg == "reload":
+            os.system("py main.py" if os.name == 'nt' else 'python3 main.py')
+
+        elif msg.startswith("change"):
+            if msg.split(" ")[1] == "--help":
+                print(
+                    "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind.\n"
+                )
+            else:
+                newoption = None
+                if msg.split(" ")[2].lower() == "false":
+                    newoption = False
+                elif msg.split(" ")[2].lower() == "true":
+                    newoption = True
+                if get_option(msg.split(" ")[1].lower()) is not None:
+                    setOption(msg.split(" ")[1].lower(), newoption)
+                    try:
+                        print("Changed option [ " + msg.split(" ")[1].lower() + " ] --> " + newoption)
+                    except:
+                        print("Changed Option.")
+                else:
+                    print("That is not a valid option.")
+        elif msg.startswith('~'):
+            lua.eval(msg[1:])
+
+        elif msg == "halt": # There's a few ways we can do this, so let's make it random!
+            if cliOS() == "Darwin" or cliOS() == "Mac" or cliOS() == "Linux":
+                os.system("halt")
+                exit()
+            choice = random.randint(1, 3)
+
+            if choice == 1:
+                if Diagnostics:
+                    print("Chose 1")
+                shit = False
+            elif choice == 2:
+                if Diagnostics:
+                    print("Chose 2")
+                while True:
+                    os.system("cls" if os.name == "nt" else "clear")
+            elif choice == 3: # just... exit?
+                if Diagnostics:
+                    print("Chose 3")
+                exit()
+        elif msg == "exit":
+            if Diagnostics is True and random.randint(1, 1000) == 1:
+                print(
+                    Fore.RED
+                    + "G"
+                    + Fore.BLUE
+                    + "o"
+                    + Fore.GREEN
+                    + "o"
+                    + Fore.CYAN
+                    + "d"
+                    + Fore.LIGHTMAGENTA_EX
+                    + "b"
+                    + Fore.LIGHTYELLOW_EX
+                    + "y"
+                    + Fore.LIGHTRED_EX
+                    + "e"
+                    + Fore.WHITE
+                    + " User! <3"
+                )
+            if get_option('acpi'):
+                exit()
+            else:
+                time.sleep(random.randint(1, 10))
+                while True:
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    print("""
+                                    Little Chungus OS
+                                      Arezalgamer89
+                        [    It is now safe to exit the terminal   ]
+                    """)
+                    time.sleep(99999)
+
+        elif msg.startswith("chung --"):
+            if msg[8:] == "discord":
+                webbrowser.open_new_tab("https://discord.gg/mz3HmzP5ac")
+            elif msg[8:] == "version":
+                print("NUG ChungOS version - 0.0.1\nBrug Bootloader v0.1")
+        elif msg == "run-lua":
+            os.chdir("files/scripts/")
+            for i in os.listdir("files/scripts/"):
+                if i.endswith(".lua"):
+                    with open(i, "r") as f:
+                        lua.eval(str(f.read()))
+            for i in range(3):
+                os.chdir("..")
+        elif msg == "os":
+            print(cliOS().replace("Darwin", "Mac"))
+        elif msg.startswith("run-luafile") and msg.endswith(".lua"): 
+            if Diagnostics is True:
+                if random.randint(1, 50) == 1 and get_option("easter"):
+                    logging.debug("Ran the " + msg + " with our Trusty Lua Runtime!")
+                else:
+                    logging.debug("Ran:", msg)
+            os.chdir("files/scripts/")
+            with open(msg[12:], "r") as f:
+                try:
+                    lua.eval(str(f.read()))
+                except Exception as errno:
+                    print("Unfortunately, " + errno)
+                except:
+                    print(f"Unluafortunately, bad stuff happened and we can't show it :p")
+            for i in range(3):
+                os.chdir("..")
+
+        elif msg.startswith('switch'):
+            if msg[7:] == '--help':
+                print("""
+                Switch Versions of ChungOS!
+                [ og ] - Original version. Maintained by Arezalgamer89
+                [ rw ] - PythonOS, Starting out as an simple rewrite (WARNING: P-OS may not provide switching)
+                NOTE: Requires Git and Stable Internet Connection
+                """)
+            else:
+                if msg[7:] == 'og':
+                    # To do: erase the whole directory and git clone
+                    os.system('git pull origin master')
+                    sys.exit(0)
+                elif msg[7:] == 'rw':
+                    # doing this later cuz too hard
+                    pass
+        elif msg.startswith("mkdir"):
+            try:
+                os.system(
+                    "mkdir " + str(msg[6:])
+                )  # we are using str() method incase the directory name is a number lol.
+            except IndexError:
+                print("Could not make directory.")
+        elif bool(msg) is False:  # i love overcomplicating things.
+            # This basically means '' - Arezalgamer89
+            pass
+
+        else:
+            qmiss = [
+                f"{msg}'s not really a thing y'know...",
+                f"Never heard of {msg}.",
+                f"{msg}, must be a typo?",
+                f"Is {msg} even added?",
+                f"if you want {msg} and it's not a typo. open up a issue!",
+                "Yeah no, that doesn't exist bro...",
+                None,
+                1,
+                f"{msg}... *sad noises*"
+            ]
+            print(qmiss[random.randint(0,9)])
+    except ModuleNotFoundError:
+        errors.error("FILE404")
+    except IndexError: # Gotta write one for this later
+        errors.error("UNADDED")
+    except PermissionError:
+        errors.error("!AUTH")
+    except IndentationError:
+        errors.error("SYNTAX400")
+    except SystemError:
+        errors.error("SMTH_WRONG")
+    except TypeError:
+        errors.error("SYNTAX400")
+    except NameError:
+        errors.error("UNACCEPTABLE")
+    except:
+        errors.error()
 
