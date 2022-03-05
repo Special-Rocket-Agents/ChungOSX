@@ -385,11 +385,14 @@ while not shit:
                 if cocaine in globals():
                     newValue = input(f"What do you want to edit {cocaine} (currently {str(globals()[cocaine])}) to? ")
                     globals()[cocaine] =  newValue
+                elif cocaine == '':
+                    print()
                 elif cocaine == 'exit':
-                    break
+
                     pass
+                    break
                 else:
-                     raise ValueError(f"could not find \"{cocaine}\"")
+                     print(f"could not find \"{cocaine}\"")
         elif msg.startswith("help"):
             match msg[5:]:
                 case ".":
@@ -671,6 +674,6 @@ while not shit:
         errors.error("SYNTAX400")
     except NameError:
         errors.error("UNACCEPTABLE")
-    except:
-        errors.error()
+    except Exception as err:
+        print(Fore.RED + "Error: " + Fore.LIGHTYELLOW_EX + err + Fore.WHITE)
 
