@@ -295,7 +295,8 @@ def loading():
 	    "os.system('cls' if os.name == 'nt' else 'clear') IS THE MOST USED LINE!",
 	    f"{hostname}, Is this {os.getlogin()}?",
         f"yo mama, {ip_address}, {socket.getaddrinfo}, fatherless.",
-        "Unfortunately, These quotes repeating again and again may be annoytin\nsorry."
+        "Unfortunately, These quotes repeating again and again may be annoytin\nsorry.",
+        Fore.WHITE + "THIS IS A " + Fore.RED + "TEST" + Fore.WHITE,
     ]
     j = 0
     os.system('cls' if os.name == 'nt' else 'clear')
