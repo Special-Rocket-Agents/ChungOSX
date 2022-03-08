@@ -384,7 +384,7 @@ while not shit:
 
                     pass
                     break
-                elif cocaine == 'list': print(globals())
+                elif cocaine == 'list': print('\n'.join(globals()))
                 else:
                      print(f"could not find \"{cocaine}\"")
         elif msg.startswith("help"):
