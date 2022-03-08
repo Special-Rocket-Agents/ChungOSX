@@ -341,7 +341,8 @@ def wait(a):
 from urllib import request
 from urllib import response
 
-        
+if cliOS == 'Windows':
+    os.system("title " + osName)
 if get_option("debug"):
     Diagnostics = True
 else:
@@ -370,18 +371,10 @@ while not shit:
             wait(random.randint(0, 1))
         elif msg == "fall":
             os.system('cls' if os.name == 'nt' else 'clear')
-            print("""
-
-                                    Little Chungus OS
-                                      Arezalgamer89
-                                [ Fallin' down terminal... ]
-
-            """)
             os.system('cls' if os.name == 'nt' else 'clear')
-
-            # shit = True
-            # Uncommenting this would terminate the entire system!
-            fallBackToTERMINAL = True
+            
+            fall = True
+            shit = True
         elif msg.startswith('raise'):
             errors.error(msg[6:])
 
@@ -641,6 +634,8 @@ while not shit:
         errors.error("INDEX")
     except PermissionError:
         errors.error("!AUTH")
+    except OSError:
+        errors.error("OSFlict")
     except IndentationError:
         errors.error("SYNTAX400")
     except SystemError:
@@ -652,3 +647,14 @@ while not shit:
     except Exception as err:
         print(Fore.RED + "Error: " + Fore.LIGHTYELLOW_EX + err + Fore.WHITE)
 
+while shit and fall:
+    msg = ""
+    msg = input(Fore.LIGHTWHITE_EX + "$ " + Fore.WHITE)
+    match msg:
+        case "unfall":
+            os.system("cls" if os.name == 'nt' else "clear")
+            shit = False
+            msg = ""
+            fall = False
+        case _:
+            os.system(msg)
