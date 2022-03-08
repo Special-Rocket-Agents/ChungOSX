@@ -262,6 +262,10 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 print("ENTER TO REBOOT" if os.name == 'nt' else "[RETURN] TO REBOOT")
                 input()
                 os.system("py Main.py" if os.name == 'nt' else "python3 Main.py")
+            case "OSFlict":
+                while True:
+                    print(Fore.LIGHTRED_EX + "OPERATING SYSTEM" + Fore.RED + " ERROR")
+                    os.system('cls' if os.name == 'nt' else 'clear')
             case _:
                 print("the carrot fat fucking bitch has gained down weight, too much tho.")
                 time.sleep(0.1)
@@ -644,6 +648,12 @@ while not shit:
         errors.error("SYNTAX400")
     except NameError:
         errors.error("UNACCEPTABLE")
+    except KeyboardInterrupt:
+        if get_option("easter") and random.randint(1, 100000) == 1
+            print("Bro you should have just used exit :/")
+        exit()
+    except EOFError:
+        errors.error('INDEX')
     except Exception as err:
         print(Fore.RED + "Error: " + Fore.LIGHTYELLOW_EX + err + Fore.WHITE)
 
