@@ -395,8 +395,10 @@ while not shit:
                     print()
                 elif cocaine == 'exit':
 
+
                     pass
                     break
+                elif cocaine == 'list': print(globals())
                 else:
                      print(f"could not find \"{cocaine}\"")
         elif msg.startswith("help"):
@@ -457,7 +459,7 @@ while not shit:
         elif msg == "version":
             print(
                 """
-            ChungOS (ChungusOS) 0.0.1
+            ChungOS (ChungusOS) 1.1.0
 
             Under MIT License by
             Mini & Arezalgamer89
@@ -474,7 +476,7 @@ while not shit:
                 print(Fore.WHITE + "Wrong Syntax")
                 pass
         elif msg.endswith("()"):
-            str(msg)
+            msg()
         elif msg == "memory":
             from psutil import Process
             curMemory = Process(os.getpid())
@@ -551,12 +553,24 @@ while not shit:
                 exit()
             else:
                 time.sleep(random.randint(1, 10))
+                equotes = [
+                    "Safe and Sound!",
+                    "Cya next time!",
+                    "Off to other stuff...",
+                    "You better disown ACPI.",
+                    "Also check PythonOS [https://github.com/Iemane291/pythonOS]",
+                    "Off to needing help? Check our discord {https://discord.gg/yN7D4hnJQ6}",
+                    f"I am rapidly approaching your location right now {ip_address}"
+                    ]
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    print("""
-                                    Little Chungus OS
-                                      Arezalgamer89
-                        [    It is now safe to exit the terminal   ]
+                    print(f"""
+
+                    Little Chungus OS
+                    Arezalgamer89
+                            It's safe to exit the terminal now            
+                        {equotes[random.randint(0, 6)]}
+
                     """)
                     time.sleep(99999)
 
