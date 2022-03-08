@@ -50,9 +50,8 @@ lua = LuaRuntime()
 ###           ###
 
 ###### INTERNAL SETTINGS ######
-sysdir = "files"  # SysDir. This Directory contains Chn.Preloader and Datadir.
-datadir = sysdir + "/data"  # Datadir, The OS will not operate without this directory
 osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
+version = "1.0.0"
 username = os.getlogin()
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 branch = 'master' # GitHub Main Branch.
@@ -120,7 +119,8 @@ def setOption(optionName, option):
         json.dump(data, f, indent=4)
         
 
-
+def reload():
+    os.execl(sys.executable, sys.executable, *sys.argv)
 
 def Update():
     updateVar = False
@@ -134,12 +134,6 @@ def Update():
 def clear():
     cls = "cls" if os.name == "nt" else "clear"
     os.system(cls)
-
-def reset():
-    shit = True
-    shit = False
-    return None
-
 
 def get_split(obj, symbol, idx, returnBool: bool):
     if returnBool:
@@ -175,21 +169,13 @@ def versionCheck():
         )
 
 
-def get_option(obj):
-    os.chdir("files/data/")
-    with open("config.json", "r") as f:
-        fileData = json.load(f)
-        for i in range(2):
-            os.chdir("..")
-        if fileData["colors"]:
-            colors = True
-            colorama.init(autoreset=True)
-        else:
-            colors = False
-            colorama.init(
-                autoreset=True, strip=True, convert=False
-            )  # even if un-coloring proccess fails. colorama's not gonna touch a single color!
-        return fileData.get(obj)  # returns none if cant find
+def get_option(option):
+    #coolpath = Path("files/data")
+    with open("files/data/config.json", "r") as f:
+        data = json.load(f)
+        if data.get(option) == "on": return True
+        elif data.get(option) == "off": return False
+        else: return data.get(option) # Will also return None if can't find!
 
 
 class errors(): # NOTE: Gus will assume that Github CLI is installed on the computer
@@ -241,8 +227,7 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 if msg == 'change' or msg == 'edit':
                     print("This is might be because of a bugged command like \"Change\" or \"Edit\"")
                 pass
-                shit = True
-                os.system("py Main.py" if os.name == 'nt' else 'python3 main.py')
+                reload()
             case "SMTH_WRONG":
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
@@ -261,11 +246,12 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 print("NUG FKM cannot procced any further and needs to be restarted.")
                 print("ENTER TO REBOOT" if os.name == 'nt' else "[RETURN] TO REBOOT")
                 input()
-                os.system("py Main.py" if os.name == 'nt' else "python3 Main.py")
+                reload()
             case "OSFlict":
                 while True:
                     print(Fore.LIGHTRED_EX + "OPERATING SYSTEM" + Fore.RED + " ERROR")
                     os.system('cls' if os.name == 'nt' else 'clear')
+                    input()
             case _:
                 print("the carrot fat fucking bitch has gained down weight, too much tho.")
                 time.sleep(0.1)
@@ -370,7 +356,7 @@ while not shit:
             from datetime import *
             print(datetime.datetime.now())
         elif msg == "r":
-            reset()
+            reload()
             os.system('cls' if os.name == 'nt' else 'clear')
             wait(random.randint(0, 1))
         elif msg == "fall":
