@@ -649,7 +649,7 @@ while not shit:
     except NameError:
         errors.error("UNACCEPTABLE")
     except KeyboardInterrupt:
-        if get_option("easter") and random.randint(1, 100000) == 1
+        if get_option("easter") and random.randint(1, 100000) == 1:
             print("Bro you should have just used exit :/")
         exit()
     except EOFError:
@@ -666,5 +666,6 @@ while shit and fall:
             shit = False
             msg = ""
             fall = False
+            os.system('py Main.py' if os.name == 'nt' else 'clear')
         case _:
             os.system(msg)
