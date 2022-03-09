@@ -462,7 +462,7 @@ while not shit:
                 print(Fore.WHITE + "Wrong Syntax")
                 pass
         elif msg.endswith("()"):
-            msg()
+            {msg}()
         elif msg == "memory":
             from psutil import Process
             curMemory = Process(os.getpid())
@@ -592,22 +592,6 @@ while not shit:
             for i in range(3):
                 os.chdir("..")
 
-        elif msg.startswith('switch'):
-            if msg[7:] == '--help':
-                print("""
-                Switch Versions of ChungOS!
-                [ og ] - Original version. Maintained by Arezalgamer89
-                [ rw ] - PythonOS, Starting out as an simple rewrite (WARNING: P-OS may not provide switching)
-                NOTE: Requires Git and Stable Internet Connection
-                """)
-            else:
-                if msg[7:] == 'og':
-                    # To do: erase the whole directory and git clone
-                    os.system('git pull origin master')
-                    sys.exit(0)
-                elif msg[7:] == 'rw':
-                    # doing this later cuz too hard
-                    pass
         elif msg.startswith("mkdir"):
             try:
                 os.system(
