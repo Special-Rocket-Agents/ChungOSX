@@ -4,5 +4,5 @@
     "acpi": false,
     "easter": true,
     "debug": false,
-    "autoupdate": true
+    "autoupdate": false
 }
