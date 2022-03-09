@@ -3,5 +3,6 @@
     "security": true,
     "acpi": false,
     "easter": true,
-    "debug": false
+    "debug": false,
+    "autoupdate": true
 }

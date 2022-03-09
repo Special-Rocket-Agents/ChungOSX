@@ -347,6 +347,8 @@ cwd = os.getcwd()
 
 print("NUG ChungusOS Team 2021-2022")
 print(startingquotes[random.randint(0, 16)])
+if get_option('autoupdate'): #! PLEASE TURN THIS OFF IF YOU'RE DOING YOUR OWN STUFF.
+    Update()
 while not shit:
     versionCheck()
     msg = input(Fore.BLUE + username + Fore.YELLOW + "@" + Fore.CYAN + osName + Fore.LIGHTGREEN_EX + "$" + Fore.WHITE + " ")
