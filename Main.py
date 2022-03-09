@@ -51,7 +51,7 @@ lua = LuaRuntime()
 
 ###### INTERNAL SETTINGS ######
 osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
-version = "1.0.0"
+version = "1.0.1"
 username = os.getlogin()
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 branch = 'master' # GitHub Main Branch.
@@ -446,8 +446,8 @@ while not shit:
             print("\n".join(os.listdir()))
         elif msg == "version":
             print(
-                """
-            ChungOS (ChungusOS) 1.1.0
+                f"""
+            ChungOS (ChungusOS) {version}
 
             Under MIT License by
             Mini & Arezalgamer89
@@ -458,8 +458,6 @@ while not shit:
                 print(
                     "colors - Change if you want colored text or not. Recommended to turn off if colorblind or causes eyestrains"
                 )
-            elif msg[11:] == "version":
-                print("NUG ChungOS version: 1.0\nChungOS version: 0.0.1")
             else:
                 print(Fore.WHITE + "Wrong Syntax")
                 pass
@@ -554,7 +552,7 @@ while not shit:
                     os.system('cls' if os.name == 'nt' else 'clear')
                     print(f"""
 
-                    Little Chungus OS
+                    Little Chungus OS {version}
                     Arezalgamer89
                             It's safe to exit the terminal now            
                         {equotes[random.randint(0, 6)]}
