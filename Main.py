@@ -312,7 +312,7 @@ def loading():
             """)
             input()
     os.system('cls' if os.name == 'nt' else 'clear')
-    for i in range(random.randint(1, 7)):
+    for i in range(random.randint(1, 2)):
         os.system("cls" if os.name == 'nt' else 'clear')
         print(f"""
 
@@ -321,7 +321,7 @@ def loading():
                     Loading...            {lquotes[random.randint(0, 13)]}
 
         """)
-        time.sleep(random.randint(5, 10))
+        time.sleep(random.randint(1, 2))
     os.system('cls' if os.name == 'nt' else 'clear')
     pass
 loading()
