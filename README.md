@@ -1,52 +1,55 @@
 # ChungOS
 
 
-<img width="559" alt="Sdeeazdsfs" src="https://user-images.githubusercontent.com/83344675/154842163-7e00ea29-5baf-4ce6-8f83-07c6f746d5d8.png">
+[![GitHub Stars](https://img.shields.io/github/stars/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/stargazers)
+[![GitHub pull requests](https://img.shields.io/github/issues/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/issues)
+[![GitHub Wiki](https://img.shields.io/badge/project-wiki-ff69b4.svg)](https://github.com/Iemane291/pythonOS/wiki/Home)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Iemane291/pythonOS/master/LICENSE)
+[![Github All Releases](https://img.shields.io/github/downloads/Iemane291/pythonOS/total.svg?maxAge=2592000)](https://github.com/Iemane291/pythonOS/releases)
+
+ChungOS is the <!--trashy codebase--> Python Program to act as an SHELL Operating System!
+
+#### Ton of features like:
+- Colorful environment using JUST [colorama](https://pypi.org/project/colorama/)
+- Lua Scripting support with __[lupa](https://pypi.org/project/lupa/)__
+- Secure online browser __[Chungle](https://github.com/ArezalGame89/ChungOS/blob/master/files/programs/Chungle.py)__
+- Autoupdater so you don't have to!
 
 
-## What is this?
-Python Script to stand as a terminal Operating system. But instead of being booted off your PC. It runs STRAIGHT on your Terminal/Command Prompt!
+## Getting Started
 
-## How to use?
+### As a beginner:
 
-When you run ChungOS. You appear with something similar to this:
-```
-__main__>
-```
+**NOTE:** This section assumes you know about terminals and shells.
 
-To interact, run commands like 
-```sh
-mkdir <your-dir-name>
-run-lua
-run-luafile
-cmd # ONLY FOR WINDOWS
-bash # ONLY FOR LINUX
-terminal # ONLY FOR MAC (DARWIN)
-```
-
-If you want to see all the commands, check `all_commands.txt`
-
-# Help
-
-If you need support or help with something or found an issue, create an issue in the issues tab or go to our [Discord](https://discord.gg/mz3HmzP5ac) server.
-
-# Installation
-
-1. Make sure you have [Python 3.10](https://www.python.org/downloads/) or greater installed.
-
-2. CD Into the ChungOS Folder
-
-3. type in `pip3 install -r requirements.txt` to install the required modules.
-
-4. Launch the Main.py file in your ways
+1. Make sure you have these installed:
    
-    WINDOWS: `py Main.py`
-  
-    LINUX: Ditto
-  
-    MAC: `python3 Main.py`
+	- [Python 3.10](https://www.python.org/downloads/release/python-3100/)
+	- [Git S.C.M.](https://git-scm.com/)
+	- (OPTIONAL) [GitHub CLI](https://cli.github.com/)
+
+2. Download/Clone ChungOS
+   - `git clone https://github.com/ArezalGame89/ChungOS.git`
+   - (IF GITHUB CLI) `gh repo clone ArezalGame89/ChungOS`
+   - [Download ZIP](https://github.com/ArezalGame89/ChungOS/archive/refs/heads/master.zip)
+
+3. Go into the cloned directory (or unextracted if Download ZIP)
+   - (`cd ChungOS`)
+
+4. Install the required modules for ChungOS to Work.
+   - `py -m pip install -r requirements.txt`
+	- `pip3 -m install -r requirements.txt`
+5. Run your launch command depending on what operating system you use.
+   - Windows NT: `py Main.py`
+   - \*nix/Mac: `python3 Main.py`
     
-5. Profit
+6. Enjoy!
+
+### As a user
+
+Assuming you have everything mentioned [here](https://github.com/ArezalGame89/ChungOS/edit/master/README.md#as-a-beginner), you can run ChungOS depending on your operating system
+- \*NIX `python3 Main.py`
+- WIN `py main.py`
 
 # Features
 **NOTE:** *Not all features included.*
