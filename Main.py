@@ -2,8 +2,10 @@
 # Built-In Modules
 from calendar import c
 from errno import errorcode
+import locale
 import logging
 from operator import sub
+import pytest
 import os
 import random
 import subprocess
@@ -252,6 +254,14 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                     print(Fore.LIGHTRED_EX + "OPERATING SYSTEM" + Fore.RED + " ERROR")
                     os.system('cls' if os.name == 'nt' else 'clear')
                     input()
+            case "UNDERAGE":
+                print("I'm sorry, but it seems that you're below the age of consent in GitHub.")
+                if locale.getlocale()[0] == 'English_United States':
+                    print("[US], To comply with COPPA Laws, We have an request.")
+                    input()
+                    print("Please grow up to 13 and then come back")
+                else:
+                    print("Please age to your country's age of consent then come back.")
             case _:
                 print("the carrot fat fucking bitch has gained down weight, too much tho.")
                 time.sleep(0.1)
