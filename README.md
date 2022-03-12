@@ -1,11 +1,8 @@
 # ChungOS
 
 
-[![GitHub Stars](https://img.shields.io/github/stars/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/stargazers)
-[![GitHub pull requests](https://img.shields.io/github/issues/Iemane291/pythonOS.svg)](https://github.com/Iemane291/pythonOS/issues)
-[![GitHub Wiki](https://img.shields.io/badge/project-wiki-ff69b4.svg)](https://github.com/Iemane291/pythonOS/wiki/Home)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Iemane291/pythonOS/master/LICENSE)
-[![Github All Releases](https://img.shields.io/github/downloads/Iemane291/pythonOS/total.svg?maxAge=2592000)](https://github.com/Iemane291/pythonOS/releases)
+[![GitHub pull requests](https://img.shields.io/github/issues/ArezalGame89/ChungOS.svg)](https://github.com/ArezalGame89/ChungOS/issues)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/ArezalGame89/ChungOS/master/LICENSE)
 
 ChungOS is the <!--trashy codebase--> Python Program to act as an SHELL Operating System!
 
