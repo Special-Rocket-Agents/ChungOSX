@@ -381,6 +381,9 @@ while not shit:
             errors.error(msg[6:])
 
         elif msg.startswith("regedit"):
+            if msg[7:].lower() == "list":
+                print('\n'.join(globals()))
+                pass
             fuck = False
             print("WARNING: Editing system variables may result in an error, use this at your own risk.")
             print("WELCOME TO REGEDIT. You can edit keys (in-code variables) in here!")
@@ -399,6 +402,8 @@ while not shit:
                 elif cocaine == 'list': print('\n'.join(globals()))
                 else:
                      print(f"could not find \"{cocaine}\"")
+        elif msg.lower() in globals():
+            print(globals()[msg])
         elif msg.startswith("help"):
             match msg[5:]:
                 case ".":
