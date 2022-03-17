@@ -57,6 +57,7 @@ version = "1.0.1"
 username = os.getlogin()
 fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
 branch = 'master' # GitHub Main Branch.
+fall = False
 
 startingquotes = [
     "Too stuck? Check out the discord page by 'chung --discord'!",
@@ -124,24 +125,24 @@ def setOption(optionName, option):
 def reload():
     os.execl(sys.executable, sys.executable, *sys.argv)
 
-def Update():
-    updateVar = False
-    
-    os.system('git pull origin ' + branch + ' --quiet')
-
-    while updateVar is not True:
-        os.system('clear')
-    updateVar = True
-
 def clear():
-    cls = "cls" if os.name == "nt" else "clear"
-    os.system(cls)
+    cles = "cls" if os.name == "nt" else "clear"
+    os.system(cles)
 
 def get_split(obj, symbol, idx, returnBool: bool):
     if returnBool:
         return bool(obj.split(symbol)[idx].title())
     else:
         return obj.split(symbol)[idx]
+
+def Update():
+    updateVar = False
+    
+    os.system('git pull origin ' + branch + ' --quiet')
+
+    while updateVar is not True:
+        clear()
+    updateVar = True
 
 
 def versionCheck():
@@ -194,8 +195,8 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
         os.system('cls' if os.name == 'nt' else 'clear')
         match code:
             case "TIMED_OUT":
-                print("Timed Out!")
-                print("Common reasons:")
+                print(Fore.LIGHTGREEN_EX + "Timed Out!" + Fore.WHITE)
+                print(Fore.BLUE + "Common reasons:" + Fore.WHITE)
                 print("""
                 LOCAL:
                  - Loading was for was out of 35 range.
@@ -211,7 +212,7 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                  - Python Intrepeter must have made a mistake...
                 """)
             case "!AUTH":
-                print("Something went wrong, Are you authorized?")
+                print(f"Something went wrong, Are you {Fore.LIGHTRED_EX} authorized?" + Fore.WHITE)
                 print("unauthorized")
             case "UNACCEPTABLE":
                 print("Code is unacceptable, Please remove any code you added if you did, or contact the devs if you didn't")
@@ -229,7 +230,8 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 if msg == 'change' or msg == 'edit':
                     print("This is might be because of a bugged command like \"Change\" or \"Edit\"")
                 pass
-                reload()
+                input()
+                
             case "SMTH_WRONG":
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
@@ -249,11 +251,11 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 print("ENTER TO REBOOT" if os.name == 'nt' else "[RETURN] TO REBOOT")
                 input()
                 reload()
-            case "OSFlict":
+            case "OSFLICT":
                 while True:
                     print(Fore.LIGHTRED_EX + "OPERATING SYSTEM" + Fore.RED + " ERROR")
-                    os.system('cls' if os.name == 'nt' else 'clear')
                     input()
+                    os.system('cls' if os.name == 'nt' else 'clear')
             case "UNDERAGE":
                 print("I'm sorry, but it seems that you're below the age of consent in GitHub.")
                 if locale.getlocale()[0] == 'English_United States':
@@ -378,7 +380,7 @@ while not shit:
             fall = True
             shit = True
         elif msg.startswith('raise'):
-            errors.error(msg[6:])
+            errors.error(msg.upper()[6:])
 
         elif msg.startswith("regedit"):
             if msg[7:].lower() == "list":
@@ -563,11 +565,34 @@ while not shit:
                     """)
                     time.sleep(99999)
 
-        elif msg.startswith("chung --"):
-            if msg[8:] == "discord":
+        elif msg.startswith("chung"):
+            if msg[6:] == "discord":
                 webbrowser.open_new_tab("https://discord.gg/mz3HmzP5ac")
-            elif msg[8:] == "version":
-                print("NUG ChungOS version - 0.0.1\nBrug Bootloader v0.1")
+            elif msg[6:] == "version":
+                print(f"NUG ChungOS version - {version}\nBrug Bootloader v0.1 (Discontinued)")
+            elif msg[6:] == "os":
+                print("You're running on " + cliOS().replace("Darwin", "Mac"))
+                if os.name == 'nt':
+                    print("Would you like more graphical info? (y/n)")
+                    i = input("").lower()
+                    if i == 'y':
+                        subprocess.run('winver')
+                    else:
+                        pass
+            elif msg[6:].lower() == "nug":
+                print("(c) NUG 2021 - 2022")
+                print("This is the list of products that are legalized to public: ")
+                print(f"""
+                    - {Fore.LIGHTWHITE_EX}ChungOS{Fore.WHITE} [{Fore.GREEN}Arezalgamer89{Fore.WHITE}]
+                    - {Fore.LIGHTYELLOW_EX}PythonOS{Fore.WHITE} and it's products (Sepreate License and Publisher) [{Fore.LIGHTMAGENTA_EX}Mini{Fore.WHITE}]
+                    - {Fore.RED}Viruslib{Fore.WHITE}
+
+                
+                """)
+                print("All of the Products use MIT License")
+                
+            else:
+                print("ChungOS Managment Function")
         elif msg == "run-lua":
             os.chdir("files/scripts/")
             for i in os.listdir("files/scripts/"):
@@ -577,7 +602,14 @@ while not shit:
             for i in range(3):
                 os.chdir("..")
         elif msg == "os":
-            print(cliOS().replace("Darwin", "Mac"))
+            print("You're running on " + cliOS().replace("Darwin", "Mac"))
+            if os.name == 'nt':
+                print("Would you like more graphical info? (y/n)")
+                i = input("").lower()
+                if i == 'y':
+                    subprocess.run('winver')
+                else:
+                    pass
         elif msg.startswith("run-luafile") and msg.endswith(".lua"): 
             if Diagnostics is True:
                 if random.randint(1, 50) == 1 and get_option("easter"):
@@ -645,7 +677,7 @@ while not shit:
         print(Fore.RED + "Error: " + Fore.LIGHTYELLOW_EX + err + Fore.WHITE)
 
 while shit and fall:
-    msg = ""
+    msg:str = ""
     msg = input(Fore.LIGHTWHITE_EX + "$ " + Fore.WHITE)
     match msg:
         case "unfall":
