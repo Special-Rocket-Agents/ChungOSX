@@ -28,6 +28,7 @@ from colorama import Fore, Back, Style # Color
 from PyQt5.QtWidgets import *
 from PyQt5.QtWebEngineWidgets import *
 from PyQt5.QtCore import *
+from lupa import LuaRuntime
 from PyQt5.QtGui import QIcon, QKeySequence
 ######            ######
 
@@ -46,21 +47,17 @@ from webbrowser import open_new_tab # Your Browser
 
 
 
-### LUA STUFF ###
-from lupa import LuaRuntime
-lua = LuaRuntime()
-###           ###
 
-###### INTERNAL SETTINGS ######
+lua = LuaRuntime()
+
 osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 version = "1.0.1"
 username = os.getlogin()
-fallBackToTERMINAL = False  # (False by Default) If set to true, uses your OS's terminal instead, whatever it may be bash, or CMD, or pw3yyyyysh
-branch = 'master' # GitHub Main Branch.
 fall = False
+branch = 'master' # GitHub Main Branch.
 
 startingquotes = [
-    "Too stuck? Check out the discord page by 'chung --discord'!",
+    "Too stuck? Check out the discord page by 'chung discord'!",
     "You can simulate the error screens by the \"raise <code>\" command!",
     "If you need a live-ISO-like mode, try 'fall'",
     "ChungOS relies on git and stable internet connection!",
@@ -146,15 +143,7 @@ def Update():
 
 
 def versionCheck():
-    if sys.version_info[0] > 3 or sys.version_info[1] < 10:
-        print(
-            "NOTE: You are running on Python "
-            + str(sys.version_info[0])
-            + "."
-            + str(sys.version_info[1])
-        )
-        print("Some features might not be working correctly.")
-    elif sys.version_info[3] != "final":
+    if sys.version_info[3] != "final":
         print(
             "WARNING: Your Python "
             + str(sys.version_info[0])
@@ -163,13 +152,7 @@ def versionCheck():
             + " is not on the FINAL level and you might encounter Unfixable bugs..."
         )
     elif sys.version_info[0] < 3 or sys.version_info[1] < 10:
-        raise SystemError(
-            "ERROR: ChungOS requires Python 3.10 or higher! You can't run this on "
-            + str(sys.version_info[0])
-            + "."
-            + str(sys.version_info[1])
-            + " you idot!"
-        )
+        errors.error("UNDERVER")
 
 
 def get_option(option):
@@ -194,6 +177,14 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
         time.sleep(0.2)
         os.system('cls' if os.name == 'nt' else 'clear')
         match code:
+            case "UNDERVER":
+                print(f"{Fore.LIGHTRED_EX}Error{Fore.WHITE}:")
+                print(f"You're running on Python {sys.version_info[0]}.{sys.version_info[1]}. While the required one is 3.10")
+                i = input("Would you like to open a tab to download it?")
+                if i=='y':
+                    open_new_tab("https://www.python.org/downloads/release/python-3100/")
+                else:
+                    exit()
             case "TIMED_OUT":
                 print(Fore.LIGHTGREEN_EX + "Timed Out!" + Fore.WHITE)
                 print(Fore.BLUE + "Common reasons:" + Fore.WHITE)
@@ -466,8 +457,7 @@ while not shit:
             else:
                 print(Fore.WHITE + "Wrong Syntax")
                 pass
-        elif msg.endswith("()"):
-            {msg}()
+        
         elif msg == "memory":
             from psutil import Process
             curMemory = Process(os.getpid())
