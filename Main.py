@@ -406,12 +406,22 @@ while not shit:
                     print("If you're looking for lua scripts, that's run-lua(file)")
         elif msg.startswith("."):
             os.chdir("files/programs")
-            if os.name == 'nt':
-                os.system('py ' + msg[1:] + '.py')
-            else:
-                os.system('python3 ' + msg[1:] + '.py')
-            for i in range(2):
-                os.chdir("..")
+            try:
+                if os.name == 'nt':
+                    os.system('py ' + msg[1:] + '.py')
+                else:
+                    os.system('python3 ' + msg[1:] + '.py')
+            except:
+                if random.randint(0,1)==0:
+                    print(f"{osName} was unable to launch {msg[1:]}. Try again later...")
+                else:
+                    if random.randint(0,1)==1:
+                        print(f"{osName} was unable to launch {msg[1:]}. Cause a Stop Error Screen to contact NUG")
+                    else:
+                        errors.error('SMTH_WRONG')
+            finally:
+                for i in range(2):
+                    os.chdir("..")
         elif msg == "browser" or msg == 'chungle':
             match cliOS():
                 case "Windows": os.system("py files/programs/Chungle.py")
