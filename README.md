@@ -11,6 +11,7 @@ ChungOS is the <!--trashy codebase--> Python Program to act as an SHELL Operatin
 - Lua Scripting support with __[lupa](https://pypi.org/project/lupa/)__
 - Secure online browser __[Chungle](https://github.com/ArezalGame89/ChungOS/blob/master/files/programs/Chungle.py)__
 - Autoupdater so you don't have to!
+- Tons of bugs to get frustrated for!
 
 
 ## Getting Started
@@ -63,10 +64,6 @@ Runs discord and FNF very *smooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 logs shitton of stuff too. (not really though, it's just errors)
 
-![image](https://user-images.githubusercontent.com/86628069/155860556-8db615cb-b01f-482c-af65-5ca7ccd6fac4.png)
-
-*d-d-d-d-defenitely no bugs like th-this i swear this is just a old pic yk what don't see it. don't!*
-
 
 ### Do, `.` and `~`
 
@@ -75,7 +72,7 @@ after typing this word,
 
 Your Syntax depends...
 
-- If you use windows. enter batch/cmd code
+- If you use windows. enter batch/cmd code. No Powershell nerds allowed here
 
 - If you use linux/mac. enter bash/zsh codes respectively
 # Lua Support
