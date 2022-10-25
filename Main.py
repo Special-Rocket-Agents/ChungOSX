@@ -5,7 +5,7 @@ from errno import errorcode
 import locale
 import logging
 from operator import sub
-import pytest
+# import pytest
 import os
 import random
 import subprocess
@@ -199,6 +199,7 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                  - Urllib has failed to do just the one job he had.
                  - Your Internet connection is unstable or limited.
                  - You have a Proxy/VPN on.
+                 - You live in Iran (probably SSL connection failed, goverment-banned stuff won't load)
                  - Unknown.
                  - Python Intrepeter must have made a mistake...
                 """)
@@ -212,14 +213,17 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 print("Critical file not found. Please put them back if you removed them")
             case "SYNTAX400":
                 print("Critical Syntax Error!")
+                if random.randint(0, 1) == 1:
+                    print("Time to fix your malice...")
                 print("ENTER to EXIT")
             case "UNADDED":
                 print("Function or Feature " + msg +  "are NOT added yet!")
             case "INDEX":
                 print(Fore.CYAN + "IndexError" + Fore.WHITE)
                 print("Index out of range or invalid.")
+                print("You just ran into the most common error here")
                 if msg == 'change' or msg == 'edit':
-                    print("This is might be because of a bugged command like \"Change\" or \"Edit\"")
+                    print("Might be because of a bugged command like \"Change\" or \"Edit\"")
                 pass
                 input()
                 
@@ -236,9 +240,8 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 os.system("cls" if os.name == 'nt' else 'clear')
                 print(Fore.YELLOW + "WARNING:" + Fore.WHITE)
                 print(f"{osName} has made it's attempts and could not connect to the internet.")
-                print("Do not worry about this error screen, as it is to inform you that")
-                print("you might not be able to perform any online actions and LIKELY CAN get this error repeatedly")
-                print("NUG FKM cannot procced any further and needs to be restarted.")
+                print("Online Features will be unavailable.")
+                print("Please consult making an issue at the repository if you can connect to other sites")
                 print("ENTER TO REBOOT" if os.name == 'nt' else "[RETURN] TO REBOOT")
                 input()
                 reload()
@@ -256,12 +259,12 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 else:
                     print("Please age to your country's age of consent then come back.")
             case _:
-                print("the carrot fat fucking bitch has gained down weight, too much tho.")
+                print("Humble Apologies here, you just errored a rare error")
                 time.sleep(0.1)
-                print("if you not arezal nor mini get the fuck outta here and explain at https://github.com/ArezalGame89/ChungOS/issues/new/choose")
+                print("Report back to https://github.com/ArezalGame89/ChungOS/issues/new/choose")
                 time.sleep(0.2)
                 i = code # can't fix this
-                print("if you are, fix the fucking error [" + i + "]")
+                print("if you are a maintainer, fix the fucking error [" + i + "]")
                 time.sleep(2)
          
             
@@ -324,9 +327,9 @@ def wait(a):
         os.system('cls' if os.name == 'nt' else 'clear')
         print("""
 
-                                Little Chungus OS
+                                   Chungus OS
                                   Arezalgamer89
-                                 [ Please Wait... ]
+                                [ Please Wait... ]
 
         """)
 
@@ -348,12 +351,23 @@ else:
 cwd = os.getcwd()
 
 
+def outdated():
+    print("""You are running ChungOS Original.
+This is a discontinued/minor-updating/Inactive project and is unlikely to recieve an update
+The same fate goes for PythonOS and ChungOSB as well so please be noting
+ONLINE FEATURES WILL BE UNAVAILABLE. ANY SOLUTIONS OR SUPPORT GUIDES WILL BE INEFFECTIVE.
+Using this version WILL mean that you are using it for debugging or nostalgia purposes. Again, SUPPORT IS UNAVAILABLE.
+DO YOU UNDERSTAND? have a nice day    
+""")
+    input()
+outdated()
+
 print("NUG ChungusOS Team 2021-2022")
 print(startingquotes[random.randint(0, 16)])
-if get_option('autoupdate'): #! PLEASE TURN THIS OFF IF YOU'RE DOING YOUR OWN STUFF.
-    Update()
-while not shit:
-    versionCheck()
+# if get_option('autoupdate'): #! PLEASE TURN THIS OFF IF YOU'RE DOING YOUR OWN STUFF.
+    # Update()
+while True:
+    # versionCheck()
     msg = input(Fore.BLUE + username + Fore.YELLOW + "@" + Fore.CYAN + osName + Fore.LIGHTGREEN_EX + "$" + Fore.WHITE + " ")
     try:
         if msg == "time":
@@ -454,7 +468,8 @@ while not shit:
             print(
                 f"""
             ChungOS (ChungusOS) {version}
-
+            - again an outdated mess
+            - dead
             Under MIT License by
             Mini & Arezalgamer89
             """
@@ -543,33 +558,30 @@ while not shit:
             if get_option('acpi'):
                 exit()
             else:
-                time.sleep(random.randint(1, 10))
+                time.sleep(random.randint(1, 5))
                 equotes = [
-                    "Safe and Sound!",
-                    "Cya next time!",
-                    "Off to other stuff...",
-                    "You better disown ACPI.",
-                    "Also check PythonOS [https://github.com/Iemane291/pythonOS]",
+                    "Safe to quit",
+                    "Will see you come, go and come and again...",
+                    "Now onto that line of code...",
+                    "No ACPI huh?",
+                    "PythonOS [https://github.com/Iemane291/pythonOS]",
                     "Off to needing help? Check our discord {https://discord.gg/yN7D4hnJQ6}",
-                    f"I am rapidly approaching your location right now {ip_address}"
+                    f"Did you know that I am rapidly approaching your location right now {ip_address}?"
+                    "Stop messing brother, We must fight the MPLA!"
+                    "Now that you found out chungy is discountiued, maybe consider leaving this?"
+                    "Remember, This is a buggy mess!"
+                    "halt"
                     ]
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    print(f"""
-
-                    Little Chungus OS {version}
-                    Arezalgamer89
-                            It's safe to exit the terminal now            
-                        {equotes[random.randint(0, 6)]}
-
-                    """)
+                    print({equotes[random.randint(0, 11)]})
                     time.sleep(99999)
 
         elif msg.startswith("chung"):
             if msg[6:] == "discord":
                 webbrowser.open_new_tab("https://discord.gg/mz3HmzP5ac")
             elif msg[6:] == "version":
-                print(f"NUG ChungOS version - {version}\nBrug Bootloader v0.1 (Discontinued)")
+                print(f"(Discontinued) NUG ChungOS version - {version}\nBrug Bootloader v0.1 (Discontinued)")
             elif msg[6:] == "os":
                 print("You're running on " + cliOS().replace("Darwin", "Mac"))
                 if os.name == 'nt':
@@ -587,9 +599,12 @@ while not shit:
                     - {Fore.LIGHTYELLOW_EX}PythonOS{Fore.WHITE} and it's products (Sepreate License and Publisher) [{Fore.LIGHTMAGENTA_EX}Mini{Fore.WHITE}]
                     - {Fore.RED}Viruslib{Fore.WHITE}
 
-                
+                    NUG is a discontinued product
+                    ChungOS is a minor-updated product
+                    PythonOS is an inactive product
+                    Viruslib is a discontinued product
                 """)
-                print("All of the Products use MIT License")
+                print("All of the Products use(d) MIT License")
                 
             else:
                 print("ChungOS Managment Function")

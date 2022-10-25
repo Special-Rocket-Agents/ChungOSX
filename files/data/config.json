@@ -1,6 +1,6 @@
 {
     "colors": false,
-    "security": true,
+    "security": false,
     "acpi": false,
     "easter": true,
     "debug": false,
