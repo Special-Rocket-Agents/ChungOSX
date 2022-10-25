@@ -1,3 +1,12 @@
+# CHUNGOS IS NOW DISCONTINUED
+This shitty OS is basically a hole and was never good anything. This readme was cringe miserable and my programming style was shit. I'll go read-only and this project will never be revived.
+
+
+Thank you to nobody who was on this wonderful right
+
+
+Yours truly.
+
 # ChungOS
 
 
