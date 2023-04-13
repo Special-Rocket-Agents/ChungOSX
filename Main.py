@@ -1,61 +1,14 @@
-#####################
-# Built-In Modules
-from calendar import c
-from errno import errorcode
-import locale
-import logging
-from operator import sub
-# import pytest
-import os
-import random
-import subprocess
-import webbrowser
-from xml.etree.ElementTree import TreeBuilder
-import colorama
-import json
-import sys
-import time
-###################
-
-#############################
-from psutil import Process
-from datetime import datetime # Clock 
-from colorama import Fore, Back, Style # Color
-#############################
-
-
-###### CHUNGUS UI ######
-from PyQt5.QtWidgets import *
-from PyQt5.QtWebEngineWidgets import *
-from PyQt5.QtCore import *
-from lupa import LuaRuntime
-from PyQt5.QtGui import QIcon, QKeySequence
-######            ######
-
-
-#### VARIABLES, DO NOT MIND ####
-shit = False
-quoteshit = False
-doneIntro = False
-curMemory = Process(os.getpid())
-####                        ####
-
-##### SYSTEM STUFF #####
-from platform import system as cliOS # Standing for ClientOS
-from pathlib import Path # Path
-from webbrowser import open_new_tab # Your Browser
 
 
 
 
-lua = LuaRuntime()
 
 osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
 version = "1.0.1"
-username = os.getlogin()
 fall = False
 branch = 'master' # GitHub Main Branch.
-
+import os
+import sys
 startingquotes = [
     "Too stuck? Check out the discord page by 'chung discord'!",
     "You can simulate the error screens by the \"raise <code>\" command!",
@@ -118,6 +71,10 @@ def setOption(optionName, option):
     with open(weirdPath + "/config.json", "w") as f:
         json.dump(data, f, indent=4)
         
+shit = False
+quoteshit = False
+doneIntro = False
+
 
 def reload():
     os.execl(sys.executable, sys.executable, *sys.argv)
@@ -164,7 +121,7 @@ def get_option(option):
         else: return data.get(option) # Will also return None if can't find!
 
 
-class errors(): # NOTE: Gus will assume that Github CLI is installed on the computer
+class errors(): #! NOTE: Gus will assume that Github CLI is installed on the computer
     """
     # ERRORS CLASS
 
@@ -180,7 +137,7 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
             case "UNDERVER":
                 print(f"{Fore.LIGHTRED_EX}Error{Fore.WHITE}:")
                 print(f"You're running on Python {sys.version_info[0]}.{sys.version_info[1]}. While the required one is 3.10")
-                i = input("Would you like to open a tab to download it?")
+                i = input("Would you like to open a tab to download it? ")
                 if i=='y':
                     open_new_tab("https://www.python.org/downloads/release/python-3100/")
                 else:
@@ -199,25 +156,23 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                  - Urllib has failed to do just the one job he had.
                  - Your Internet connection is unstable or limited.
                  - You have a Proxy/VPN on.
-                 - You live in Iran (probably SSL connection failed, goverment-banned stuff won't load)
-                 - Unknown.
+                 - You live in an authoritarian country (Failed SSL connection and Active SmartFilter ISP)
                  - Python Intrepeter must have made a mistake...
                 """)
             case "!AUTH":
-                print(f"Something went wrong, Are you {Fore.LIGHTRED_EX} authorized?" + Fore.WHITE)
-                print("unauthorized")
+                print(f"Something went wrong, Are you{Fore.LIGHTRED_EX} authorized?" + Fore.WHITE)
+                print("System halted. \"unauthorized\"")
             case "UNACCEPTABLE":
-                print("Code is unacceptable, Please remove any code you added if you did, or contact the devs if you didn't")
-                print("Please press enter to quit")
+                print("Code is unacceptable, Please reinstall a CLEAN and GENUINE copy of ChungOS.")
             case "FILE404":
-                print("Critical file not found. Please put them back if you removed them")
+                print("Critical file 404. Put those back!")
             case "SYNTAX400":
                 print("Critical Syntax Error!")
                 if random.randint(0, 1) == 1:
                     print("Time to fix your malice...")
                 print("ENTER to EXIT")
             case "UNADDED":
-                print("Function or Feature " + msg +  "are NOT added yet!")
+                print("Function or Feature " + msg + " are NOT added yet!")
             case "INDEX":
                 print(Fore.CYAN + "IndexError" + Fore.WHITE)
                 print("Index out of range or invalid.")
@@ -231,16 +186,16 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
                     print("Something went wrong.")
-                    print("MSG: " + msg if not msg == "raise SMTH_WRONG" else "MSG: None")
+                    print("Latest Syntax Input: " + msg if not msg == "raise SMTH_WRONG" else "MSG: None")
                     print("ERROR CODE: " + code)
-                    print("OS Name " + osName)
-                    print("Fallen back to Terminal" if fallBackToTERMINAL is True else "Not fallen to Terminal.")
+                    print("osname:" + osName)
+                    print("CHOS has fallen back to Terminal? > YES" if fallBackToTERMINAL is True else "CHOS has fallen back to Terminal? > NO")
                     input()
             case "!NET":
                 os.system("cls" if os.name == 'nt' else 'clear')
                 print(Fore.YELLOW + "WARNING:" + Fore.WHITE)
-                print(f"{osName} has made it's attempts and could not connect to the internet.")
-                print("Online Features will be unavailable.")
+                print(f"We have tried, but no. Connection to Internet failed.")
+                print("Online services might have been discontinued or temporarily unavailable.")
                 print("Please consult making an issue at the repository if you can connect to other sites")
                 print("ENTER TO REBOOT" if os.name == 'nt' else "[RETURN] TO REBOOT")
                 input()
@@ -248,6 +203,8 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
             case "OSFLICT":
                 while True:
                     print(Fore.LIGHTRED_EX + "OPERATING SYSTEM" + Fore.RED + " ERROR")
+                    for i in range(40):
+                        print("OSFLICT")
                     input()
                     os.system('cls' if os.name == 'nt' else 'clear')
             case "UNDERAGE":
@@ -275,52 +232,72 @@ class errors(): # NOTE: Gus will assume that Github CLI is installed on the comp
 import socket
 hostname = socket.gethostname()
 ip_address = socket.gethostbyname(hostname)
-def loading():
-    lquotes = [
-        "Came from a error screen? You can make an issue on the GitHub page.",
-        "Love these loading screens? Please contribute if you can and make them better.",
-        "Go support Ukraine please. 💛💙",
-        "Running out of quotes!",
-	    "null",
-	    "Make some backup of Settings/Config.JSON if it's Important",
-	    "Ran on -4 Billion Devices!",
-	    "Logging is very important! As you may find cool stuff",
-	    "hi this is arezal editing this on GNU nano <3",
-	    "If it weren't obvious, Chungus does have RSS. (its broken)",
-	    "Want a challenge? Port this to the NT Framework and make it bootable >:)",
-	    "os.system('cls' if os.name == 'nt' else 'clear') IS THE MOST USED LINE!",
-	    f"{hostname}, Is this {os.getlogin()}?",
-        f"yo mama, {ip_address}, {socket.getaddrinfo}, fatherless.",
-        "Unfortunately, These quotes repeating again and again may be annoytin\nsorry.",
-        Fore.WHITE + "THIS IS A " + Fore.RED + "TEST" + Fore.WHITE,
-    ]
-    j = 0
-    os.system('cls' if os.name == 'nt' else 'clear')
-    if sys.version_info[0] < 3 or sys.version_info[1] < 10:
-        while True:
-            os.system('cls' if os.name == 'nt' else 'clear')
-            print(f"""
-
-                Little Chungus OS
-                    Arezalgamer89
-                    Unsupported Python (less-than 3.10)
-
-            """)
-            input()
-    os.system('cls' if os.name == 'nt' else 'clear')
-    for i in range(random.randint(1, 2)):
-        os.system("cls" if os.name == 'nt' else 'clear')
+from colorama import Fore, Back, Style # Color
+import random
+##### LOADING
+lquotes = [
+    "Came from a error screen? You can make an issue on the GitHub page.",
+    "Love these loading screens? Please contribute if you can and make them better.",
+    "Go support Ukraine please. 💛💙",
+    "Running out of quotes!",
+    "null",
+    "Make some backup of Settings/Config.JSON if it's Important",
+    "Ran on -4 Billion Devices!",
+    "Logging is very important! As you may find cool stuff",
+    "hi this is arezal editing this on GNU nano <3",
+    "If it weren't obvious, Chungus does have RSS. (its broken)",
+    "Want a challenge? Port this to the NT Framework and make it bootable >:)",
+    "os.system('cls' if os.name == 'nt' else 'clear') IS THE MOST USED LINE!",
+    f"yo mama, {ip_address}, {socket.getaddrinfo}, fatherless.",
+    "Unfortunately, These quotes repeating again and again may be annoying sorry.",
+    Fore.WHITE + "THIS IS A " + Fore.RED + "TEST" + Fore.WHITE,
+]
+j = 0
+os.system('cls' if os.name == 'nt' else 'clear')
+if sys.version_info[0] < 3 or sys.version_info[1] < 10:
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
         print(f"""
-
             Little Chungus OS
-              Arezalgamer89
-                    Loading...            {lquotes[random.randint(0, 13)]}
-
+                Arezalgamer89
+                Unsupported Python (less-than 3.10)
         """)
-        time.sleep(random.randint(1, 2))
-    os.system('cls' if os.name == 'nt' else 'clear')
-    pass
-loading()
+        input()
+
+os.system("cls" if os.name == 'nt' else 'clear')
+print(f"""
+        The ChungOS
+    Arezalgamer89 x SRA
+        Loading...            {lquotes[random.randint(0, 13)]}
+    """)
+from calendar import c
+from errno import errorcode
+import locale
+import logging
+from operator import sub
+import random
+import subprocess
+import webbrowser
+from xml.etree.ElementTree import TreeBuilder
+import colorama
+import json
+import sys
+import time
+from psutil import Process
+from datetime import datetime # Clock 
+
+from PyQt5.QtWidgets import *
+from PyQt5.QtWebEngineWidgets import *
+from PyQt5.QtCore import *
+from lupa import LuaRuntime
+from PyQt5.QtGui import QIcon, QKeySequence
+from platform import system as cliOS # Standing for ClientOS
+from pathlib import Path # Path
+from webbrowser import open_new_tab # Your Browser
+lua = LuaRuntime()
+username = os.getlogin()
+curMemory = Process(os.getpid())
+os.system('cls' if os.name == 'nt' else 'clear')
 
 def wait(a):
         time.sleep(a)
@@ -351,23 +328,13 @@ else:
 cwd = os.getcwd()
 
 
-def outdated():
-    print("""You are running ChungOS Original.
-This is a discontinued/minor-updating/Inactive project and is unlikely to recieve an update
-The same fate goes for PythonOS and ChungOSB as well so please be noting
-ONLINE FEATURES WILL BE UNAVAILABLE. ANY SOLUTIONS OR SUPPORT GUIDES WILL BE INEFFECTIVE.
-Using this version WILL mean that you are using it for debugging or nostalgia purposes. Again, SUPPORT IS UNAVAILABLE.
-DO YOU UNDERSTAND? have a nice day    
-""")
-    input()
-outdated()
-
-print("NUG ChungusOS Team 2021-2022")
+print("SRA ChungOS Team 2021-2023")
+print("Courtesy of Arezalgamer89")
 print(startingquotes[random.randint(0, 16)])
-# if get_option('autoupdate'): #! PLEASE TURN THIS OFF IF YOU'RE DOING YOUR OWN STUFF.
-    # Update()
+if get_option('autoupdate'): #! PLEASE TURN THIS OFF IF YOU'RE DOING YOUR OWN STUFF.
+    Update()
 while True:
-    # versionCheck()
+    versionCheck()
     msg = input(Fore.BLUE + username + Fore.YELLOW + "@" + Fore.CYAN + osName + Fore.LIGHTGREEN_EX + "$" + Fore.WHITE + " ")
     try:
         if msg == "time":
@@ -574,7 +541,7 @@ while True:
                     ]
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    print({equotes[random.randint(0, 11)]})
+                    print({equotes[random.randint(0, 10)]})
                     time.sleep(99999)
 
         elif msg.startswith("chung"):

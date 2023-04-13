@@ -125,6 +125,10 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
+# other shtuff
+files/data
+file/sounds
+file/scripts
 # Pyre type checker
 .pyre/
 *.pyc
