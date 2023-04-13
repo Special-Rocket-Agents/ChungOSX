@@ -1,8 +1,8 @@
 # CHUNGOS IS NOW DISCONTINUED
-This shitty OS is basically a hole and was never good anything. This readme was cringe miserable and my programming style was shit. I'll go read-only and this project will never be revived.
+This ~~shitty~~ OS is basically a ~~hole and was never~~ good ~~any~~thing. This readme was ~~cringe miserable and my programming style was~~ shit. I'll go read-~~only~~ and this project will ~~never~~ be revived.
 
 
-Thank you to nobody who was on this wonderful right
+Thank you ~~to nobody~~ who was on this wonderful right
 
 
 Yours truly.
@@ -13,10 +13,9 @@ Yours truly.
 [![GitHub pull requests](https://img.shields.io/github/issues/ArezalGame89/ChungOS.svg)](https://github.com/ArezalGame89/ChungOS/issues)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/ArezalGame89/ChungOS/master/LICENSE)
 
-ChungOS is the <!--trashy codebase--> Python Program to act as an SHELL Operating System!
-
+ChungOS is the <!--trashy codebase--> funni fake kernel to act as a tty1 Operating System.
 #### Ton of features like:
-- Colorful environment using JUST [colorama](https://pypi.org/project/colorama/)
+- Colorful environment using [colorama](https://pypi.org/project/colorama/)
 - Lua Scripting support with __[lupa](https://pypi.org/project/lupa/)__
 - Secure online browser __[Chungle](https://github.com/ArezalGame89/ChungOS/blob/master/files/programs/Chungle.py)__
 - Autoupdater so you don't have to!
@@ -25,7 +24,7 @@ ChungOS is the <!--trashy codebase--> Python Program to act as an SHELL Operatin
 
 ## Getting Started
 
-### As a beginner:
+### As a beginner
 
 **NOTE:** This section assumes you know about terminals and shells.
 
@@ -63,20 +62,15 @@ Assuming you have everything mentioned [here](https://github.com/ArezalGame89/Ch
 
 ### Chungle
 
-Predecessor to [pyBrowse](https://github.com/Iemane291/pythonOS/blob/main/program-files/pyBrowse/pybrowse.py).
+Predecessor to [pyBrowse](https://github.com/Iemane291/pythonOS/blob/main/program-files/pyBrowse/pybrowse.py). [Link no longer exists]
 
-Runs discord and FNF very *smooooooooooooooooooooooooooooooooooooooooooooooooooooooooothly*
+Runs discord and FNF very un*smoooooooooooooooooooooothly*
 
 ![image](https://user-images.githubusercontent.com/86628069/155860299-76d451c6-5f6d-4eaf-8201-aa701e16f281.png)
 
-![image](https://user-images.githubusercontent.com/86628069/155860499-c60ba8e9-6305-47e1-9425-ad2471babfc4.png)
 
-logs shitton of stuff too. (not really though, it's just errors)
+### Do
 
-
-### Do, `.` and `~`
-
-#### DO
 after typing this word,
 
 Your Syntax depends...
@@ -84,33 +78,8 @@ Your Syntax depends...
 - If you use windows. enter batch/cmd code. No Powershell nerds allowed here
 
 - If you use linux/mac. enter bash/zsh codes respectively
-# Lua Support
-
-You can use [Normal Lua](https://www.lua.org/) to Alter/Extend ChungOS's Functionality
-
-Since ChungOS runs on [Lupa Runtime](https://pypi.org/project/lupa/). You're free to write anything you want!
-
-#### `.`
-After the period, Enter the program filename on files/Programs. They are Case-Sensitive and you do not need to type the extension
-
-#### `~`
-> This really is putting lua runtime into test isn't it? - MikeDeer0Gaming34, FCO of NUG
-
-You can do one-line code (or make multi-line possible by `\n`s) lua by typing ~ as the first letter and your codebase next
-
-###
-
-## How to run?
-   
-   Make sure your Script ends in `.lua` and put it in `assets/preload/raw_scripts`
-   
-   Use `run-lua` to run all the scripts that are there. 
-   
-   Or use `run-luafile <yourfilename>` to run your specified .lua file!
-
-
 
 # Credits
 
-- [Mini](https://twitter.com/@minilol69) - Former Owner | Former ChungOS Programmer | Artist
-- [Arezalgamer89](mailto:aradzpfa@gmail.com). - Owner | Programmer
+- [Arezalgamer89](mailto:aradytfa@gmail.com"). - Owner | Programmer
+- NarratingSince86 - Encouraging me to revive ~~this assholeholed~~ ChungOS
