@@ -515,6 +515,7 @@ while True:
                 print("ChungOS and ChungOSX are MIT Licensed")
                 print("KawaiiXOR and Hookies are not related to this.")
             else:
+                print("The ChungOS Infosystem")
                 print("Usage: chung <discord | version | os | sra>")
         elif msg == "run-lua":
             os.chdir("files/scripts/")
