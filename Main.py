@@ -9,6 +9,8 @@ fall = False
 branch = 'master' # GitHub Main Branch.
 import os
 import sys
+import time
+
 startingquotes = [
     "Too stuck? Make another issue! We don't have a Discord Guild",
     "You can simulate the error screens by the \"raise <code>\" command!",
