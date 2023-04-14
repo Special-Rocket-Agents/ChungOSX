@@ -3,53 +3,31 @@
 
 
 
-osName = "ChungOS"  # Keep in mind that this is shitto different than os.name
-version = "1.0.1"
+osName = "ChungOSX"  # Keep in mind that this is shitto different than os.name
+version = "1.0"
 fall = False
 branch = 'master' # GitHub Main Branch.
 import os
 import sys
 startingquotes = [
-    "Too stuck? Check out the discord page by 'chung discord'!",
+    "Too stuck? Make another issue! We don't have a Discord Guild",
     "You can simulate the error screens by the \"raise <code>\" command!",
-    "If you need a live-ISO-like mode, try 'fall'",
-    "ChungOS relies on git and stable internet connection!",
-    "It would be a chad move if you suggested us REAL COOL features",
-    "As always, This project is open-source and FREE, if you paid for it, YOU GOT SCAMMED!",
-    "Don't worry, Big Chungus has a huge compatiblity with other OSes!",
+    "If you need a buggier version of ChungOSB, go try FALL command.",
+    "ChungOSB relies on git",
+    "Suggest us features.",
+    "Yes it is free.",
+    "Worry, ChungOS is incompatible with other OSes",
     "There's this little cool command called \"do\", You can use this to perform bash/cmd/zsh tasks! like clear/cls.",
-    "Do People Actually Read These?",
+    "So People Actually Read These.",
     "Remember, Python 3.10 or later!",
-    "Imagine if we made Chungus bootable, that would be impossible since python's too high-level'd",
-    "Chungle is VERY fast, Try running discord on it ;)",
-    "don't forget pythonOS! pythonOS too! https://github.com/Iemane291/pythonOS",
-    "You know Chungus has lua support, right? right??",
-    "Did you know Chungus was originally called OS, then MiniOS?",
-    "NUG (Mini, Arezalgamer89)'s first product was a viruslib.",
-    "If one of the NUG's products are not in GitHub, they're coded together by Mini and Arezal using live share!"
+    "Imagine if we made ChungOS bootable, that would be impossible since python's too high-level",
+    "Chungle is MegaFast™ Certified",
+    "PythonOS is dead.",
+    "You know ChungOSX has lua support, right? right??",
+    "ChungOSX is not ChungOSB",
+    "SRA's first product was KawaiiXOR.",
+    "If one of the SRA's products are not in GitHub, they're coded together by Mini and Arezal using live share!"
 ]
-errorcodes = [
-        "FILE404", # 0
-        "DIR404", # 1
-        "TIMED_OUT", # 2
-        "SYNTAX_400", # 3
-        "401ACTION_!AUTH", # 4
-        "FEATURE_402", # 5
-        "FUNCTION_403", # 6
-        "CODINGSTYLE_405", # 7
-        "UNACCEPTABLE", # 8
-        "408", # 9
-        "SMTH_WRONG_409", # 10
-        "R/WHOOSH_410", # 11
-        "GIANTLY_FAILURE_413", # 12
-        "YOUR_DADS_EXPECTAIONS_ARE_TOO_HIGH_417", # 13
-        "IDFK_500", # 14
-        "STILL_NOT_THAT_ONE_501", # 15
-        "NOPE_NOT_RN_503", # 16
-        "WTF_IS_THAT_HTML?_505", # 17
-        "DO_NOT_BASTARDIZE_CONSENT_511", # 18
-        "OH_WAIT_NOTHING'S_WRONG_100" # 19
-    ]
 
 
 
@@ -121,7 +99,7 @@ def get_option(option):
         else: return data.get(option) # Will also return None if can't find!
 
 
-class errors(): #! NOTE: Gus will assume that Github CLI is installed on the computer
+class errors(): #! NOTE: ChungOS will assume that Github CLI is installed on the computer
     """
     # ERRORS CLASS
 
@@ -136,7 +114,7 @@ class errors(): #! NOTE: Gus will assume that Github CLI is installed on the com
         match code:
             case "UNDERVER":
                 print(f"{Fore.LIGHTRED_EX}Error{Fore.WHITE}:")
-                print(f"You're running on Python {sys.version_info[0]}.{sys.version_info[1]}. While the required one is 3.10")
+                print(f"You're running on Python {sys.version_info[0]}.{sys.version_info[1]}. While the required one is 3.10+")
                 i = input("Would you like to open a tab to download it? ")
                 if i=='y':
                     open_new_tab("https://www.python.org/downloads/release/python-3100/")
@@ -147,23 +125,22 @@ class errors(): #! NOTE: Gus will assume that Github CLI is installed on the com
                 print(Fore.BLUE + "Common reasons:" + Fore.WHITE)
                 print("""
                 LOCAL:
-                 - Loading was for was out of 35 range.
-                 - A File or Directory caused an overflow
-                 - Your HDD/SDD may be slow
+                 - Something failed in the loading function
+                 - Overflow
+                 - Disk might be too busy
                  - Your memory doesn't have enough space to store variables
                 
                 INTERNET:
-                 - Urllib has failed to do just the one job he had.
-                 - Your Internet connection is unstable or limited.
+                 - Unstable Connection
                  - You have a Proxy/VPN on.
                  - You live in an authoritarian country (Failed SSL connection and Active SmartFilter ISP)
-                 - Python Intrepeter must have made a mistake...
+                 - Python must have farted
                 """)
             case "!AUTH":
                 print(f"Something went wrong, Are you{Fore.LIGHTRED_EX} authorized?" + Fore.WHITE)
                 print("System halted. \"unauthorized\"")
             case "UNACCEPTABLE":
-                print("Code is unacceptable, Please reinstall a CLEAN and GENUINE copy of ChungOS.")
+                print("Code is unacceptable, Please reinstall a CLEAN and GENUINE copy of ChungOSX.")
             case "FILE404":
                 print("Critical file 404. Put those back!")
             case "SYNTAX400":
@@ -186,7 +163,7 @@ class errors(): #! NOTE: Gus will assume that Github CLI is installed on the com
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
                     print("Something went wrong.")
-                    print("Latest Syntax Input: " + msg if not msg == "raise SMTH_WRONG" else "MSG: None")
+                    print("Latest Syntax Input: " + msg if not msg == "raise SMTH_WRONG".lower() else "MSG: None")
                     print("ERROR CODE: " + code)
                     print("osname:" + osName)
                     print("CHOS has fallen back to Terminal? > YES" if fallBackToTERMINAL is True else "CHOS has fallen back to Terminal? > NO")
@@ -216,9 +193,9 @@ class errors(): #! NOTE: Gus will assume that Github CLI is installed on the com
                 else:
                     print("Please age to your country's age of consent then come back.")
             case _:
-                print("Humble Apologies here, you just errored a rare error")
+                print("Humble Apologies here, you just errored an error")
                 time.sleep(0.1)
-                print("Report back to https://github.com/ArezalGame89/ChungOS/issues/new/choose")
+                print("Report back to https://github.com/Special-Rocket-Agents/ChungOS/issues/new/choose")
                 time.sleep(0.2)
                 i = code # can't fix this
                 print("if you are a maintainer, fix the fucking error [" + i + "]")
@@ -248,25 +225,15 @@ lquotes = [
     "If it weren't obvious, Chungus does have RSS. (its broken)",
     "Want a challenge? Port this to the NT Framework and make it bootable >:)",
     "os.system('cls' if os.name == 'nt' else 'clear') IS THE MOST USED LINE!",
-    f"yo mama, {ip_address}, {socket.getaddrinfo}, fatherless.",
+    f"yo mama ain't fat",
     "Unfortunately, These quotes repeating again and again may be annoying sorry.",
     Fore.WHITE + "THIS IS A " + Fore.RED + "TEST" + Fore.WHITE,
 ]
 j = 0
 os.system('cls' if os.name == 'nt' else 'clear')
-if sys.version_info[0] < 3 or sys.version_info[1] < 10:
-    while True:
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print(f"""
-            Little Chungus OS
-                Arezalgamer89
-                Unsupported Python (less-than 3.10)
-        """)
-        input()
-
 os.system("cls" if os.name == 'nt' else 'clear')
 print(f"""
-        The ChungOS
+        The ChungOSX
     Arezalgamer89 x SRA
         Loading...            {lquotes[random.randint(0, 13)]}
     """)
@@ -304,7 +271,7 @@ def wait(a):
         os.system('cls' if os.name == 'nt' else 'clear')
         print("""
 
-                                   Chungus OS
+                                     ChungOSX
                                   Arezalgamer89
                                 [ Please Wait... ]
 
@@ -365,7 +332,7 @@ while True:
                 cocaine = input("What do you want to edit? > ")
                 if cocaine in globals():
                     newValue = input(f"What do you want to edit {cocaine} (currently {str(globals()[cocaine])}) to? ")
-                    globals()[cocaine] =  newValue
+                    globals()[cocaine] = newValue
                 elif cocaine == '':
                     print()
                 elif cocaine == 'exit':
@@ -431,16 +398,6 @@ while True:
             # print("Directory " + os.curdir + " is " + os.path + " and has nil volume.")
             print(Fore.WHITE + "Listing PATH where the Main.py executes in.")
             print("\n".join(os.listdir()))
-        elif msg == "version":
-            print(
-                f"""
-            ChungOS (ChungusOS) {version}
-            - again an outdated mess
-            - dead
-            Under MIT License by
-            Mini & Arezalgamer89
-            """
-            )
         elif msg.startswith("settings --"):
             if msg[11:] == "help":
                 print(
@@ -531,24 +488,27 @@ while True:
                     "Will see you come, go and come and again...",
                     "Now onto that line of code...",
                     "No ACPI huh?",
-                    "PythonOS [https://github.com/Iemane291/pythonOS]",
-                    "Off to needing help? Check our discord {https://discord.gg/yN7D4hnJQ6}",
+                    "PythonOS... does not exist.",
+                    "Off to needing help? Check out non-existent wiki!",
                     f"Did you know that I am rapidly approaching your location right now {ip_address}?"
                     "Stop messing brother, We must fight the MPLA!"
-                    "Now that you found out chungy is discountiued, maybe consider leaving this?"
+                    "Big big chungus, big chungus big chungus!"
                     "Remember, This is a buggy mess!"
                     "halt"
                     ]
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
                     print({equotes[random.randint(0, 10)]})
-                    time.sleep(99999)
+                    time.sleep(1)
 
         elif msg.startswith("chung"):
             if msg[6:] == "discord":
-                webbrowser.open_new_tab("https://discord.gg/mz3HmzP5ac")
+                # webbrowser.open_new_tab("https://discord.gg/mz3HmzP5ac")
+                print("That server does not exist!")
             elif msg[6:] == "version":
-                print(f"(Discontinued) NUG ChungOS version - {version}\nBrug Bootloader v0.1 (Discontinued)")
+                print(f"SRA {osName} 2021 - 2023")
+                print("MIT License")
+                print("~ Arezalgamer89")
             elif msg[6:] == "os":
                 print("You're running on " + cliOS().replace("Darwin", "Mac"))
                 if os.name == 'nt':
@@ -558,23 +518,12 @@ while True:
                         subprocess.run('winver')
                     else:
                         pass
-            elif msg[6:].lower() == "nug":
-                print("(c) NUG 2021 - 2022")
-                print("This is the list of products that are legalized to public: ")
-                print(f"""
-                    - {Fore.LIGHTWHITE_EX}ChungOS{Fore.WHITE} [{Fore.GREEN}Arezalgamer89{Fore.WHITE}]
-                    - {Fore.LIGHTYELLOW_EX}PythonOS{Fore.WHITE} and it's products (Sepreate License and Publisher) [{Fore.LIGHTMAGENTA_EX}Mini{Fore.WHITE}]
-                    - {Fore.RED}Viruslib{Fore.WHITE}
-
-                    NUG is a discontinued product
-                    ChungOS is a minor-updated product
-                    PythonOS is an inactive product
-                    Viruslib is a discontinued product
-                """)
-                print("All of the Products use(d) MIT License")
-                
+            elif msg[6:].lower() == "sra":
+                print("(c) Special Rocket Agency 2021 - 2023")
+                print("ChungOS and ChungOSX are MIT Licensed")
+                print("KawaiiXOR and Hookies are not related to this.")
             else:
-                print("ChungOS Managment Function")
+                print("Usage: chung <discord | version | os | sra>")
         elif msg == "run-lua":
             os.chdir("files/scripts/")
             for i in os.listdir("files/scripts/"):
@@ -626,13 +575,9 @@ while True:
                 f"Never heard of {msg}.",
                 f"{msg}, must be a typo?",
                 f"Is {msg} even added?",
-                f"if you want {msg} and it's not a typo. open up a issue!",
-                "Yeah no, that doesn't exist bro...",
-                None,
-                1,
                 f"{msg}... *sad noises*"
             ]
-            print(qmiss[random.randint(0,9)])
+            print(qmiss[random.randint(0,4)])
     except ModuleNotFoundError:
         errors.error("FILE404")
     except IndexError:
@@ -640,7 +585,7 @@ while True:
     except PermissionError:
         errors.error("!AUTH")
     except OSError:
-        errors.error("OSFlict")
+        errors.error("OSFLICT")
     except IndentationError:
         errors.error("SYNTAX400")
     except SystemError:
@@ -654,7 +599,8 @@ while True:
             print("Bro you should have just used exit :/")
         exit()
     except EOFError:
-        errors.error('INDEX')
+        
+        errors.error('END_OF_FILE_AND_LIFE')
     except Exception as err:
         print(Fore.RED + "Error: " + Fore.LIGHTYELLOW_EX + err + Fore.WHITE)
 
