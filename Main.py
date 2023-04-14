@@ -592,6 +592,8 @@ while True:
         errors.error("SMTH_WRONG")
     except TypeError:
         errors.error("SYNTAX400")
+    except AttributeError:
+        errors.error("SYNTAX400")
     except NameError:
         errors.error("UNACCEPTABLE")
     except KeyboardInterrupt:
