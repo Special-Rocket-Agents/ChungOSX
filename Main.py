@@ -364,7 +364,7 @@ while True:
                     print(f"{osName} was unable to launch {msg[1:]}. Try again later...")
                 else:
                     if random.randint(0,1)==1:
-                        print(f"{osName} was unable to launch {msg[1:]}. Cause a Stop Error Screen to contact NUG")
+                        print(f"{osName} was unable to launch {msg[1:]}.")
                     else:
                         errors.error('SMTH_WRONG')
             finally:
@@ -398,14 +398,6 @@ while True:
             # print("Directory " + os.curdir + " is " + os.path + " and has nil volume.")
             print(Fore.WHITE + "Listing PATH where the Main.py executes in.")
             print("\n".join(os.listdir()))
-        elif msg.startswith("settings --"):
-            if msg[11:] == "help":
-                print(
-                    "colors - Change if you want colored text or not. Recommended to turn off if colorblind or causes eyestrains"
-                )
-            else:
-                print(Fore.WHITE + "Wrong Syntax")
-                pass
         
         elif msg == "memory":
             from psutil import Process
