@@ -304,10 +304,10 @@ while True:
     versionCheck()
     msg = input(Fore.BLUE + username + Fore.YELLOW + "@" + Fore.CYAN + osName + Fore.LIGHTGREEN_EX + "$" + Fore.WHITE + " ")
     try:
-        if msg == "time":
+        if msg == "date":
             import datetime
             from datetime import *
-            print(datetime.datetime.now())
+            print(date.today())
         elif msg == "r":
             reload()
             os.system('cls' if os.name == 'nt' else 'clear')
