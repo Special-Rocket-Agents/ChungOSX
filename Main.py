@@ -198,8 +198,8 @@ class errors(): #! NOTE: ChungOS will assume that Github CLI is installed on the
                 time.sleep(0.1)
                 print("Report back to https://github.com/Special-Rocket-Agents/ChungOS/issues/new/choose")
                 time.sleep(0.2)
-                i = code # can't fix this
-                print("if you are a maintainer, fix the fucking error [" + i + "]")
+                i = code
+                print("Exception: " + i)
                 time.sleep(2)
          
             
