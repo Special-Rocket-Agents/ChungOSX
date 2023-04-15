@@ -324,6 +324,7 @@ while True:
             errors.error(msg.upper()[6:])
 
         elif msg.startswith("regedit"):
+            wait(0.4)
             if msg[7:].lower() == "list":
                 print('\n'.join(globals()))
                 pass
@@ -377,12 +378,6 @@ while True:
                 case "Windows": os.system("py files/programs/Chungle.py")
                 case "Darwin": os.system("python3 files/programs/Chungle.py")
                 case "Linux": os.system("python files/programs/Chungle.py")
-        elif msg == "update":
-            os.system("git pull origin master --quiet")
-            if cliOS() == "Windows":
-                os.system("py Main.py")
-            elif cliOS() == "Darwin":
-                os.system("python3 Main.py")
         elif msg.startswith("do"):
             if cliOS() == "Darwin" or cliOS() == "Linux" and doneIntro == False:
                 if get_option('colors') is True:
@@ -392,8 +387,6 @@ while True:
                     print(Fore.WHITE + "WARNING: " + Fore.WHITE + "you're on mac or linux so be sure to type sudo")
             print(Fore.WHITE)
             os.system(msg[3:])
-            if random.randint(0, 100000000000000000000000000) == 1:
-                fallBackToTERMINAL = True
 
 
         elif msg == "ls" or msg == "dir":
