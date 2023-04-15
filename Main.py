@@ -168,7 +168,6 @@ class errors(): #! NOTE: ChungOS will assume that Github CLI is installed on the
                     print("Latest Syntax Input: " + msg if not msg == "raise SMTH_WRONG".lower() else "MSG: None")
                     print("ERROR CODE: " + code)
                     print("osname:" + osName)
-                    print("CHOS has fallen back to Terminal? > YES" if fallBackToTERMINAL is True else "CHOS has fallen back to Terminal? > NO")
                     input()
             case "!NET":
                 os.system("cls" if os.name == 'nt' else 'clear')
@@ -406,24 +405,29 @@ while True:
             os.system("py main.py" if os.name == 'nt' else 'python3 main.py')
 
         elif msg.startswith("change"):
-            if msg.split(" ")[1] == "--help":
-                print(
-                    "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind.\n"
-                )
-            else:
-                newoption = None
-                if msg.split(" ")[2].lower() == "false":
-                    newoption = False
-                elif msg.split(" ")[2].lower() == "true":
-                    newoption = True
-                if get_option(msg.split(" ")[1].lower()) is not None:
-                    setOption(msg.split(" ")[1].lower(), newoption)
-                    try:
-                        print("Changed option [ " + msg.split(" ")[1].lower() + " ] --> " + newoption)
-                    except:
-                        print("Changed Option.")
+            try:
+                if msg.split(" ")[1] == "--help":
+                    print(
+                        "colors - This affects if you want colored text or not, recommended to turn off incase this causes eyestrains or if your colorblind.\n"
+                    )
                 else:
-                    print("That is not a valid option.")
+                    newoption = None
+                    if msg.split(" ")[2].lower() == "false":
+                        newoption = False
+                    elif msg.split(" ")[2].lower() == "true":
+                        newoption = True
+                    if get_option(msg.split(" ")[1].lower()) is not None:
+                        setOption(msg.split(" ")[1].lower(), newoption)
+                        try:
+                            print("Changed option [ " + msg.split(" ")[1].lower() + " ] --> " + newoption)
+                        except:
+                            print("Changed Option.")
+                    else:
+                        print("That is not a valid option.")
+            except Exception as errno:
+                print(errno)
+                time.sleep(2)
+                errors.error(errno)
         elif msg.startswith('~'):
             lua.eval(msg[1:])
 
