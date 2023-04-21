@@ -20,10 +20,8 @@ Clone ChungOS somewhere and run `main.py`
 
 simple
 
-### Key Feature: Do
-
-This command enters in shell commands (The one your operating system uses)
-
+# Commands
+Wiki exists, [go read it](https://github.com/Special-Rocket-Agents/ChungOSX/wiki).
 
 # Credits
 
