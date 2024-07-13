@@ -1,15 +1,10 @@
-
-
-
-
-
+import errorc
+from errorc import error
 osName = "ChungOSX"  # Keep in mind that this is shitto different than os.name
 version = "1.0"
 fall = False
 branch = 'master' # GitHub Main Branch.
-import os
-import sys
-import time
+
 
 startingquotes = [
     "Too stuck? Make another issue! We don't have a Discord Guild",
@@ -37,7 +32,9 @@ startingquotes = [
 
 
 
-
+import os
+import sys
+import time
 
 
 def setOption(optionName, option):
@@ -89,7 +86,7 @@ def versionCheck():
             + " is not on the FINAL level and you might encounter Unfixable bugs..."
         )
     elif sys.version_info[0] < 3 or sys.version_info[1] < 10:
-        errors.error("UNDERVER")
+        error("UNDERVER", "UNDERVER", msg)
 
 
 def get_option(option):
@@ -101,112 +98,7 @@ def get_option(option):
         else: return data.get(option) # Will also return None if can't find!
 
 
-class errors(): #! NOTE: ChungOS will assume that Github CLI is installed on the computer
-    """
-    # ERRORS CLASS
 
-    This Class contains all the G/BS's of Death
-    """
-    def error(code):
-        
-        os.system('cls' if os.name == 'nt' else 'clear')
-        time.sleep(0.2)
-        time.sleep(0.2)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        match code:
-            case "UNDERVER":
-                print(f"{Fore.LIGHTRED_EX}Error{Fore.WHITE}:")
-                print(f"You're running on Python {sys.version_info[0]}.{sys.version_info[1]}. While the required one is 3.10+")
-                i = input("Would you like to open a tab to download it? ")
-                if i=='y':
-                    open_new_tab("https://www.python.org/downloads/release/python-3100/")
-                else:
-                    exit()
-            case "TIMED_OUT":
-                print(Fore.LIGHTGREEN_EX + "Timed Out!" + Fore.WHITE)
-                print(Fore.BLUE + "Common reasons:" + Fore.WHITE)
-                print("""
-                LOCAL:
-                 - Something failed in the loading function
-                 - Overflow
-                 - Disk might be too busy
-                 - Your memory doesn't have enough space to store variables
-                
-                INTERNET:
-                 - Unstable Connection
-                 - You have a Proxy/VPN on.
-                 - You live in an authoritarian country (Failed SSL connection and Active SmartFilter ISP)
-                 - Python must have farted
-                """)
-            case "!AUTH":
-                print(f"Something went wrong, Are you{Fore.LIGHTRED_EX} authorized?" + Fore.WHITE)
-                print("System halted. \"unauthorized\"")
-            case "UNACCEPTABLE":
-                print("Code is unacceptable, Please reinstall a CLEAN and GENUINE copy of ChungOSX.")
-            case "FILE404":
-                print("Critical file 404. Put those back!")
-            case "SYNTAX400":
-                print("Critical Syntax Error!")
-                if random.randint(0, 1) == 1:
-                    print("Time to fix your malice...")
-                print("ENTER to EXIT")
-            case "UNADDED":
-                print("Function or Feature " + msg + " are NOT added yet!")
-            case "INDEX":
-                print(Fore.CYAN + "IndexError" + Fore.WHITE)
-                print("Index out of range or invalid.")
-                print("You just ran into the most common error here")
-                if msg == 'change' or msg == 'edit':
-                    print("Might be because of a bugged command like \"Change\" or \"Edit\"")
-                pass
-                input()
-                
-            case "SMTH_WRONG":
-                while True:
-                    os.system('cls' if os.name == 'nt' else 'clear')
-                    print("Something went wrong.")
-                    print("Latest Syntax Input: " + msg if not msg == "raise SMTH_WRONG".lower() else "MSG: None")
-                    print("ERROR CODE: " + code)
-                    print("osname:" + osName)
-                    input()
-            case "!NET":
-                os.system("cls" if os.name == 'nt' else 'clear')
-                print(Fore.YELLOW + "WARNING:" + Fore.WHITE)
-                print(f"We have tried, but no. Connection to Internet failed.")
-                print("Online services might have been discontinued or temporarily unavailable.")
-                print("Please consult making an issue at the repository if you can connect to other sites")
-                print("ENTER TO REBOOT" if os.name == 'nt' else "[RETURN] TO REBOOT")
-                input()
-                reload()
-            case "OSFLICT":
-                while True:
-                    print(Fore.LIGHTRED_EX + "OPERATING SYSTEM" + Fore.RED + " ERROR")
-                    for i in range(40):
-                        print("OSFLICT")
-                    input()
-                    os.system('cls' if os.name == 'nt' else 'clear')
-            case "UNDERAGE":
-                print("I'm sorry, but it seems that you're below the age of consent in GitHub.")
-                if locale.getlocale()[0] == 'English_United States':
-                    print("[US], To comply with COPPA Laws, We have an request.")
-                    input()
-                    print("Please grow up to 13 and then come back")
-                else:
-                    print("Please age to your country's age of consent then come back.")
-            case _:
-                print("Humble Apologies here, you just errored an error")
-                time.sleep(0.1)
-                print("Report back to https://github.com/Special-Rocket-Agents/ChungOS/issues/new/choose")
-                time.sleep(0.2)
-                i = code
-                print("Exception: " + i)
-                time.sleep(2)
-         
-            
-        
-
-        input()
-        exit()
 import socket
 hostname = socket.gethostname()
 ip_address = socket.gethostbyname(hostname)
@@ -251,7 +143,6 @@ import colorama
 import json
 import sys
 import time
-from psutil import Process
 from datetime import datetime # Clock 
 
 from PyQt5.QtWidgets import *
@@ -265,6 +156,7 @@ from webbrowser import open_new_tab # Your Browser
 lua = LuaRuntime()
 username = os.getlogin()
 curMemory = Process(os.getpid())
+time.sleep(0.2)
 os.system('cls' if os.name == 'nt' else 'clear')
 
 def wait(a):
@@ -306,7 +198,6 @@ while True:
     msg = input(Fore.BLUE + username + Fore.YELLOW + "@" + Fore.CYAN + osName + Fore.LIGHTGREEN_EX + "$" + Fore.WHITE + " ")
     try:
         if msg == "date":
-            import datetime
             from datetime import *
             print(date.today())
         elif msg == "r":
@@ -320,7 +211,7 @@ while True:
             fall = True
             shit = True
         elif msg.startswith('raise'):
-            errors.error(msg.upper()[6:])
+            error(msg.upper()[6:], "EXCEPTION_INTUNED", msg)
 
         elif msg.startswith("regedit"):
             wait(0.4)
@@ -361,14 +252,9 @@ while True:
                     os.system('py ' + msg[1:] + '.py')
                 else:
                     os.system('python3 ' + msg[1:] + '.py')
-            except:
-                if random.randint(0,1)==0:
-                    print(f"{osName} was unable to launch {msg[1:]}. Try again later...")
-                else:
-                    if random.randint(0,1)==1:
-                        print(f"{osName} was unable to launch {msg[1:]}.")
-                    else:
-                        errors.error('SMTH_WRONG')
+            except Exception as err:
+                print(f"{osName} was unable to launch {msg[1:]}.")
+                error('SMTH_WRONG', f"ChungOSX was unable to launch a Python program. Exception: {err}", msg)
             finally:
                 for i in range(2):
                     os.chdir("..")
@@ -425,11 +311,12 @@ while True:
                     else:
                         print("That is not a valid option.")
             except Exception as errno:
-                print(errno)
-                time.sleep(2)
-                errors.error(errno)
+                error("INDEX", errno, msg)
         elif msg.startswith('~'):
-            lua.eval(msg[1:])
+            try:
+                lua.eval(msg[1:])
+            except Exception as er:
+                error("SMTH_WRONG", er, msg)
 
         elif msg == "halt": # There's a few ways we can do this, so let's make it random!
             if cliOS() == "Darwin" or cliOS() == "Mac" or cliOS() == "Linux":
@@ -489,7 +376,7 @@ while True:
                     ]
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    print({equotes[random.randint(0, 10)]})
+                    print(equotes[random.randint(0, 10)])
                     time.sleep(1)
 
         elif msg.startswith("chung"):
@@ -570,33 +457,32 @@ while True:
                 f"{msg}... *sad noises*"
             ]
             print(qmiss[random.randint(0,4)])
-    except ModuleNotFoundError:
-        errors.error("FILE404")
-    except IndexError:
-        errors.error("INDEX")
-    except PermissionError:
-        errors.error("!AUTH")
-    except OSError:
-        errors.error("OSFLICT")
-    except IndentationError:
-        errors.error("SYNTAX400")
-    except SystemError:
-        errors.error("SMTH_WRONG")
-    except TypeError:
-        errors.error("SYNTAX400")
-    except AttributeError:
-        errors.error("SYNTAX400")
-    except NameError:
-        errors.error("UNACCEPTABLE")
+    except ModuleNotFoundError as err:
+        error("FILE404", err, msg)
+    except IndexError as err:
+        error("INDEX", err, msg)
+    except PermissionError as err:
+        error("!AUTH", err, msg)
+    except OSError as err:
+        error("OSFLICT", err, msg)
+    except IndentationError as err:
+        error("SYNTAX400", err, msg)
+    except SystemError as err:
+        error("SMTH_WRONG", err, msg)
+    except TypeError as err:
+        error("SYNTAX400", err, msg)
+    except AttributeError as err:
+        error("SYNTAX400", err, msg)
+    except NameError as err:
+        error("UNACCEPTABLE", err, msg)
     except KeyboardInterrupt:
-        if get_option("easter") and random.randint(1, 100000) == 1:
+        if get_option("easter"):
             print("Bro you should have just used exit :/")
         exit()
     except EOFError:
-        
-        errors.error('END_OF_FILE_AND_LIFE')
+        error('END_OF_FILE_AND_LIFE')
     except Exception as err:
-        print(Fore.RED + "Error: " + Fore.LIGHTYELLOW_EX + err + Fore.WHITE)
+        print("EXCEPTION_OCCURED", err, msg)
 
 while shit and fall:
     msg:str = ""
